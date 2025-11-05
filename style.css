@@ -39,3 +39,107 @@ main {
     /* Se houver overlap, descomente a linha abaixo e ajuste o valor */
     /* padding-top: 60px; */
 }
+
+.hexagon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    gap: 12px;
+}
+
+.hexagon-item {
+    width: 100px;
+    height: 115.47px;
+    margin: 0;
+    position: relative;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background-color: white;
+    box-shadow: 5px 5px 10px black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hexagon-item:hover {
+    transform: scale(1.08) translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.hexagon-logo {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.hexagon-item:hover .hexagon-logo {
+    filter: grayscale(0%);
+}
+
+/* Hexágono central maior com logo do Governo do Piauí */
+.hexagon-center {
+    width: 160px;
+    height: 184.75px;
+    margin: 0;
+    background: linear-gradient(135deg, #ffffff 0%, #a1bee9 100%);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hexagon-center:hover {
+    transform: scale(1.1) translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.hexagon-center-logo {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+}
+
+/* Responsividade */
+@media (min-width: 640px) {
+    .hexagon-grid {
+        padding: 50px 20px;
+        gap: 10px;
+    }
+
+    .hexagon-item {
+        width: 120px;
+        height: 138.56px;
+    }
+
+    .hexagon-center {
+        width: 180px;
+        height: 207.85px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hexagon-grid {
+        padding: 60px 20px;
+        gap: 12px;
+    }
+
+    .hexagon-item {
+        width: 130px;
+        height: 150.11px;
+    }
+
+    .hexagon-center {
+        width: 200px;
+        height: 230.94px;
+    }
+}
