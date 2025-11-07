@@ -16,6 +16,20 @@
     <script src="config.js"></script>
     <link href="style.css" rel="stylesheet" />
 
+    <style>
+        /* Estilo simples para a aba ativa */
+        .tab-btn.active {
+            background-color: rgba(var(--color-primary), 0.1);
+            /* Usando sua cor primária com transparência */
+            color: rgb(var(--color-primary));
+            border-bottom: 2px solid rgb(var(--color-accent));
+        }
+
+        /* Ajuste fino para cores Tailwind se as variáveis CSS acima não estiverem definidas no seu config.js/style.css.
+           Caso contrário, o Tailwind 'bg-primary/10 text-primary border-accent' direto no HTML via JS funciona melhor.
+           Vou usar classes diretas do Tailwind no JS para garantir compatibilidade. */
+    </style>
+
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
@@ -26,8 +40,8 @@
             <div class="flex items-center justify-between w-full max-w-5xl px-4 py-3 sm:px-6">
                 <a class="flex items-center gap-3 text-primary dark:text-white" href="index.html">
                     <div class="size-8">
-                        <img src="enaje final.png" alt="Imagem oficial do ENAJ" class="w-full h-full object-contain">
-
+                        <img src="assets/banner-enaj.png" alt="Imagem oficial do ENAJ"
+                            class="w-full h-full object-contain">
                     </div>
                     <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ENAJ</h2>
                 </a>
@@ -54,6 +68,7 @@
                 </nav>
             </div>
         </header>
+
         <main class="flex w-full flex-1 flex-col items-center px-4 py-10 sm:px-6 sm:py-16">
             <div class="w-full max-w-5xl">
 
@@ -68,17 +83,17 @@
 
                 <div class="mb-12 flex flex-wrap justify-center gap-3">
                     <a class="flex h-10 items-center justify-center rounded-full bg-primary/10 px-5 text-sm font-medium text-primary transition-colors hover:bg-primary/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
-                        href="#dia1">Dia 1 - 23 de Outubro</a>
+                        href="#dia1">Dia 1 - 02 de Dezembro</a>
                     <a class="flex h-10 items-center justify-center rounded-full bg-primary/10 px-5 text-sm font-medium text-primary transition-colors hover:bg-primary/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
-                        href="#dia2">Dia 2 - 24 de Outubro</a>
+                        href="#dia2">Dia 2 - 03 de Dezembro</a>
                     <a class="flex h-10 items-center justify-center rounded-full bg-primary/10 px-5 text-sm font-medium text-primary transition-colors hover:bg-primary/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
-                        href="#dia3">Dia 3 - 25 de Outubro</a>
+                        href="#dia3">Dia 3 - 04 de Dezembro</a>
                 </div>
 
                 <section class="mb-16" id="dia1">
                     <div class="relative mb-8">
-                        <h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Dia 1 - Quarta-feira, 23 de
-                            Outubro</h2>
+                        <h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Dia 1 - Segunda-feira, 02 de
+                            Dezembro</h2>
                         <div class="absolute bottom-0 h-1 w-24 bg-accent"></div>
                     </div>
                     <div class="flex flex-col gap-6">
@@ -86,31 +101,18 @@
                             class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
                             <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
                                 <span class="material-symbols-outlined text-xl">schedule</span>
-                                <span>08:00 - 09:00</span>
+                                <span>19:00</span>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Credenciamento e
-                                    Welcome Coffee</h3>
-                                <p class="mt-1 text-text-muted-light dark:text-text-muted-dark">Lorem ipsum dolor sit
-                                    amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-                            </div>
-                        </div>
-                        <div
-                            class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
-                            <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
-                                <span class="material-symbols-outlined text-xl">schedule</span>
-                                <span>09:00 - 10:30</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Abertura Oficial</h3>
+                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Abertura</h3>
                                 <div class="mt-3 flex items-center gap-3">
                                     <img class="size-10 rounded-full object-cover" data-alt="Portrait of a speaker"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDtqGKu4vgjdZ9eZSU5cEjTDWR6EMRaYl88oWcgsmO8FXulLbOTrm5eCBOlWUEYpBjZDRIxNDPl8GCHQO9GAXsTiYBxdBP_zC6aBkb6RQKhFr0i84e0yuJsvNf_damobjCTeGmVCHJq76L50beF4WGwjWY9Fghke4QA8FCReN1KVhZJzm8MRf3wFtJjic8EjMumBXaEp2KYJFg35jOqUCdNi2Eo-2QbIZPovGjBJq6OETjnwT_MOLuouTgJ3Ggd_S3Va9CevYPJtw" />
+                                        src="./assets/alzenirPorto.jpg" />
                                     <div>
-                                        <p class="font-semibold text-text-light dark:text-text-dark">Lorem Ipsum Dolor
+                                        <p class="font-semibold text-text-light dark:text-text-dark">Alzenir Porto
                                         </p>
-                                        <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Presidente,
-                                            Magna Corp</p>
+                                        <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Presidente
+                                            do ENAJ</p>
                                     </div>
                                 </div>
                             </div>
@@ -119,35 +121,12 @@
                             class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
                             <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
                                 <span class="material-symbols-outlined text-xl">schedule</span>
-                                <span>10:30 - 12:00</span>
+                                <span>21:00 - 23:00</span>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Palestra Magna: Título
-                                    da Palestra</h3>
-                                <div class="mt-3 flex items-center gap-3">
-                                    <img class="size-10 rounded-full object-cover"
-                                        data-alt="Portrait of a keynote speaker"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsWQ6V9vf-mfkxm7j7C5hMSwJpRK9QSnjpmYBGEQrKA7BmBZjaoSJ_k_AFOG8sWuMyZZIqzDBBkWZ1bmZMeRiAbXopop1243otOgvWqPwjonhqkQ-zXeyuSS56lnCBuGRPwXhHEKXfZ7IXQmgSYVWPwpC8BDNEBdKUq13yk_po-MWuZvjZ1dvc6Ei1zvEOLcb7HrQagz4sZ--vih_55Sx1AVmXtomZ7xbOX8QUenIidfblcYJggYJ77mmAFiXrNuae_8Smn3FKM48" />
-                                    <div>
-                                        <p class="font-semibold text-text-light dark:text-text-dark">Amet Consectetur
-                                        </p>
-                                        <p class="text-sm text-text-muted-light dark:text-text-muted-dark">CEO,
-                                            Adipiscing Inc.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
-                            <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
-                                <span class="material-symbols-outlined text-xl">schedule</span>
-                                <span>12:00 - 14:00</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Almoço</h3>
-                                <p class="mt-1 text-text-muted-light dark:text-text-muted-dark">Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                </p>
+                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Coquetel Boteco</h3>
+                                <p class="mt-1 text-text-muted-light dark:text-text-muted-dark">Momento de
+                                    confraternização com cantor Bruninho Scandalli, o "Elvis da Sanfona".</p>
                             </div>
                         </div>
                     </div>
@@ -155,52 +134,267 @@
 
                 <section class="mb-16" id="dia2">
                     <div class="relative mb-8">
-                        <h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Dia 2 - Quinta-feira, 24 de
-                            Outubro</h2>
+                        <h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Dia 2 - Terça-feira, 03 de
+                            Dezembro</h2>
                         <div class="absolute bottom-0 h-1 w-24 bg-accent"></div>
                     </div>
-                    <div class="flex flex-col gap-6">
-                        <div
-                            class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
-                            <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
-                                <span class="material-symbols-outlined text-xl">schedule</span>
-                                <span>09:00 - 10:30</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Painel: Futuro do
-                                    Comércio</h3>
-                                <div class="mt-3 flex items-center gap-3">
-                                    <img class="size-10 rounded-full object-cover" data-alt="Portrait of a panelist"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWNWaUMPDLY8VP6OCZUSkp_DRLO4rsRCgm2GLJw2tsdALYcyYY9deWyXtYjEmW4PZGo49OQ_GnjnUCl7a3jR8VTYdpsSKMPvtGSVYkYhZ9K3YF035fFaBl0AYpBWlEc5TVbLCPpb87Aug-DVMNW0MXdTgERkSJpAka0OpC96f7YWwoJhhBTSELTMWyiG6sZhkq0qwo84s3n1pB5YWImeiIiU7lJhqV_f76bh17Qrs_egUmIu5GAQU3xm3dV65-Meht2yw-Po14aec" />
-                                    <div>
-                                        <p class="font-semibold text-text-light dark:text-text-dark">Duis Autem</p>
-                                        <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Especialista,
-                                            Irure Solutions</p>
-                                    </div>
+
+                    <div class="mb-8 flex flex-wrap gap-2 border-b border-gray-200 dark:border-gray-700">
+                        <button
+                            class="tab-btn active flex items-center gap-2 px-4 py-3 text-sm font-medium text-primary transition-all hover:bg-gray-50 dark:text-white dark:hover:bg-white/5 border-b-2 border-accent"
+                            data-target="sala-presidentes">
+                            <span class="material-symbols-outlined text-base">meeting_room</span>
+                            Sala dos Presidentes
+                        </button>
+                        <button
+                            class="tab-btn flex items-center gap-2 px-4 py-3 text-sm font-medium text-gray-500 transition-all hover:bg-gray-50 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-200 border-b-2 border-transparent"
+                            data-target="sala-secretarios">
+                            <span class="material-symbols-outlined text-base">gavel</span>
+                             Secretários-Gerais e Procuradores </button>
+                        <button
+                            class="tab-btn flex items-center gap-2 px-4 py-3 text-sm font-medium text-gray-500 transition-all hover:bg-gray-50 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-200 border-b-2 border-transparent"
+                            data-target="sala-ti">
+                            <span class="material-symbols-outlined text-base">dns</span>
+                            Sala dos Gestores de TI e REDESIM </button>
+                    </div>
+
+                    <div id="sala-presidentes" class="tab-content block">
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-bold text-primary dark:text-accent">Sala dos Presidentes</h3>
+                        </div>
+                        <div class="flex flex-col gap-6">
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>08:00</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Recepção</h4>
                                 </div>
                             </div>
-                        </div>
-                        <div
-                            class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
-                            <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
-                                <span class="material-symbols-outlined text-xl">schedule</span>
-                                <span>10:30 - 12:00</span>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>08:40 - 09:00</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Abertura dos
+                                        Trabalhos</h4>
+                                </div>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Workshop: Inovação
-                                    Digital</h3>
-                                <p class="mt-1 text-text-muted-light dark:text-text-muted-dark">Excepteur sint occaecat
-                                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                    laborum.</p>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>09:00 - 09:15</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Printer</h4>
+                                    <p class="mt-1 text-sm text-text-muted-light dark:text-text-muted-dark">Patrocinador
+                                    </p>
+                                </div>
                             </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>09:15 - 09:20</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Fala Presidente
+                                    </h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>09:20 - 09:30</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">A2 Paralegal</h4>
+                                    <p class="mt-1 text-sm text-text-muted-light dark:text-text-muted-dark">Patrocinador
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>09:30 - 10:20</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Região Nordeste
+                                    </h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>10:20 - 10:50</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Certifica</h4>
+                                    <p class="mt-1 text-sm text-text-muted-light dark:text-text-muted-dark">Patrocinador
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>10:50 - 11:40</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Região Norte</h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>11:40 - 11:55</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Abra Legal</h4>
+                                    <p class="mt-1 text-sm text-text-muted-light dark:text-text-muted-dark">
+                                        Patrocinadora</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>12:00 - 13:30</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Almoço</h4>
+                                    <p class="mt-1 text-text-muted-light dark:text-text-muted-dark">Cortesia oferecida a
+                                        todos os participantes do ENAJ.</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>13:30 - 14:20</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Região
+                                        Centro-Oeste</h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>14:20 - 15:10</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Região Sul</h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>15:10 - 15:30</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">CIP/SAI</h4>
+                                    <p class="mt-1 text-sm text-text-muted-light dark:text-text-muted-dark">Patrocinador
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>15:30 - 15:50</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Intervalo Coffee
+                                    </h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>15:50 - 16:40</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Região Sudeste e
+                                        Fala Presidente</h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
+                                <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
+                                    <span class="material-symbols-outlined text-xl">schedule</span>
+                                    <span>16:40 - 17:30</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-text-light dark:text-text-dark">Encerramento</h4>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
+
+                    <div id="sala-secretarios" class="tab-content hidden">
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-bold text-primary dark:text-accent">Sala dos Secretários-Gerais e
+                                Procuradores</h3>
+                        </div>
+                        <div
+                            class="rounded-xl border border-gray-200/80 bg-card-light p-6 dark:border-gray-800/80 dark:bg-card-dark">
+                            <p class="text-center text-text-muted-light dark:text-text-muted-dark py-10">
+                                <span class="material-symbols-outlined text-4xl mb-2">pending_actions</span><br>
+                                Programação detalhada será divulgada em breve.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="sala-ti" class="tab-content hidden">
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-bold text-primary dark:text-accent">Sala dos Gestores de TI e
+                                REDESIM</h3>
+                        </div>
+                        <div
+                            class="rounded-xl border border-gray-200/80 bg-card-light p-6 dark:border-gray-800/80 dark:bg-card-dark">
+                            <p class="text-center text-text-muted-light dark:text-text-muted-dark py-10">
+                                <span class="material-symbols-outlined text-4xl mb-2">developer_board</span><br>
+                                Programação detalhada será divulgada em breve.
+                            </p>
+                        </div>
+                    </div>
+
                 </section>
 
                 <section id="dia3">
                     <div class="relative mb-8">
-                        <h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Dia 3 - Sexta-feira, 25 de
-                            Outubro</h2>
+                        <h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Dia 3 - Quarta-feira, 04 de
+                            Dezembro</h2>
                         <div class="absolute bottom-0 h-1 w-24 bg-accent"></div>
                     </div>
                     <div class="flex flex-col gap-6">
@@ -208,40 +402,32 @@
                             class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
                             <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
                                 <span class="material-symbols-outlined text-xl">schedule</span>
-                                <span>09:00 - 10:30</span>
+                                <span>09:00 - 12:00</span>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Mesa Redonda:
-                                    Sustentabilidade</h3>
-                                <div class="mt-3 flex items-center gap-3">
-                                    <img class="size-10 rounded-full object-cover"
-                                        data-alt="Portrait of a roundtable participant"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDViT6f0qNcV6w-1COUWIE1ucZ0s7x9KMFrtK3r4ZfOvXggP_URLczY1Clz4_3Xz2jYilWjBqha8iybipoJQ6iLbSJzr1rbMck9TPB-54lm0tJ1jjTrxEbCAozvp_LYIrXQ2pYUkBmUZyGtAFp7lhNE2bS-yUwI4AoM_y1wubjuMPu34Tq6SvnASPlMWwHo__qK7B556nRRd2oI2Yt4dkKpVJ1wH7QetxNon5crifrhntnalnjjKygzLORShrBqsN0ssMK7y4b1JrA" />
-                                    <div>
-                                        <p class="font-semibold text-text-light dark:text-text-dark">Velit Esse</p>
-                                        <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Diretora,
-                                            Cillum Verde</p>
-                                    </div>
-                                </div>
+                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Recebimento dos
+                                    Trabalhos e Sorteios</h3>
+                                <p class="mt-1 text-text-muted-light dark:text-text-muted-dark">Momento de apresentação
+                                    dos trabalhos no auditório com todos os participantes e realização dos sorteios.</p>
                             </div>
                         </div>
                         <div
                             class="grid transform-gpu grid-cols-1 gap-x-8 gap-y-4 rounded-xl border border-gray-200/80 bg-card-light p-6 transition-shadow hover:shadow-lg dark:border-gray-800/80 dark:bg-card-dark md:grid-cols-[150px_1fr]">
                             <div class="flex items-center gap-2 font-semibold text-primary dark:text-accent">
                                 <span class="material-symbols-outlined text-xl">schedule</span>
-                                <span>10:30 - 12:00</span>
+                                <span>12:00</span>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Cerimônia de
-                                    Encerramento</h3>
-                                <p class="mt-1 text-text-muted-light dark:text-text-muted-dark">Nemo enim ipsam
-                                    voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Encerramento</h3>
+                                <p class="mt-1 text-text-muted-light dark:text-text-muted-dark">Encerramento oficial do
+                                    42º ENAJ.</p>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
         </main>
+
         <footer class="w-full bg-primary text-white">
             <div
                 class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 py-6 text-center sm:px-6 sm:flex-row sm:text-left">
@@ -257,6 +443,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Menu Mobile
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
 
@@ -265,6 +452,36 @@
                     mobileMenu.classList.toggle('hidden');
                 });
             }
+
+            // Sistema de Abas para o Dia 2
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+
+                    // Desativa todas as abas
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active', 'text-primary', 'dark:text-white', 'border-accent');
+                        btn.classList.add('text-gray-500', 'dark:text-gray-400', 'border-transparent');
+                    });
+
+                    // Esconde todos os conteúdos
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                        content.classList.remove('block');
+                    });
+
+                    // Ativa a aba clicada
+                    button.classList.add('active', 'text-primary', 'dark:text-white', 'border-accent');
+                    button.classList.remove('text-gray-500', 'dark:text-gray-400', 'border-transparent');
+
+                    // Mostra o conteúdo alvo
+                    document.getElementById(targetId).classList.remove('hidden');
+                    document.getElementById(targetId).classList.add('block');
+                });
+            });
         });
     </script>
 </body>
