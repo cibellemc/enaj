@@ -56,23 +56,108 @@
         </header>
         <main class="flex flex-1 flex-col items-center w-full">
             <div class="w-full max-w-5xl px-4 sm:px-6">
+                <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 py-10"></div>
+                <section class="relative" id="hero">
+                    <!-- Container do Carrossel -->
+                    <div id="carousel-container" class="carousel-container flex overflow-x-auto">
 
-                <section class="py-10" id="hero">
-                    <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
-                        data-alt="Banner de promoção do ENAJ"
-                        style='background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%), url("assets/banner-enaj.png");'>
-
-                        <div class="flex flex-col gap-4 text-left max-w-3xl">
-                            <p class="font-semibold text-white/90">02 A 04 DE DEZ DE 2025</p>
-                            <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">42º ENAJ -
-                                Encontro Nacional de Juntas Comerciais</h1>
-                            <h2 class="text-white/90 text-lg font-normal leading-normal">Transformação digital nas
-                                juntas comerciais: a era da inteligência artificial.</h2>
+                        <!-- Slide 1 - Banner ENAJ Original -->
+                        <div id="slide-0" class="carousel-slide w-full flex-shrink-0">
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%), url("assets/banner-enaj.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <p class="font-semibold text-white/90">02 A 04 DE DEZ DE 2025</p>
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">42º
+                                        ENAJ - Encontro Nacional de Juntas Comerciais</h1>
+                                    <h2 class="text-white/90 text-lg font-normal leading-normal">Transformação digital
+                                        nas juntas comerciais: a era da inteligência artificial.</h2>
+                                </div>
+                                <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-yellow-400 text-blue-900 text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors"
+                                    href="programacao.html">
+                                    <span class="truncate">Conheça a programação</span>
+                                </a>
+                            </div>
                         </div>
-                        <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-accent text-primary text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors"
-                            href="programacao.html">
-                            <span class="truncate">Conheça a programação</span>
-                        </a>
+
+
+                        <div id="slide-1" class="carousel-slide w-full flex-shrink-0">
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel1.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">Nossos Apoiadores</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="slide-2" class="carousel-slide w-full flex-shrink-0">
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel2.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">Nossos Apoiadores</h1>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="slide-3" class="carousel-slide w-full flex-shrink-0">
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel3.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">Nossos Apoiadores</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="slide-4" class="carousel-slide w-full flex-shrink-0">
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel4.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">Nossos Apoiadores</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="slide-5" class="carousel-slide w-full flex-shrink-0">
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel5.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">Nossos Apoiadores</h1>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Controles do Carrossel -->
+                    <div class="absolute inset-0 flex items-center justify-between px-4 pointer-events-none">
+                        <!-- Seta Anterior -->
+                        <button id="carousel-prev"
+                            class="pointer-events-auto w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 backdrop-blur-sm flex items-center justify-center transition-all">
+                            <span class="material-symbols-outlined text-white">chevron_left</span>
+                        </button>
+
+                        <!-- Seta Próxima -->
+                        <button id="carousel-next"
+                            class="pointer-events-auto w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 backdrop-blur-sm flex items-center justify-center transition-all">
+                            <span class="material-symbols-outlined text-white">chevron_right</span>
+                        </button>
+                    </div>
+
+                    <!-- Indicadores -->
+                    <div class="absolute bottom-6 left-0 right-0 flex justify-center gap-2">
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white transition-all"
+                            data-slide-index="0"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 transition-all"
+                            data-slide-index="1"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 transition-all"
+                            data-slide-index="2"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 transition-all"
+                            data-slide-index="2"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 transition-all"
+                            data-slide-index="2"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 transition-all"
+                            data-slide-index="2"></button>
                     </div>
                 </section>
 
@@ -401,7 +486,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Script do Menu (já existente)
+            // Script do Menu 
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
 
@@ -411,7 +496,6 @@
                 });
             }
 
-            // --- INÍCIO DO SCRIPT DO CARROSSEL ---
             const carouselContainer = document.getElementById('carousel-container');
             if (carouselContainer) {
                 const prevButton = document.getElementById('carousel-prev');
@@ -420,10 +504,9 @@
                 const dots = dotsContainer ? dotsContainer.querySelectorAll('.carousel-dot') : [];
                 const slides = carouselContainer.querySelectorAll('[id^="slide"]');
                 const totalSlides = slides.length;
-                let currentSlideIndex = 0; // Começa no slide 0
+                let currentSlideIndex = 0; 
                 let scrollTimer;
 
-                // Função para rolar até um slide específico
                 function scrollToSlide(index) {
                     if (slides[index]) {
                         slides[index].scrollIntoView({
@@ -431,11 +514,9 @@
                             block: 'nearest',
                             inline: 'start'
                         });
-                        // O índice será atualizado pelo 'scroll' event listener
                     }
                 }
 
-                // Função para atualizar a bolinha (dot) ativa
                 function updateDots(index) {
                     dots.forEach((dot, i) => {
                         if (i === index) {
@@ -448,7 +529,6 @@
                     });
                 }
 
-                // Função para encontrar o slide atual com base na posição da rolagem
                 function updateCurrentSlide() {
                     const containerCenter = carouselContainer.scrollLeft + carouselContainer.clientWidth / 2;
                     let closestSlideIndex = 0;
@@ -484,7 +564,7 @@
                     });
                 }
 
-                // Event Listeners para as bolinhas (dots)
+                // Event Listeners para as dots
                 dots.forEach((dot) => {
                     dot.addEventListener('click', (e) => {
                         const index = parseInt(e.currentTarget.getAttribute('data-slide-index'));
@@ -494,17 +574,102 @@
                     });
                 });
 
-                // Listener para a rolagem manual (para atualizar as bolinhas)
+                // Listener para a rolagem manual 
                 carouselContainer.addEventListener('scroll', () => {
                     clearTimeout(scrollTimer);
-                    scrollTimer = setTimeout(updateCurrentSlide, 100); // Espera 100ms após a rolagem parar
+                    scrollTimer = setTimeout(updateCurrentSlide, 100); 
                 });
 
                 // Atualiza o estado inicial
                 updateDots(0);
             }
-            // --- FIM DO SCRIPT DO CARROSSEL ---
 
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const carouselContainer = document.getElementById('carousel-container');
+            const prevButton = document.getElementById('carousel-prev');
+            const nextButton = document.getElementById('carousel-next');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const slides = carouselContainer.querySelectorAll('[id^="slide"]');
+            const totalSlides = slides.length;
+            let currentSlideIndex = 0;
+            let scrollTimer;
+
+            function scrollToSlide(index) {
+                if (slides[index]) {
+                    slides[index].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'start'
+                    });
+                }
+            }
+
+            function updateDots(index) {
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('bg-white');
+                        dot.classList.remove('bg-white/50');
+                    } else {
+                        dot.classList.remove('bg-white');
+                        dot.classList.add('bg-white/50');
+                    }
+                });
+            }
+
+            function updateCurrentSlide() {
+                const containerCenter = carouselContainer.scrollLeft + carouselContainer.clientWidth / 2;
+                let closestSlideIndex = 0;
+                let minDistance = Infinity;
+
+                slides.forEach((slide, index) => {
+                    const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+                    const distance = Math.abs(containerCenter - slideCenter);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestSlideIndex = index;
+                    }
+                });
+
+                if (closestSlideIndex !== currentSlideIndex) {
+                    currentSlideIndex = closestSlideIndex;
+                    updateDots(currentSlideIndex);
+                }
+            }
+
+            prevButton.addEventListener('click', () => {
+                let newIndex = Math.max(0, currentSlideIndex - 1);
+                scrollToSlide(newIndex);
+            });
+
+            nextButton.addEventListener('click', () => {
+                let newIndex = Math.min(totalSlides - 1, currentSlideIndex + 1);
+                scrollToSlide(newIndex);
+            });
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', (e) => {
+                    const index = parseInt(e.currentTarget.getAttribute('data-slide-index'));
+                    if (!isNaN(index)) {
+                        scrollToSlide(index);
+                    }
+                });
+            });
+
+            carouselContainer.addEventListener('scroll', () => {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(updateCurrentSlide, 100);
+            });
+
+            updateDots(0);
+
+            setInterval(() => {
+                let newIndex = (currentSlideIndex + 1) % totalSlides;
+                scrollToSlide(newIndex);
+            }, 5000);
         });
     </script>
 </body>
