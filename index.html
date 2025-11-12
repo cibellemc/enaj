@@ -484,193 +484,112 @@
         </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Script do Menu 
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
 
-            if (menuToggle && mobileMenu) {
-                menuToggle.addEventListener('click', function () {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-
-            const carouselContainer = document.getElementById('carousel-container');
-            if (carouselContainer) {
-                const prevButton = document.getElementById('carousel-prev');
-                const nextButton = document.getElementById('carousel-next');
-                const dotsContainer = document.getElementById('carousel-dots');
-                const dots = dotsContainer ? dotsContainer.querySelectorAll('.carousel-dot') : [];
-                const slides = carouselContainer.querySelectorAll('[id^="slide"]');
-                const totalSlides = slides.length;
-                let currentSlideIndex = 0; 
-                let scrollTimer;
-
-                function scrollToSlide(index) {
-                    if (slides[index]) {
-                        slides[index].scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'nearest',
-                            inline: 'start'
-                        });
-                    }
-                }
-
-                function updateDots(index) {
-                    dots.forEach((dot, i) => {
-                        if (i === index) {
-                            dot.classList.add('bg-white');
-                            dot.classList.remove('bg-white/50');
-                        } else {
-                            dot.classList.remove('bg-white');
-                            dot.classList.add('bg-white/50');
-                        }
-                    });
-                }
-
-                function updateCurrentSlide() {
-                    const containerCenter = carouselContainer.scrollLeft + carouselContainer.clientWidth / 2;
-                    let closestSlideIndex = 0;
-                    let minDistance = Infinity;
-
-                    slides.forEach((slide, index) => {
-                        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-                        const distance = Math.abs(containerCenter - slideCenter);
-                        if (distance < minDistance) {
-                            minDistance = distance;
-                            closestSlideIndex = index;
-                        }
-                    });
-
-                    if (closestSlideIndex !== currentSlideIndex) {
-                        currentSlideIndex = closestSlideIndex;
-                        updateDots(currentSlideIndex);
-                    }
-                }
-
-                // Event Listeners para as setas
-                if (prevButton) {
-                    prevButton.addEventListener('click', () => {
-                        let newIndex = Math.max(0, currentSlideIndex - 1);
-                        scrollToSlide(newIndex);
-                    });
-                }
-
-                if (nextButton) {
-                    nextButton.addEventListener('click', () => {
-                        let newIndex = Math.min(totalSlides - 1, currentSlideIndex + 1);
-                        scrollToSlide(newIndex);
-                    });
-                }
-
-                // Event Listeners para as dots
-                dots.forEach((dot) => {
-                    dot.addEventListener('click', (e) => {
-                        const index = parseInt(e.currentTarget.getAttribute('data-slide-index'));
-                        if (!isNaN(index)) {
-                            scrollToSlide(index);
-                        }
-                    });
-                });
-
-                // Listener para a rolagem manual 
-                carouselContainer.addEventListener('scroll', () => {
-                    clearTimeout(scrollTimer);
-                    scrollTimer = setTimeout(updateCurrentSlide, 100); 
-                });
-
-                // Atualiza o estado inicial
-                updateDots(0);
-            }
-
-        });
-    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const carouselContainer = document.getElementById('carousel-container');
-            const prevButton = document.getElementById('carousel-prev');
-            const nextButton = document.getElementById('carousel-next');
-            const dots = document.querySelectorAll('.carousel-dot');
-            const slides = carouselContainer.querySelectorAll('[id^="slide"]');
-            const totalSlides = slides.length;
-            let currentSlideIndex = 0;
-            let scrollTimer;
+    const carouselContainer = document.getElementById('carousel-container');
+    const prevButton = document.getElementById('carousel-prev');
+    const nextButton = document.getElementById('carousel-next');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const slides = carouselContainer.querySelectorAll('[id^="slide"]');
+    const totalSlides = slides.length;
+    let currentSlideIndex = 0;
+    let scrollTimer;
+    let autoScrollInterval;
 
-            function scrollToSlide(index) {
-                if (slides[index]) {
-                    slides[index].scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'nearest',
-                        inline: 'start'
-                    });
-                }
+    function scrollToSlide(index) {
+        if (slides[index]) {
+            carouselContainer.scrollTo({
+                left: slides[index].offsetLeft,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    function updateDots(index) {
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.add('bg-white');
+                dot.classList.remove('bg-white/50');
+            } else {
+                dot.classList.remove('bg-white');
+                dot.classList.add('bg-white/50');
             }
-
-            function updateDots(index) {
-                dots.forEach((dot, i) => {
-                    if (i === index) {
-                        dot.classList.add('bg-white');
-                        dot.classList.remove('bg-white/50');
-                    } else {
-                        dot.classList.remove('bg-white');
-                        dot.classList.add('bg-white/50');
-                    }
-                });
-            }
-
-            function updateCurrentSlide() {
-                const containerCenter = carouselContainer.scrollLeft + carouselContainer.clientWidth / 2;
-                let closestSlideIndex = 0;
-                let minDistance = Infinity;
-
-                slides.forEach((slide, index) => {
-                    const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-                    const distance = Math.abs(containerCenter - slideCenter);
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        closestSlideIndex = index;
-                    }
-                });
-
-                if (closestSlideIndex !== currentSlideIndex) {
-                    currentSlideIndex = closestSlideIndex;
-                    updateDots(currentSlideIndex);
-                }
-            }
-
-            prevButton.addEventListener('click', () => {
-                let newIndex = Math.max(0, currentSlideIndex - 1);
-                scrollToSlide(newIndex);
-            });
-
-            nextButton.addEventListener('click', () => {
-                let newIndex = Math.min(totalSlides - 1, currentSlideIndex + 1);
-                scrollToSlide(newIndex);
-            });
-
-            dots.forEach((dot) => {
-                dot.addEventListener('click', (e) => {
-                    const index = parseInt(e.currentTarget.getAttribute('data-slide-index'));
-                    if (!isNaN(index)) {
-                        scrollToSlide(index);
-                    }
-                });
-            });
-
-            carouselContainer.addEventListener('scroll', () => {
-                clearTimeout(scrollTimer);
-                scrollTimer = setTimeout(updateCurrentSlide, 100);
-            });
-
-            updateDots(0);
-
-            setInterval(() => {
-                let newIndex = (currentSlideIndex + 1) % totalSlides;
-                scrollToSlide(newIndex);
-            }, 5000);
         });
+    }
+
+    function updateCurrentSlide() {
+        const containerCenter = carouselContainer.scrollLeft + carouselContainer.clientWidth / 2;
+        let closestSlideIndex = 0;
+        let minDistance = Infinity;
+
+        slides.forEach((slide, index) => {
+            const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+            const distance = Math.abs(containerCenter - slideCenter);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestSlideIndex = index;
+            }
+        });
+
+        if (closestSlideIndex !== currentSlideIndex) {
+            currentSlideIndex = closestSlideIndex;
+            updateDots(currentSlideIndex);
+        }
+    }
+
+    function startAutoScroll() {
+        autoScrollInterval = setInterval(() => {
+            let newIndex = (currentSlideIndex + 1) % totalSlides;
+            scrollToSlide(newIndex);
+        }, 5000);
+    }
+
+    function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+    }
+
+    // Event listeners
+    prevButton.addEventListener('click', () => {
+        stopAutoScroll();
+        let newIndex = Math.max(0, currentSlideIndex - 1);
+        scrollToSlide(newIndex);
+        startAutoScroll();
+    });
+
+    nextButton.addEventListener('click', () => {
+        stopAutoScroll();
+        let newIndex = Math.min(totalSlides - 1, currentSlideIndex + 1);
+        scrollToSlide(newIndex);
+        startAutoScroll();
+    });
+
+    dots.forEach((dot) => {
+        dot.addEventListener('click', (e) => {
+            stopAutoScroll();
+            const index = parseInt(e.currentTarget.getAttribute('data-slide-index'));
+            if (!isNaN(index)) {
+                scrollToSlide(index);
+            }
+            startAutoScroll();
+        });
+    });
+
+    carouselContainer.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(updateCurrentSlide, 100);
+    });
+
+    // Pausar auto-scroll quando o usuário interagir manualmente
+    carouselContainer.addEventListener('mouseenter', stopAutoScroll);
+    carouselContainer.addEventListener('mouseleave', startAutoScroll);
+    carouselContainer.addEventListener('touchstart', stopAutoScroll);
+
+    // Inicialização
+    updateDots(0);
+    startAutoScroll();
+});
     </script>
 </body>
 
