@@ -88,7 +88,8 @@
                         </div>
 
 
-                        <div id="slide-1" class="carousel-slide w-full flex-shrink-0">
+                        <div id="slide-1" class="carousel-slide w-full flex-shrink-0"
+                            data-mobile="assets/carrossel1-mobile.jpg">
                             <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
                                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel1.png");'>
                                 <div class="flex flex-col gap-4 text-left max-w-3xl">
@@ -98,7 +99,9 @@
                             </div>
                         </div>
 
-                        <div id="slide-2" class="carousel-slide w-full flex-shrink-0">
+                        <div id="slide-2" class="carousel-slide w-full flex-shrink-0"
+                        data-mobile="assets/carrossel2-mobile.jpg">
+                            
                             <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
                                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel2.png");'>
                                 <div class="flex flex-col gap-4 text-left max-w-3xl">
@@ -109,7 +112,8 @@
                         </div>
 
 
-                        <div id="slide-3" class="carousel-slide w-full flex-shrink-0">
+                        <div id="slide-3" class="carousel-slide w-full flex-shrink-0"
+                        data-mobile="assets/carrossel3-mobile.jpg">
                             <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
                                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel3.png");'>
                                 <div class="flex flex-col gap-4 text-left max-w-3xl">
@@ -119,7 +123,8 @@
                             </div>
                         </div>
 
-                        <div id="slide-4" class="carousel-slide w-full flex-shrink-0">
+                        <div id="slide-4" class="carousel-slide w-full flex-shrink-0"
+                        data-mobile="assets/carrossel4-mobile.jpg">
                             <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
                                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel4.png");'>
                                 <div class="flex flex-col gap-4 text-left max-w-3xl">
@@ -129,7 +134,8 @@
                             </div>
                         </div>
 
-                        <div id="slide-5" class="carousel-slide w-full flex-shrink-0">
+                        <div id="slide-5" class="carousel-slide w-full flex-shrink-0"
+                        data-mobile="assets/carrossel5-mobile.jpg">
                             <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
                                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel5.png");'>
                                 <div class="flex flex-col gap-4 text-left max-w-3xl">
@@ -631,6 +637,28 @@
                 });
             }
         });
+
+        function trocarImagensPorTamanho() {
+    const largura = window.innerWidth;
+    const slides = document.querySelectorAll('[id^="slide"]');
+
+    slides.forEach(slide => {
+        const mobileSrc = slide.getAttribute('data-mobile');
+        const bgDiv = slide.querySelector('.bg-cover'); // div que tem o background
+        if (!bgDiv) return;
+
+        const desktopSrc = bgDiv.style.backgroundImage.match(/url\(["']?([^"']+)["']?\)/)?.[1];
+
+        if (largura <= 768 && mobileSrc) {
+            bgDiv.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("${mobileSrc}")`;
+        } else if (desktopSrc) {
+            bgDiv.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("${desktopSrc}")`;
+        }
+    });
+}
+
+trocarImagensPorTamanho();
+window.addEventListener('resize', trocarImagensPorTamanho);
     </script>
 </body>
 
