@@ -34,10 +34,12 @@
 
                 <nav class="hidden md:flex items-center gap-6">
                     <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="/">Início</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
                         href="programacao.html">Programação</a>
                     <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
                         href="orientacoes-gerais.html">Recomendações Gerais</a>
-                        <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
                         href="midias.html">Mídias</a>
                 </nav>
 
@@ -50,7 +52,11 @@
             <div id="mobile-menu" class="hidden w-full md:hidden border-t border-gray-200 dark:border-gray-800">
                 <nav class="flex flex-col gap-1 p-4">
                     <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="/">Início</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
                         href="programacao.html">Programação</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="orientacoes-gerais.html">Recomendações Gerais</a>
                     <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
                         href="midias.html">Mídias</a>
                 </nav>
@@ -61,7 +67,7 @@
                 <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 py-10"></div>
                 <section class="relative" id="hero">
                     <!-- Container do Carrossel -->
-                    <div id="carousel-container" class="carousel-container flex overflow-x-auto">
+                    <div id="carousel-container" class="carousel-container flex overflow-hidden">
 
                         <!-- Slide 1 - Banner ENAJ Original -->
                         <div id="slide-0" class="carousel-slide w-full flex-shrink-0">
@@ -251,7 +257,7 @@
                             <p class="font-bold">Gregória Benário</p>
                             <p class="text-sm opacity-80">Presidente da FENAJU</p>
                         </div>
-                        <img class="w-32 h-32 rounded-full object-cover border-4 border-white/50"
+                        <img class="w-32 h-32 rounded-full object-cover flex-shrink-0 border-2"
                             data-alt="Portrait of the FENAJU President" src="assets/presidente-fenaju.png" />
                     </div>
                 </section>
@@ -323,8 +329,8 @@
 
                 <section class="py-12" id="palavra-presidente-enaj">
                     <div class="bg-primary p-8 rounded-xl flex flex-col md:flex-row items-center gap-8 text-white">
-                        <img class="w-32 h-32 rounded-full object-cover border-4 border-white/50"
-                            data-alt="Portrait of the ENAJ President" src="assets/presidente-enaj.png" />
+                        <img class="w-32 h-32 rounded-full object-cover flex-shrink-0 border-2"
+                            data-alt="Portrait of the ENAJ President" src="assets/alzenir.jpeg" />
                         <div class="text-center md:text-left">
                             <h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4">Palavra da
                                 presidente do ENAJ</h2>
@@ -475,7 +481,7 @@
                             <div class="break"></div>
 
                             <div class="flex flex-col gap-2 items-center">
-                                <p class="border-b-4 border-blue-500 rounded-lg p-4 font-bold">Realização</p>
+                                <p class="border-b-4 border-[#120a8f] p-4 font-bold">Realização</p>
                                 <div class="flex gap-3">
 
                                     <div class="hexagon-item-realizacao"><img alt="Logo FENAJU" class="hexagon-logo"
@@ -611,6 +617,19 @@
             // Inicialização
             updateDots(0);
             startAutoScroll();
+
+
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
         });
     </script>
 </body>
