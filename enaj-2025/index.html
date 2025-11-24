@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>42º ENAJ - Encontro Nacional das Juntas Comerciais</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <script src="config.js"></script>
+    <link href="style.css" rel="stylesheet" />
+
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root">
+
+        <header
+            class="sticky top-0 z-50 flex flex-col items-center whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark">
+            <div class="flex items-center justify-between w-full max-w-5xl px-4 py-3 sm:px-6">
+                <a class="flex items-center gap-3 text-primary dark:text-white" href="index.html">
+                    <div class="size-8">
+                        <img src="assets/banner-enaj.png" alt="Imagem oficial do ENAJ"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ENAJ</h2>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="/">Início</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="programacao.html">Programação</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="orientacoes-gerais.html">Recomendações Gerais</a>
+                    <!-- <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="midias.html">Mídias</a> -->
+                </nav>
+
+                <button id="menu-toggle"
+                    class="md:hidden rounded-lg p-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden w-full md:hidden border-t border-gray-200 dark:border-gray-800">
+                <nav class="flex flex-col gap-1 p-4">
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="/">Início</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="programacao.html">Programação</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="orientacoes-gerais.html">Recomendações Gerais</a>
+                    <!-- <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="midias.html">Mídias</a> -->
+                </nav>
+            </div>
+        </header>
+        <main class="flex flex-1 flex-col items-center w-full">
+            <div class="w-full max-w-5xl px-4 sm:px-6">
+                <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 py-10"></div>
+                <section class="relative" id="hero">
+                    <!-- Container do Carrossel -->
+                    <div id="carousel-container" class="carousel-container flex overflow-hidden">
+
+                        <!-- Slide 1 - Banner ENAJ Original -->
+                        <div id="slide-0" class="carousel-slide w-full flex-shrink-0">
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%), url("assets/banner-enaj.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <p class="font-semibold text-white/90">02 A 04 DE DEZ DE 2025</p>
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">42º
+                                        ENAJ - Encontro Nacional de Juntas Comerciais</h1>
+                                    <h2 class="text-white/90 text-lg font-normal leading-normal">Transformação digital
+                                        nas juntas comerciais: a era da inteligência artificial.</h2>
+                                </div>
+                                <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-yellow-400 text-blue-900 text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors"
+                                    href="programacao.html">
+                                    <span class="truncate">Conheça a programação</span>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div id="slide-1" class="carousel-slide w-full flex-shrink-0"
+                            data-mobile="assets/carrossel1-mobile.jpg">
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel1.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">Nossos
+                                        Apoiadores</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="slide-2" class="carousel-slide w-full flex-shrink-0"
+                        data-mobile="assets/carrossel2-mobile.jpg">
+                            
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel2.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">Nossos
+                                        Apoiadores</h1>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="slide-3" class="carousel-slide w-full flex-shrink-0"
+                        data-mobile="assets/carrossel3-mobile.jpg">
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel3.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">Nossos
+                                        Apoiadores</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="slide-4" class="carousel-slide w-full flex-shrink-0"
+                        data-mobile="assets/carrossel4-mobile.jpg">
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel4.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">Nossos
+                                        Apoiadores</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="slide-5" class="carousel-slide w-full flex-shrink-0"
+                        data-mobile="assets/carrossel5-mobile.jpg">
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel5.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">Nossos
+                                        Apoiadores</h1>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Controles do Carrossel -->
+                    <div class="absolute inset-0 flex items-center justify-between px-4 pointer-events-none">
+                        <!-- Seta Anterior -->
+                        <button id="carousel-prev"
+                            class="pointer-events-auto w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 backdrop-blur-sm flex items-center justify-center transition-all">
+                            <span class="material-symbols-outlined text-white">chevron_left</span>
+                        </button>
+
+                        <!-- Seta Próxima -->
+                        <button id="carousel-next"
+                            class="pointer-events-auto w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 backdrop-blur-sm flex items-center justify-center transition-all">
+                            <span class="material-symbols-outlined text-white">chevron_right</span>
+                        </button>
+                    </div>
+
+                    <!-- Indicadores -->
+                    <div class="absolute bottom-6 left-0 right-0 flex justify-center gap-2">
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white transition-all"
+                            data-slide-index="0"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 transition-all"
+                            data-slide-index="1"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 transition-all"
+                            data-slide-index="2"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 transition-all"
+                            data-slide-index="3"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 transition-all"
+                            data-slide-index="4"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 transition-all"
+                            data-slide-index="5"></button>
+                    </div>
+                </section>
+
+                <section class="py-12" id="sobre-evento">
+                    <div class="flex flex-col gap-12">
+                        <div>
+                            <h2
+                                class="text-primary dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4">
+                                O evento</h2>
+                            <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+                                Entre os dias 2 e 4 de dezembro de 2025, a cidade de Foz do Iguaçu (PR) será palco da
+                                42ª edição do Encontro Nacional das Juntas Comerciais (ENAJ) — o maior e mais importante
+                                evento de integração, inovação e fortalecimento do sistema de registro público
+                                empresarial do Brasil.
+
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+
+                                Nesta edição, o evento será capitaneado pela Junta Comercial do Estado do Piauí
+                                (JUCEPI), sob liderança da presidente Alzenir Porto, com realização da Federação
+                                Nacional das Juntas Comerciais (FENAJU) e sede da Junta Comercial do Estado do Paraná
+                                (JUCEPAR), anfitriã desta edição.
+
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+                                A proposta é reunir representantes das Juntas Comerciais dos 26 estados brasileiros e do
+                                Distrito Federal, além de entidades parceiras, para debater sobre transformação digital,
+                                inovação tecnológica e o uso da inteligência artificial na gestão pública, promovendo a
+                                modernização e a simplificação dos serviços de registro empresarial. O encontro também
+                                tem como objetivo fortalecer a atuação conjunta das Juntas e fomentar um ambiente de
+                                negócios mais ágil, transparente e favorável ao empreendedorismo no Brasil.
+
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+                                A programação contará com painéis temáticos, palestras e mesas-redondas sobre temas como
+                                inteligência artificial, integração tecnológica, desburocratização, atendimento digital
+                                e valorização dos servidores públicos. Além disso, o evento será um espaço de troca de
+                                experiências, fortalecimento institucional e construção de parcerias estratégicas entre
+                                as Juntas Comerciais de todo o país.
+
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+                                Durante o evento, também será realizada a entrega da Comenda do Registro Mercantil ao
+                                vice-governador do Estado do Paraná, Darci Piana, aos presidentes das Juntas Comerciais
+                                do Brasil, que ao longo dos anos lutaram para conquistar um ambiente de negócios mais
+                                eficiente e célere, além de outros homenageados que atuam nas juntas comerciais.
+
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+                                A escolha de Foz do Iguaçu como sede simboliza a integração e a diversidade que
+                                caracterizam o sistema de registro público empresarial brasileiro. Com sua
+                                infraestrutura de excelência e localização privilegiada, a cidade representará o
+                                espírito colaborativo e inovador que o ENAJ busca inspirar.
+
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+                                O ENAJ 2025 reafirma o compromisso da FENAJU e da JUCEPI em liderar um novo ciclo de
+                                transformação digital nas Juntas Comerciais, promovendo a inovação, a eficiência e o
+                                fortalecimento do ambiente de negócios em todo o Brasil.
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+
+                                Estamos prontos para mais um marco na história do registro empresarial brasileiro. O
+                                Piauí convida o país a viver a Era da Inteligência Artificial nas Juntas Comerciais!
+
+                            </p>
+                        </div>
+                </section>
+
+                <section class="py-12" id="palavra-presidente-fenaju">
+                    <div class="bg-primary p-8 rounded-xl flex flex-col md:flex-row items-center gap-8 text-white">
+
+                        <div class="text-center md:text-right">
+                            <h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4">Palavra da
+                                presidente da FENAJU</h2>
+                            <p class="text-xl italic leading-relaxed mb-4">"É com grande satisfação que convido todos
+                                vocês para o 42º Encontro Nacional das Juntas Comerciais (ENAJ), que será realizado de 2
+                                a 4 de dezembro, em Foz do Iguaçu (PR). O ENAJ é um dos momentos mais importantes do
+                                nosso calendário institucional, reunindo dirigentes, servidores e parceiros das Juntas
+                                Comerciais de todo o país em um ambiente de diálogo, integração e cooperação. Trata-se
+                                de uma oportunidade ímpar para compartilharmos experiências, discutirmos desafios comuns
+                                e construirmos, juntos, caminhos para o fortalecimento do registro empresarial
+                                brasileiro."</p>
+                            <p class="font-bold">Gregória Benário</p>
+                            <p class="text-sm opacity-80">Presidente da FENAJU</p>
+                        </div>
+                        <img class="w-32 h-32 rounded-full object-cover flex-shrink-0 border-2"
+                            data-alt="Portrait of the FENAJU President" src="assets/presidente-fenaju.png" />
+                    </div>
+                </section>
+
+
+
+                <section class="py-12" id="fenaju">
+                    <div class="flex flex-col gap-8">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+                            <div>
+                                <h2
+                                    class="text-primary dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4">
+                                    FENAJU
+                                </h2>
+                                <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+                                    A Federação Nacional das Juntas Comerciais (FENAJU) é uma Entidade criada em 2017
+                                    para
+                                    suceder a Anprej, a Associação Nacional de Presidentes de Juntas Comerciais. A atual
+                                    FENAJU é composta por servidores das Juntas de todo o país, e é o espaço de encontro
+                                    para debater a modernização e simplificação do registro empresarial no Brasil.
+                                </p>
+                                <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+                                    Por meio da troca de experiências entre gestores de diferentes estados, a Federação
+                                    proporciona uma atuação estratégica dos órgãos de registro para incentivar o
+                                    empreendedorismo.
+                                </p>
+                                <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed">
+                                    A Fenaju apoia a Rede Nacional para Simplificação do Registro e Legalização de
+                                    Empresas e Negócios, a Redesim. Incentivando cada estado brasileiro a integrar os
+                                    órgãos presentes nos processos de abertura, alteração e baixa de empresas e, dessa
+                                    forma, agilizar o ambiente de negócios.
+                                    As principais finalidades da Federação são:
+                                </p>
+                            </div>
+
+                            <div class="w-full h-48 md:h-64 bg-center bg-no-repeat bg-cover rounded-lg"
+                                data-alt="Abstract image representing national integration with a map of Brazil."
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBP8mNvbNb74eGAoqDI2cR4EkNITlt7ZdFCTq4TddAV3rng6PaYp4D2lwAl7hcbw3e8hrdUkb7LvrBSAgSCltXmRbTJfzUlczLIwGeyHUALXW_8SPvnt0C_Y48N3HEsENG9_LEJ72VpAGUHjBhmyWsQ8VDE2Eeza6QEalQpKlj9n93PrIpEgomXWnAjO_zhE4uqeuFkVJB9XrhK7FU231pwwpwRIbbeCJRzopmlK8PVVD6TpEXMTMSlos57NlFEAi5hMOS9-cCGe6Q");'>
+                            </div>
+                        </div>
+
+                        <div>
+                            <ul class="list-disc list-inside space-y-3 text-gray-600 dark:text-gray-300">
+                                <li>Reunir as Juntas Comerciais e seus dirigentes, objetivando o intercâmbio de
+                                    experiências e troca de informações;</li>
+                                <li>Manter canais de comunicação, demandar, interpelar e colaborar com órgãos
+                                    técnicos
+                                    do Sistema Nacional do Registro de Empresas Mercantis – SINREM, com os poderes
+                                    públicos, autoridades, sociedade civil organizada e com quaisquer entidades de
+                                    direito público ou privado, na promoção, desenvolvimento e aperfeiçoamento das
+                                    atividades executadas pelas juntas, e assuntos e problemas relacionados aos
+                                    objetivos das FENAJU;</li>
+                                <li>Promover, participar e estimular a realização de encontros, congressos,
+                                    conferências, seminários, simpósios e cursos, que visem o aprimoramento técnico
+                                    dos
+                                    federados;</li>
+                                <li>Incrementar intercâmbios, convênios e sistemas de comunicação que visem maior
+                                    integração com outras entidades nacionais ou internacionais, podendo
+                                    desenvolvê-los
+                                    e mantê-los, para o desenvolvimento e consolidação do SINREM;</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <section class="py-12" id="palavra-presidente-enaj">
+                    <div class="bg-primary p-8 rounded-xl flex flex-col md:flex-row items-center gap-8 text-white">
+                        <img class="w-32 h-32 rounded-full object-cover flex-shrink-0 border-2"
+                            data-alt="Portrait of the ENAJ President" src="assets/alzenir.jpeg" />
+                        <div class="text-center md:text-left">
+                            <h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4">Palavra da
+                                presidente do ENAJ</h2>
+                            <p class="text-xl italic leading-relaxed mb-4">"É com grande entusiasmo que recebemos todos
+                                no Paraná para mais uma edição do ENAJ. Este encontro é fundamental para fortalecermos
+                                os laços e, juntos, impulsionarmos a simplificação e a modernização do registro
+                                mercantil no Brasil. A Fenaju tem como propósito reunir todos aqueles que atuam em um
+                                ambiente de negócios saudável, buscando aprimorá-lo cada vez mais, para que possamos
+                                garantir um tratamento igualitário em todo o país e mais eficiência para os
+                                empreendedores. Afinal, ao facilitar a vida daqueles que investem o seu capital e
+                                acreditam no desenvolvimento do Brasil, construímos uma economia mais forte e próspera.
+                                "</p>
+                            <p class="font-bold">Alzenir Porto</p>
+                            <p class="text-sm opacity-80">Presidente do ENAJ</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-12" id="conheca-foz">
+                    <div class="text-center mb-8">
+                        <h2
+                            class="text-primary dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4">
+                            Conheça Foz do Iguaçu, a terra das Cataratas</h2>
+                        <p class="mb-4">
+                            Conhecida pelos povos originários como “Iguaçu”, que em tupi-guarani significa “água
+                            grande”, Foz do Iguaçu encanta visitantes do mundo inteiro com sua impressionante beleza
+                            natural e sua rica diversidade cultural. Localizada no extremo oeste do Paraná, a cidade
+                            será sede do <strong>42 Encontro Nacional de Juntas Comerciais</strong>, que acontecerá nos
+                            dias 2 a 4 de
+                            dezembro.
+                        </p>
+                        <p class="mb-4">
+
+                            Para receber os representantes de todas as Juntas do país, Foz do Iguaçu oferece não só as
+                            <strong>
+                                majestosas Cataratas do Iguaçu</strong>, uma das <strong>Sete Maravilhas Naturais do
+                                Mundo</strong>, mas também uma
+                            cidade moderna, acolhedora e com uma das melhores infraestruturas turísticas do Brasil.
+                        </p>
+                        <p class="mb-4">
+                            Foz do Iguaçu é uma das cidades mais visitadas do país, localizada na tríplice fronteira
+                            entre Brasil, Paraguai e Argentina — um verdadeiro encontro de culturas, idiomas e
+                            tradições. A cidade se destaca pelo ecoturismo, pela diversidade gastronômica e pelo
+                            convívio harmônico entre diferentes povos e religiões, sendo lar de comunidades árabes,
+                            chinesas, paraguaias e argentinas.
+                            A cultura local reflete esse mosaico de influências, com festas típicas, feiras culturais e
+                            uma culinária que mistura o sabor paranaense com temperos internacionais.
+                        </p>
+                        <p class="mb-4">
+                            Entre os pontos turísticos imperdíveis estão o Parque Nacional do Iguaçu, a Usina de Itaipu
+                            Binacional, o Marco das Três Fronteiras e o Templo Budista Chen Tien, que oferece uma vista
+                            panorâmica da cidade e uma atmosfera de paz.
+
+                        </p>
+                        <p class="mb-4">
+                            Venha conhecer Foz do Iguaçu e encante-se com a energia das águas, a força da natureza e o
+                            calor humano dessa cidade única!
+
+                        </p>
+                    </div>
+                    <div class="w-full gap-4 overflow-hidden aspect-[2/1] grid grid-cols-2">
+                        <div class="w-full h-full bg-center bg-no-repeat bg-cover rounded-xl"
+                            data-alt="Cataratas do Iguaçu"
+                            style='background-image: url("assets/marco-fronteiras.jpg");'>
+                        </div>
+                        <div class="w-full h-full bg-center bg-no-repeat bg-cover rounded-xl"
+                            data-alt="Gaúcho with traditional clothing and chimarrão"
+                            style='background-image: url("assets/cataratas.webp");'>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-12" id="local">
+                    <div class="bg-[#F5F5F5] dark:bg-gray-800/50 p-8 rounded-xl shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h2
+                                    class="text-primary dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4">
+                                    Local do Evento</h2>
+                                <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">Grand Carimã Resort
+                                    & Convention Center</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Av. das Cataratas, 4790 - Vila Carimã,
+                                    Foz do Iguaçu - PR, 85851-300</p>
+
+                            </div>
+                            <div>
+                                <div class="aspect-video w-full rounded-xl overflow-hidden bg-gray-200">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.8420410998224!2d-54.54851479999999!3d-25.576921499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f691af44db375b%3A0x6d76cb33d07ca2de!2sCarim%C3%A3%20Hotel!5e0!3m2!1sen!2sbr!4v1762434126425!5m2!1sen!2sbr"
+                                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="w-full">
+                <section class="py-16 md:py-24 bg-[#F5F5F5]" id="patrocinadores">
+                    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                        <div class="text-center">
+                            <h2
+                                class="text-primary dark:text-white text-4xl font-bold leading-tight tracking-[-0.015em] mb-3">
+                                Nossos Apoiadores</h2>
+                            <p class="text-gray-600 dark:text-gray-400 text-lg">
+                                Agradecemos a todos que tornam este evento possível
+                            </p>
+                        </div>
+
+                        <div class="hexagon-grid">
+                            <!-- Logos lado esquerdo -->
+                            <div class="hexagon-item"><img alt="Logo Paraná" class="hexagon-logo"
+                                    src="logos/parana.png" /></div>
+                            <div class="hexagon-item"><img alt="Logo Governo da Paraíba" class="hexagon-logo"
+                                    src="logos/GovPBT.png" /></div>
+
+
+
+
+                            <!-- Logos lado direito -->
+
+                            <div class="hexagon-item"><img alt="Logo CCOM" class="hexagon-logo" src="logos/ccom.png" />
+                            </div>
+                            <!-- Logo central (Governo do Piauí) -->
+                            <div class="hexagon-center">
+                                <img alt="Logo Governo do Piauí" class="hexagon-center-logo"
+                                    src="logos/logo do governo do piaui.png" />
+                            </div>
+                            <div class="hexagon-item"><img alt="Logo Regin Tributos" class="hexagon-logo"
+                                    src="logos/logo_regin_tributos.png" /></div>
+
+                            <!-- Linha Inferior -->
+                            <div class="hexagon-item"><img alt="Logo Vox" class="hexagon-logo"
+                                    src="logos/logo_vox .webp" /></div>
+                            <div class="hexagon-item"><img alt="Logo Printer" class="hexagon-logo"
+                                    src="logos/printer.png" /></div>
+
+                            <div class="hexagon-item"><img alt="Logo Grupo A2" class="hexagon-logo"
+                                    src="logos/grupoA2.png" /></div>
+                            <div class="hexagon-item"><img alt="Logo Abra Legal" class="hexagon-logo"
+                                    src="logos/abraLegal.jpg" /></div>
+                            <div class="hexagon-item"><img alt="Logo NIC" class="hexagon-logo" src="logos/nic.png" />
+                            </div>
+                            <div class="hexagon-item"><img alt="Logo Certifica" class="hexagon-logo"
+                                    src="logos/certifica.png" /></div>
+                            <div class="hexagon-item"><img alt="Logo Nuclea" class="hexagon-logo"
+                                    src="logos/NUCLEA_ACENTO_PRETO (1).png" /></div>
+                            <div class="break"></div>
+
+                            <div class="flex flex-col gap-2 items-center">
+                                <p class="border-b-4 border-[#120a8f] p-4 font-bold">Realização</p>
+                                <div class="flex gap-3">
+
+                                    <div class="hexagon-item-realizacao"><img alt="Logo FENAJU" class="hexagon-logo"
+                                            src="logos/fenaju.png" />
+                                    </div>
+
+                                    <div class="hexagon-item-realizacao"><img alt="Logo JUCEPI" class="hexagon-logo"
+                                            src="logos/logoJUCEPI.png" />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="w-full bg-primary text-white">
+            <div
+                class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 py-6 text-center sm:px-6 sm:flex-row sm:text-left">
+                <p class="text-sm opacity-80">© 2025 - 42º Encontro Nacional das Juntas Comerciais. Todos os direitos
+                    reservados.</p>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">mail</span>
+                    <a class="text-sm opacity-80 hover:opacity-100" href="#">contato@enaj.gov.br</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const carouselContainer = document.getElementById('carousel-container');
+            const prevButton = document.getElementById('carousel-prev');
+            const nextButton = document.getElementById('carousel-next');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const slides = carouselContainer.querySelectorAll('[id^="slide"]');
+            const totalSlides = slides.length;
+            let currentSlideIndex = 0;
+            let scrollTimer;
+            let autoScrollInterval;
+
+            function scrollToSlide(index) {
+                if (slides[index]) {
+                    carouselContainer.scrollTo({
+                        left: slides[index].offsetLeft,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            function updateDots(index) {
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('bg-white');
+                        dot.classList.remove('bg-white/50');
+                    } else {
+                        dot.classList.remove('bg-white');
+                        dot.classList.add('bg-white/50');
+                    }
+                });
+            }
+
+            function updateCurrentSlide() {
+                const containerCenter = carouselContainer.scrollLeft + carouselContainer.clientWidth / 2;
+                let closestSlideIndex = 0;
+                let minDistance = Infinity;
+
+                slides.forEach((slide, index) => {
+                    const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+                    const distance = Math.abs(containerCenter - slideCenter);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestSlideIndex = index;
+                    }
+                });
+
+                if (closestSlideIndex !== currentSlideIndex) {
+                    currentSlideIndex = closestSlideIndex;
+                    updateDots(currentSlideIndex);
+                }
+            }
+
+            function startAutoScroll() {
+                autoScrollInterval = setInterval(() => {
+                    let newIndex = (currentSlideIndex + 1) % totalSlides;
+                    scrollToSlide(newIndex);
+                }, 5000);
+            }
+
+            function stopAutoScroll() {
+                clearInterval(autoScrollInterval);
+            }
+
+            // Event listeners
+            prevButton.addEventListener('click', () => {
+                stopAutoScroll();
+                let newIndex = Math.max(0, currentSlideIndex - 1);
+                scrollToSlide(newIndex);
+                startAutoScroll();
+            });
+
+            nextButton.addEventListener('click', () => {
+                stopAutoScroll();
+                let newIndex = Math.min(totalSlides - 1, currentSlideIndex + 1);
+                scrollToSlide(newIndex);
+                startAutoScroll();
+            });
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', (e) => {
+                    stopAutoScroll();
+                    const index = parseInt(e.currentTarget.getAttribute('data-slide-index'));
+                    if (!isNaN(index)) {
+                        scrollToSlide(index);
+                    }
+                    startAutoScroll();
+                });
+            });
+
+            carouselContainer.addEventListener('scroll', () => {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(updateCurrentSlide, 100);
+            });
+
+            // Pausar auto-scroll quando o usuário interagir manualmente
+            carouselContainer.addEventListener('mouseenter', stopAutoScroll);
+            carouselContainer.addEventListener('mouseleave', startAutoScroll);
+            carouselContainer.addEventListener('touchstart', stopAutoScroll);
+
+            // Inicialização
+            updateDots(0);
+            startAutoScroll();
+
+
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+
+        function trocarImagensPorTamanho() {
+    const largura = window.innerWidth;
+    const slides = document.querySelectorAll('[id^="slide"]');
+
+    slides.forEach(slide => {
+        const mobileSrc = slide.getAttribute('data-mobile');
+        const bgDiv = slide.querySelector('.bg-cover'); // div que tem o background
+        if (!bgDiv) return;
+
+        const desktopSrc = bgDiv.style.backgroundImage.match(/url\(["']?([^"']+)["']?\)/)?.[1];
+
+        if (largura <= 768 && mobileSrc) {
+            bgDiv.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("${mobileSrc}")`;
+        } else if (desktopSrc) {
+            bgDiv.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("${desktopSrc}")`;
+        }
+    });
+}
+
+trocarImagensPorTamanho();
+window.addEventListener('resize', trocarImagensPorTamanho);
+    </script>
+</body>
+
+</html>
