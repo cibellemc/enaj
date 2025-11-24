@@ -1,12 +1,458 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Eventos - JUCEPI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Header */
+        header {
+            background-color: #0052A3;
+            padding: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo {
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            color: white;
+        }
+
+        .header-text h1 {
+            font-size: 2em;
+            margin: 0 0 5px 0;
+            font-weight: 600;
+        }
+
+        .header-text p {
+            margin: 0;
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Filters */
+        .filters {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .filters h2 {
+            color: #0052A3;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .filter-btn {
+            background-color: #0052A3;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 20px;
+        }
+
+        /* Events Grid */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .event-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #0052A3, #4a90e2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+            position: relative;
+        }
+
+        .event-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-upcoming {
+            background-color: #4CAF50;
+        }
+
+        .status-completed {
+            background-color: #9E9E9E;
+        }
+
+        .event-content {
+            padding: 20px;
+        }
+
+        .event-date {
+            color: #0052A3;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .event-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .event-location {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .event-description {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .event-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .event-participants {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .event-link {
+            color: #0052A3;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0052A3;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>EVENTOS</h1>
-    <a href="enaj-2025/">ENAJ 2025</a>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <svg width="100" height="60" viewBox="0 0 100 60">
+                    <rect fill="#0052A3" width="100" height="60"/>
+                    <text x="50" y="35" text-anchor="middle" fill="white" font-size="20" font-weight="bold">JUCEPI</text>
+                </svg>
+            </div>
+            <div class="header-text">
+                <h1>Eventos JUCEPI</h1>
+                <p>Acompanhe nossos eventos, capacitações e encontros empresariais</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Filters -->
+        <div class="filters">
+            <h2>Filtrar Eventos</h2>
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="year">Ano</label>
+                    <select id="year">
+                        <option value="all">Todos os anos</option>
+                        <option value="2025" selected>2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="status">Status</label>
+                    <select id="status">
+                        <option value="all">Todos</option>
+                        <option value="upcoming">A realizar</option>
+                        <option value="completed">Realizados</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="category">Categoria</label>
+                    <select id="category">
+                        <option value="all">Todas</option>
+                        <option value="capacitacao">Capacitação</option>
+                        <option value="encontro">Encontro</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="palestra">Palestra</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="search">Buscar</label>
+                    <input type="text" id="search" placeholder="Nome do evento...">
+                </div>
+            </div>
+            <button class="filter-btn" onclick="filterEvents()">Aplicar Filtros</button>
+        </div>
+
+        <!-- Events Grid -->
+        <div class="events-grid" id="eventsGrid">
+            <!-- Event Card 1 -->
+            <div class="event-card" data-year="2025" data-status="upcoming" data-category="encontro">
+                <div class="event-image">
+                    <span>📅</span>
+                    <span class="event-status status-upcoming">A Realizar</span>
+                </div>
+                <div class="event-content">
+                    <div class="event-date">02 a 05 Dezembro, 2025</div>
+                    <div class="event-title">42º Encontro Nacional de Juntas Comerciais</div>
+                    <div class="event-location">📍 Foz do Iguaçu</div>
+                    <div class="event-description">Evento anual que reúne presidentes das Juntas Comerciais de todo o Brasil para discutir melhorias e estratégias.</div>
+                    <div class="event-footer">
+                        <div class="event-participants"></div>
+                        <a href="enaj-2025/index.html" class="event-link">Ver detalhes →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Órgão</h3>
+                <p>Junta Comercial do Estado do Piauí</p>
+                <p>CNPJ: 06.554.476/0001-14</p>
+                <p>Rua Desembargador Pires de Castro, 365 - Centro</p>
+                <p>Teresina/PI - CEP: 64000-060</p>
+            </div>
+            <div class="footer-section">
+                <h3>Atendimento</h3>
+                <p>Horário:</p>
+                <p>De segunda a sexta-feira das 8h às 17h</p>
+                <p>Telefone: (86) 3216-6000</p>
+                <p>WhatsApp: (86) 3216-6613</p>
+                <p>Email: jucepi@jucepi.pi.gov.br</p>
+            </div>
+            <div class="footer-section">
+                <h3>Siga Nossas Redes</h3>
+                <div class="social-links">
+                    <a href="#" title="WhatsApp">📱</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="YouTube">▶️</a>
+                    <a href="#" title="Spotify">🎵</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-bottom">
+                Copyright © 2020 - 2025 ITIPI. Todos os Direitos Reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterEvents() {
+            const year = document.getElementById('year').value;
+            const status = document.getElementById('status').value;
+            const category = document.getElementById('category').value;
+            const search = document.getElementById('search').value.toLowerCase();
+            
+            const cards = document.querySelectorAll('.event-card');
+            
+            cards.forEach(card => {
+                const cardYear = card.dataset.year;
+                const cardStatus = card.dataset.status;
+                const cardCategory = card.dataset.category;
+                const cardTitle = card.querySelector('.event-title').textContent.toLowerCase();
+                
+                let show = true;
+                
+                if (year !== 'all' && cardYear !== year) show = false;
+                if (status !== 'all' && cardStatus !== status) show = false;
+                if (category !== 'all' && cardCategory !== category) show = false;
+                if (search && !cardTitle.includes(search)) show = false;
+                
+                card.style.display = show ? 'block' : 'none';
+            });
+        }
+
+        // Filter on search input
+        document.getElementById('search').addEventListener('input', filterEvents);
+    </script>
 </body>
 </html>
