@@ -6,7 +6,7 @@
 
  body {
      font-family: 'Montserrat', sans-serif;
-     background-color: #f5f5f5;
+     background-color: white;
      display: flex;
      flex-direction: column;
      min-height: 100vh;
@@ -126,63 +126,96 @@
      width: 100%;
  }
 
- .filters {
+ .filter-card {
      background: white;
-     padding: 25px;
-     border-radius: 8px;
-     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-     margin-bottom: 30px;
+     border-radius: 12px;
+     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+     padding: 24px;
+     margin-bottom: 32px;
+     border: 1px solid #e2e8f0;
  }
 
- .filters h2 {
-     color: #034ea2;
-     margin-bottom: 20px;
-     font-size: 1.3em;
- }
-
- .filter-row {
+ .filter-header {
      display: flex;
-     gap: 15px;
-     flex-wrap: wrap;
      align-items: center;
+     gap: 10px;
+     margin-bottom: 24px;
  }
 
- .filter-group {
-     flex: 1;
-     min-width: 200px;
+ .filter-icon {
+     color: #034ea2;
+     width: 20px;
+     height: 20px;
  }
 
- .filter-group label {
-     display: block;
-     margin-bottom: 5px;
+ .filter-header h2 {
+     color: #1e293b;
+     font-size: 1rem;
+     font-weight: 600;
+     margin: 0;
+ }
+
+ .filter-body {
+     display: grid;
+     grid-template-columns: 1fr;
+     gap: 20px;
+ }
+
+ @media (min-width: 768px) {
+     .filter-body {
+         grid-template-columns: repeat(4, 1fr);
+     }
+ }
+
+ .input-group {
+     display: flex;
+     flex-direction: column;
+     gap: 8px;
+ }
+
+ .input-group label {
+     font-size: 0.875rem;
      font-weight: 500;
-     color: #333;
-     font-size: 14px;
+     color: #000000;
  }
 
- .filter-group select,
- .filter-group input {
+ /* Estilo unificado para Select e Input */
+ .form-control {
+    cursor: pointer;
      width: 100%;
-     padding: 10px;
-     border: 1px solid #ddd;
-     border-radius: 4px;
-     font-size: 14px;
+     padding: 10px 12px;
+     background-color: white;
+     border: 1px solid #cbd5e1;
+     border-radius: 6px;
+     font-size: 0.875rem;
+     color: #000000;
+     font-family: inherit;
+     outline: none;
+     transition: all 0.2s ease;
+
+     /* Remove estilo padrão feio do select em alguns browsers */
+     appearance: none;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+
+     /* Recoloca a setinha do select customizada */
+     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+     background-position: right 0.5rem center;
+     background-repeat: no-repeat;
+     background-size: 1.5em 1.5em;
  }
 
- .filter-btn {
-     background-color: #034ea2;
-     color: white;
-     padding: 10px 30px;
-     border: none;
-     border-radius: 4px;
-     cursor: pointer;
-     font-weight: 500;
-     margin-top: 20px;
-     transition: background 0.3s;
+ /* Ajuste específico para o input de texto (não precisa da seta) */
+ input.form-control {
+     background-image: none;
+     cursor: auto;
  }
 
- .filter-btn:hover {
-     background-color: #023e8a;
+ /* Efeito de foco (borda azul) */
+ .form-control:focus {
+     border-color: #034ea2;
+     box-shadow: 0 0 0 3px rgba(3, 78, 162, 0.1);
+     /* Anel azul suave */
  }
 
  /* Events Grid */
@@ -199,7 +232,7 @@
      overflow: hidden;
      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
      transition: transform 0.3s,
-     box-shadow 0.3s;
+         box-shadow 0.3s;
      cursor: pointer;
  }
 
