@@ -4,332 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos - JUCEPI</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-        }
-
-        /* Header */
-        header {
-            background-color: #0052A3;
-            padding: 20px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .logo {
-            flex-shrink: 0;
-        }
-
-        .header-text {
-            color: white;
-        }
-
-        .header-text h1 {
-            font-size: 2em;
-            margin: 0 0 5px 0;
-            font-weight: 600;
-        }
-
-        .header-text p {
-            margin: 0;
-            font-size: 1em;
-            opacity: 0.9;
-        }
-
-        /* Main Content */
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Filters */
-        .filters {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-
-        .filters h2 {
-            color: #0052A3;
-            margin-bottom: 20px;
-            font-size: 1.3em;
-        }
-
-        .filter-row {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .filter-group {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .filter-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-            color: #333;
-            font-size: 14px;
-        }
-
-        .filter-group select,
-        .filter-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .filter-btn {
-            background-color: #0052A3;
-            color: white;
-            padding: 10px 30px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            margin-top: 20px;
-        }
-
-        /* Events Grid */
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .event-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-        }
-
-        .event-image {
-            width: 100%;
-            height: 180px;
-            background: linear-gradient(135deg, #0052A3, #4a90e2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3em;
-            position: relative;
-        }
-
-        .event-status {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .status-upcoming {
-            background-color: #4CAF50;
-        }
-
-        .status-completed {
-            background-color: #9E9E9E;
-        }
-
-        .event-content {
-            padding: 20px;
-        }
-
-        .event-date {
-            color: #0052A3;
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .event-title {
-            font-size: 1.1em;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        .event-location {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-
-        .event-description {
-            color: #777;
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .event-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
-        }
-
-        .event-participants {
-            font-size: 13px;
-            color: #666;
-        }
-
-        .event-link {
-            color: #0052A3;
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #0052A3;
-            color: white;
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255,255,255,0.8);
-            font-size: 14px;
-            line-height: 1.8;
-            text-decoration: none;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 13px;
-            opacity: 0.8;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-links a {
-            width: 35px;
-            height: 35px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s;
-        }
-
-        .social-links a:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .search-box {
-                max-width: 100%;
-                margin: 0;
-            }
-
-            .nav-content {
-                flex-direction: column;
-                gap: 0;
-            }
-
-            .events-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-section h1 {
-                font-size: 1.8em;
-            }
-        }
-    </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <svg width="100" height="60" viewBox="0 0 100 60">
-                    <rect fill="#0052A3" width="100" height="60"/>
-                    <text x="50" y="35" text-anchor="middle" fill="white" font-size="20" font-weight="bold">JUCEPI</text>
-                </svg>
-            </div>
-            <div class="header-text">
-                <h1>Eventos JUCEPI</h1>
-                <p>Acompanhe nossos eventos, capacitações e encontros empresariais</p>
+    <header class="page-header">
+        <div class="header-container">
+            <div class="header-content-wrapper">
+                <div class="logo-section">
+                    <img src="/logo/logo-rodape.png" alt="Governo do Piauí" class="logo-img" />
+                    <div class="logo-text">
+                        <span class="bold">JUNTA COMERCIAL</span>
+                        <span>DO PIAUÍ - JUCEPI</span>
+                    </div>
+                </div>
+
+                <div class="title-section">
+                    <h1 class="page-title">Eventos JUCEPI</h1>
+                    <p class="page-subtitle">Acompanhe nossos eventos e capacitações</p>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
     <div class="container">
-        <!-- Filters -->
         <div class="filters">
             <h2>Filtrar Eventos</h2>
             <div class="filter-row">
@@ -365,22 +67,33 @@
                     <input type="text" id="search" placeholder="Nome do evento...">
                 </div>
             </div>
-            <button class="filter-btn" onclick="filterEvents()">Aplicar Filtros</button>
+            <!-- <button class="filter-btn" onclick="filterEvents()">Aplicar Filtros</button> -->
         </div>
 
-        <!-- Events Grid -->
         <div class="events-grid" id="eventsGrid">
-            <!-- Event Card 1 -->
             <div class="event-card" data-year="2025" data-status="upcoming" data-category="encontro">
                 <div class="event-image">
-                    <span>📅</span>
+                    <img src="enaj-2025/assets/banner-enaj.png" alt="Banner oficial da 42º edição do ENAJ"
+                        class="card-img">
+
                     <span class="event-status status-upcoming">A Realizar</span>
                 </div>
                 <div class="event-content">
                     <div class="event-date">02 a 05 Dezembro, 2025</div>
                     <div class="event-title">42º Encontro Nacional de Juntas Comerciais</div>
-                    <div class="event-location">📍 Foz do Iguaçu</div>
-                    <div class="event-description">Evento anual que reúne presidentes das Juntas Comerciais de todo o Brasil para discutir melhorias e estratégias.</div>
+
+                    <div class="event-location">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="location-icon">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <span>Foz do Iguaçu</span>
+                    </div>
+
+                    <div class="event-description">Evento anual que reúne presidentes das Juntas Comerciais de todo o
+                        Brasil para discutir melhorias e estratégias.</div>
                     <div class="event-footer">
                         <div class="event-participants"></div>
                         <a href="enaj-2025/index.html" class="event-link">Ver detalhes →</a>
@@ -388,71 +101,102 @@
                 </div>
             </div>
         </div>
+        <div id="no-results" style="display: none; text-align: center; padding: 40px; color: #666; width: 100%;">
+            <p style="font-size: 1.2em; font-weight: bold;">Nenhum evento corresponde à pesquisa</p>
+            <p>Tente ajustar os filtros ou buscar por outro termo.</p>
+        </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Órgão</h3>
-                <p>Junta Comercial do Estado do Piauí</p>
-                <p>CNPJ: 06.554.476/0001-14</p>
-                <p>Rua Desembargador Pires de Castro, 365 - Centro</p>
-                <p>Teresina/PI - CEP: 64000-060</p>
-            </div>
-            <div class="footer-section">
-                <h3>Atendimento</h3>
-                <p>Horário:</p>
-                <p>De segunda a sexta-feira das 8h às 17h</p>
-                <p>Telefone: (86) 3216-6000</p>
-                <p>WhatsApp: (86) 3216-6613</p>
-                <p>Email: jucepi@jucepi.pi.gov.br</p>
-            </div>
-            <div class="footer-section">
-                <h3>Siga Nossas Redes</h3>
-                <div class="social-links">
-                    <a href="#" title="WhatsApp">📱</a>
-                    <a href="#" title="Instagram">📷</a>
-                    <a href="#" title="YouTube">▶️</a>
-                    <a href="#" title="Spotify">🎵</a>
-                </div>
-            </div>
+        <div class="color-bar">
+            <div class="bar-segment bar-yellow"></div>
+            <div class="bar-segment bar-red"></div>
+            <div class="bar-segment bar-green"></div>
+            <div class="bar-segment bar-blue"></div>
+            <div class="bar-segment"></div>
         </div>
-        <div class="footer-content">
-            <div class="footer-bottom">
-                Copyright © 2020 - 2025 ITIPI. Todos os Direitos Reservados.
+
+        <div class="main-footer">
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <img src="/logo/logo-rodape.png" alt="Governo do Piaui" class="footer-logo" />
+                    </div>
+
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Órgão</h3>
+                        <p class="footer-text">
+                            Junta Comercial do Estado do Piauí<br />
+                            CNPJ 06.090.994/0001-00<br /><br />
+                            Rua General Osório, 3002 - Cabral<br />
+                            Teresina/PI CEP: 64000-580<br /><br />
+                            jucepi@jucepi.pi.gov.br
+                        </p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Atendimento</h3>
+                        <p class="footer-text">
+                            Horário:<br />
+                            De segunda a sexta-feira (exceto feriado),<br />
+                            das 07h30 às 13h30.<br /><br />
+                            Telefones:<br />
+                            Telefone suporte: (86) 3230-8810
+                        </p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Siga Nossas Redes</h3>
+                        <div class="social-links-col">
+                            <a target="_blank" href="https://x.com/jucepidigital" class="social-item twitter">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                                </svg>
+                                Twitter
+                            </a>
+                            <a target="_blank" href="https://www.facebook.com/jucepidigital"
+                                class="social-item facebook">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                                </svg>
+                                Facebook
+                            </a>
+                            <a target="_blank" href="https://www.instagram.com/jucepidigital/"
+                                class="social-item instagram">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                                Instagram
+                            </a>
+                            <a target="_blank" href="https://www.youtube.com/@jucepidigital"
+                                class="social-item youtube">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                                </svg>
+                                YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom-bar">
+                    <div class="copyright-container">
+                        <p class="footer-text">Copyright © 2025 JUCEPI. Todos os Direitos Reservados.</p>
+                        <div class="dev-by">
+                            <span class="bold">Desenvolvido por:</span>
+                            <img src="/logo/logoVertical.png" alt="JUCEPI" class="dev-logo" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        function filterEvents() {
-            const year = document.getElementById('year').value;
-            const status = document.getElementById('status').value;
-            const category = document.getElementById('category').value;
-            const search = document.getElementById('search').value.toLowerCase();
-            
-            const cards = document.querySelectorAll('.event-card');
-            
-            cards.forEach(card => {
-                const cardYear = card.dataset.year;
-                const cardStatus = card.dataset.status;
-                const cardCategory = card.dataset.category;
-                const cardTitle = card.querySelector('.event-title').textContent.toLowerCase();
-                
-                let show = true;
-                
-                if (year !== 'all' && cardYear !== year) show = false;
-                if (status !== 'all' && cardStatus !== status) show = false;
-                if (category !== 'all' && cardCategory !== category) show = false;
-                if (search && !cardTitle.includes(search)) show = false;
-                
-                card.style.display = show ? 'block' : 'none';
-            });
-        }
-
-        // Filter on search input
-        document.getElementById('search').addEventListener('input', filterEvents);
-    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
