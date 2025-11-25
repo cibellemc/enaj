@@ -1,5 +1,6 @@
 services:
-  eventos-jucepi:
+  app:
+    container_name: eventos-jucepi
     build: .  
     ports:
       - "8081:80"
