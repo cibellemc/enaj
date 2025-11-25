@@ -1,6 +1,5 @@
 services:
-  meu-site:
-    container_name: enaj-site
+  eventos-jucepi:
     build: .  
     ports:
       - "8081:80"
