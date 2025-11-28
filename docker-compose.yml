@@ -1,7 +1,19 @@
+version: '3.8'
+
 services:
-  app:
-    container_name: eventos-jucepi
-    build: .  
+  enaj-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: enaj_web_server
+    restart: always
     ports:
       - "8081:80"
-    restart: always
+    environment:
+      - TZ=America/Fortaleza
+    networks:
+      - enaj_network
+
+networks:
+  enaj_network:
+    driver: bridge
