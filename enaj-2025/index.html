@@ -100,8 +100,8 @@
                         </div>
 
                         <div id="slide-2" class="carousel-slide w-full flex-shrink-0"
-                        data-mobile="assets/carrossel2-mobile.jpg">
-                            
+                            data-mobile="assets/carrossel2-mobile.png">
+
                             <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
                                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel2.png");'>
                                 <div class="flex flex-col gap-4 text-left max-w-3xl">
@@ -113,7 +113,7 @@
 
 
                         <div id="slide-3" class="carousel-slide w-full flex-shrink-0"
-                        data-mobile="assets/carrossel3-mobile.jpg">
+                            data-mobile="assets/carrossel3-mobile.jpg">
                             <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
                                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel3.png");'>
                                 <div class="flex flex-col gap-4 text-left max-w-3xl">
@@ -124,7 +124,7 @@
                         </div>
 
                         <div id="slide-4" class="carousel-slide w-full flex-shrink-0"
-                        data-mobile="assets/carrossel4-mobile.jpg">
+                            data-mobile="assets/carrossel4-mobile.jpg">
                             <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
                                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel4.png");'>
                                 <div class="flex flex-col gap-4 text-left max-w-3xl">
@@ -135,9 +135,20 @@
                         </div>
 
                         <div id="slide-5" class="carousel-slide w-full flex-shrink-0"
-                        data-mobile="assets/carrossel5-mobile.jpg">
+                            data-mobile="assets/carrossel5-mobile.png">
                             <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
                                 style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel5.png");'>
+                                <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                    <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">Nossos
+                                        Apoiadores</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="slide-6" class="carousel-slide w-full flex-shrink-0"
+                            data-mobile="assets/carrossel6-mobile.png">
+                            <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end p-10"
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("assets/carrossel6.png");'>
                                 <div class="flex flex-col gap-4 text-left max-w-3xl">
                                     <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">Nossos
                                         Apoiadores</h1>
@@ -177,6 +188,8 @@
                             data-slide-index="4"></button>
                         <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 transition-all"
                             data-slide-index="5"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 transition-all"
+                            data-slide-index="6"></button>
                     </div>
                 </section>
 
@@ -482,9 +495,22 @@
                             </div>
                             <div class="hexagon-item"><img alt="Logo Certifica" class="hexagon-logo"
                                     src="logos/certifica.png" /></div>
+                            <div class="hexagon-item"><img alt="Logo Certifica" class="hexagon-logo"
+                                    src="logos/bry.png" /></div>
+
+
+
                             <div class="hexagon-item"><img alt="Logo Nuclea" class="hexagon-logo"
                                     src="logos/NUCLEA_ACENTO_PRETO (1).png" /></div>
                             <div class="break"></div>
+                            <div class="hexagon-item"><img alt="Logo Nuclea" class="hexagon-logo"
+                                    src="logos/portico.PNG" /></div>
+                            <div class="hexagon-item"><img alt="Logo Certifica" class="hexagon-logo"
+                                    src="logos/netra.png" /></div>
+                            <div class="hexagon-item"><img alt="Logo Certifica" class="hexagon-logo"
+                                    src="logos/fecomercio.png" /></div>
+                            <div class="break"></div>
+
 
                             <div class="flex flex-col gap-2 items-center">
                                 <p class="border-b-4 border-[#120a8f] p-4 font-bold">Realização</p>
@@ -512,7 +538,8 @@
                     reservados.</p>
                 <div class="flex items-center gap-2">
                     <span class="material-symbols-outlined text-base">mail</span>
-                    <a class="text-sm opacity-80 hover:opacity-100" href="mailto:presidencia@fenaju.org.br">presidencia@fenaju.org.br</a>
+                    <a class="text-sm opacity-80 hover:opacity-100"
+                        href="mailto:presidencia@fenaju.org.br">presidencia@fenaju.org.br</a>
                 </div>
             </div>
         </footer>
@@ -639,26 +666,26 @@
         });
 
         function trocarImagensPorTamanho() {
-    const largura = window.innerWidth;
-    const slides = document.querySelectorAll('[id^="slide"]');
+            const largura = window.innerWidth;
+            const slides = document.querySelectorAll('[id^="slide"]');
 
-    slides.forEach(slide => {
-        const mobileSrc = slide.getAttribute('data-mobile');
-        const bgDiv = slide.querySelector('.bg-cover'); // div que tem o background
-        if (!bgDiv) return;
+            slides.forEach(slide => {
+                const mobileSrc = slide.getAttribute('data-mobile');
+                const bgDiv = slide.querySelector('.bg-cover'); // div que tem o background
+                if (!bgDiv) return;
 
-        const desktopSrc = bgDiv.style.backgroundImage.match(/url\(["']?([^"']+)["']?\)/)?.[1];
+                const desktopSrc = bgDiv.style.backgroundImage.match(/url\(["']?([^"']+)["']?\)/)?.[1];
 
-        if (largura <= 768 && mobileSrc) {
-            bgDiv.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("${mobileSrc}")`;
-        } else if (desktopSrc) {
-            bgDiv.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("${desktopSrc}")`;
+                if (largura <= 768 && mobileSrc) {
+                    bgDiv.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("${mobileSrc}")`;
+                } else if (desktopSrc) {
+                    bgDiv.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%), url("${desktopSrc}")`;
+                }
+            });
         }
-    });
-}
 
-trocarImagensPorTamanho();
-window.addEventListener('resize', trocarImagensPorTamanho);
+        trocarImagensPorTamanho();
+        window.addEventListener('resize', trocarImagensPorTamanho);
     </script>
 </body>
 
