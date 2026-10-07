@@ -17,8 +17,8 @@ function irPara(indice) {
 
 function marcarDot(indice) {
     dots.forEach((dot, i) => {
-        dot.classList.toggle('bg-white', i === indice);
-        dot.classList.toggle('bg-white/50', i !== indice);
+        dot.classList.toggle('bg-accent', i === indice);
+        dot.classList.toggle('bg-gray-300', i !== indice);
     });
 }
 

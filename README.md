@@ -40,6 +40,8 @@ enaj/
 │   ├── tests/                         Testes automatizados (pytest)
 │   ├── dev.py                         Servidor local (site + API) sem Docker
 │   └── Dockerfile
+├── ferramentas/
+│   └── gerar_slides_apoiadores.py     Gera as artes dos slides de apoiadores do carrossel
 ├── Dockerfile, nginx.conf             Imagem do site (nginx)
 └── docker-compose.yml                 Site + API
 ```
@@ -53,6 +55,20 @@ python3 api/dev.py
 
 Abra http://localhost:8000/enaj-2026/inscricao.html. O banco de teste fica em
 `data/inscricoes.db` (ignorado pelo git); apague o arquivo para zerar.
+
+## Slides de apoiadores do carrossel
+
+As artes dos slides "Realização" e "Nossos Apoiadores" (versão para telas grandes
+e para celular) são geradas a partir das logos em `enaj-2026/assets/logos/`.
+Para incluir ou trocar um apoiador, coloque a logo nessa pasta, edite a lista
+`SLIDES` no topo do script e rode:
+
+```bash
+python3 ferramentas/gerar_slides_apoiadores.py
+```
+
+As artes ficam em `enaj-2026/assets/img/carrossel/`. Se criar um slide novo,
+acrescente o bloco correspondente no carrossel do `enaj-2026/index.html`.
 
 ## Testes da API
 
