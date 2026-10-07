@@ -11,9 +11,28 @@ services:
       - "8081:80"
     environment:
       - TZ=America/Fortaleza
+    depends_on:
+      - enaj-api
+    networks:
+      - enaj_network
+
+  enaj-api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: enaj_api
+    restart: always
+    environment:
+      - TZ=America/Fortaleza
+      - DB_PATH=/data/inscricoes.db
+    volumes:
+      - enaj_data:/data
     networks:
       - enaj_network
 
 networks:
   enaj_network:
     driver: bridge
+
+volumes:
+  enaj_data:

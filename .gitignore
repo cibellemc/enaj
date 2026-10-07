@@ -1,0 +1,8 @@
+# Banco de inscrições (fica no volume do Docker, não no repositório)
+*.db
+*.db-shm
+*.db-wal
+data/
+
+__pycache__/
+.venv/
