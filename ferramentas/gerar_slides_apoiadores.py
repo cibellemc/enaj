@@ -25,7 +25,7 @@ PASTA_SAIDA = RAIZ / "enaj-2026" / "assets" / "img" / "carrossel"
 
 # nome do arquivo de saída -> logos do slide (arquivos em assets/logos)
 SLIDES = {
-    "realizacao": ["fenaju.png", "juceg.png"],
+    "realizacao": ["fenaju.png", "jucepi-horizontal.png"],
     "apoiadores-1": ["vox.webp", "logo_regin_tributos.png", "grupoA2.png"],
     "apoiadores-2": ["nuclea.png", "nic.png", "altura.png"],
     "apoiadores-3": ["logor2da-escura.svg", "lcm.png", "contabilizei.svg"],
