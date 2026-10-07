@@ -1,0 +1,9 @@
+# Arquivos que não devem ir para a imagem do site (nginx serve tudo o que é copiado)
+.git
+.gitignore
+.dockerignore
+api
+data
+*.db
+Dockerfile
+docker-compose.yml
