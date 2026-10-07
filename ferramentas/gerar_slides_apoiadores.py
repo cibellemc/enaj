@@ -25,10 +25,12 @@ PASTA_SAIDA = RAIZ / "enaj-2026" / "assets" / "img" / "carrossel"
 
 # nome do arquivo de saída -> logos do slide (arquivos em assets/logos)
 SLIDES = {
-    "realizacao": ["fenaju.png", "jucepi-horizontal.png"],
-    "apoiadores-1": ["vox.webp", "logo_regin_tributos.png", "grupoA2.png"],
+    "realizacao": ["fenaju.png"],
+    "apoio-piaui": ["governo-piaui.png", "jucepi-horizontal.png"],
+    "apoio-goias": ["governo-goias.png", "juceg.png"],
+    "apoiadores-1": ["vox.webp", "logo_regin_tributos.png", "logor2da-escura.svg"],
     "apoiadores-2": ["nuclea.png", "nic.png", "altura.png"],
-    "apoiadores-3": ["logor2da-escura.svg", "lcm.png", "contabilizei.svg"],
+    "apoiadores-3": ["grupoA2.png", "lcm.png", "contabilizei.svg"],
 }
 
 # (largura, altura) da arte e área ocupada pelas logos: (x, y, largura, altura)
@@ -80,9 +82,12 @@ def carregar_logo(nome):
     return imagem.crop(imagem.getbbox())
 
 
-def redimensionar(logo, largura_max, altura_max):
-    """Equilibra o peso visual: logos largas e quadradas ocupam áreas parecidas."""
-    area_alvo = largura_max * altura_max * 0.42
+def redimensionar(logo, largura_max, altura_max, ocupacao):
+    """Equilibra o peso visual: logos largas e quadradas ocupam áreas parecidas.
+
+    `ocupacao` é a fração da área disponível que a logo deve ocupar.
+    """
+    area_alvo = largura_max * altura_max * ocupacao
     escala = min(
         largura_max / logo.width,
         altura_max / logo.height,
@@ -95,14 +100,16 @@ def montar_slide(logos, formato):
     arte = Image.new("RGB", formato["tamanho"], FUNDO)
     x0, y0, largura, altura = formato["area"]
     quantidade = len(logos)
+    # Logo sozinha no slide (ex.: Realização) aparece grande
+    ocupacao = 0.9 if quantidade == 1 else 0.42
 
     for i, logo in enumerate(logos):
         if formato["direcao"] == "linha":
             celula = (x0 + i * largura / quantidade, y0, largura / quantidade, altura)
-            logo = redimensionar(logo, celula[2] * 0.82, altura * 0.62)
+            logo = redimensionar(logo, celula[2] * 0.82, altura * 0.62, ocupacao)
         else:
             celula = (x0, y0 + i * altura / quantidade, largura, altura / quantidade)
-            logo = redimensionar(logo, largura * 0.82, celula[3] * 0.72)
+            logo = redimensionar(logo, largura * 0.82, celula[3] * 0.72, ocupacao)
         cx, cy, cl, ca = celula
         posicao = (round(cx + (cl - logo.width) / 2), round(cy + (ca - logo.height) / 2))
         arte.paste(logo, posicao, logo)
