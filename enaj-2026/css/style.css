@@ -204,6 +204,11 @@ main {
     flex: 0 0 100vw;
 }
 
+/* Escurece as artes dos apoiadores, como nos banners do ENAJ 2025 */
+.carousel-escurecer {
+    background: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
 .carousel-container::-webkit-scrollbar {
     display: none;
 }
