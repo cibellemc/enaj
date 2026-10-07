@@ -34,7 +34,9 @@ enaj/
 │   │   ├── opcoes.py                  Juntas, integrantes e opções da visita técnica
 │   │   ├── validacao.py               Validação dos dados do formulário
 │   │   ├── limite.py                  Limite de requisições por IP
-│   │   └── rotas.py                   Rotas /api/...
+│   │   ├── rotas.py                   Rotas públicas /api/...
+│   │   ├── admin.py                   Exportação (rota com senha e comando de terminal)
+│   │   └── exportacao.py              Geração do CSV
 │   ├── tests/                         Testes automatizados (pytest)
 │   ├── dev.py                         Servidor local (site + API) sem Docker
 │   └── Dockerfile
@@ -63,15 +65,27 @@ docker run --rm -v "$PWD":/app -w /app python:3.12-slim \
 ## Publicar
 
 ```bash
+cp .env.example .env    # na primeira vez: defina ADMIN_SENHA no .env
 docker compose up -d --build
 ```
 
 O site fica na porta 8081. O banco de inscrições fica no volume `enaj_data`.
 
-Ver as inscrições gravadas:
+## Exportar as inscrições
+
+O arquivo é um CSV (separado por `;`, UTF-8) que abre direto no Excel e no
+LibreOffice. O código secreto do QR code não é exportado.
+
+**Pelo navegador:** acesse `/api/admin/inscricoes.csv` (ex.:
+https://eventos.jucepi.pi.gov.br/api/admin/inscricoes.csv) e informe o usuário
+e a senha definidos no `.env` (`ADMIN_USUARIO` / `ADMIN_SENHA`). Sem
+`ADMIN_SENHA` definida, essa rota fica desligada. Localmente, com `api/dev.py`,
+a senha é `dev`.
+
+**Pelo terminal do servidor:**
 
 ```bash
-docker exec enaj_api python -c "import sqlite3; [print(r) for r in sqlite3.connect('/data/inscricoes.db').execute('select * from inscricoes')]"
+docker exec enaj_api flask --app inscricoes exportar > inscricoes.csv
 ```
 
 ## API
@@ -83,3 +97,4 @@ docker exec enaj_api python -c "import sqlite3; [print(r) for r in sqlite3.conne
 | GET    | `/api/inscricoes/<codigo>`   | Dados do card e da validação de entrada          |
 | POST   | `/api/inscricoes/acesso`     | Busca o código do card pelo e-mail               |
 | GET    | `/api/health`                | Verificação de funcionamento                     |
+| GET    | `/api/admin/inscricoes.csv`  | Exportação das inscrições (usuário e senha)      |

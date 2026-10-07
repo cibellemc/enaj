@@ -18,8 +18,9 @@ from inscricoes import create_app
 
 PASTA_SITE = Path(__file__).resolve().parent.parent
 DB_PATH = os.environ.get("DB_PATH", str(PASTA_SITE / "data" / "inscricoes.db"))
+ADMIN_SENHA = os.environ.get("ADMIN_SENHA", "dev")
 
-app = create_app(DB_PATH=DB_PATH)
+app = create_app(DB_PATH=DB_PATH, ADMIN_SENHA=ADMIN_SENHA)
 
 
 @app.get("/", defaults={"caminho": ""})
@@ -36,4 +37,5 @@ def site(caminho):
 if __name__ == "__main__":
     print(f"Banco de teste: {DB_PATH}")
     print("Abra http://localhost:8000/enaj-2026/inscricao.html")
+    print(f"Exportar: http://localhost:8000/api/admin/inscricoes.csv (usuário admin, senha {ADMIN_SENHA})")
     app.run(host="127.0.0.1", port=8000, debug=True)

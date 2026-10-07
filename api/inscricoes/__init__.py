@@ -7,9 +7,8 @@ QR code, que abre a validação de entrada (enaj-2026/validar.html?c=...).
 
 from flask import Flask
 
-from . import config, db
+from . import admin, config, db, rotas
 from .limite import LimitePorIP
-from .rotas import bp
 
 
 def create_app(**sobrescritas):
@@ -17,6 +16,8 @@ def create_app(**sobrescritas):
     app.config.update(
         DB_PATH=config.DB_PATH,
         MAX_CONTENT_LENGTH=config.MAX_CONTENT_LENGTH,
+        ADMIN_USUARIO=config.ADMIN_USUARIO,
+        ADMIN_SENHA=config.ADMIN_SENHA,
     )
     app.config.update(sobrescritas)
 
@@ -26,9 +27,13 @@ def create_app(**sobrescritas):
     app.extensions["limite_acessos"] = LimitePorIP(
         config.LIMITE_ACESSOS, config.JANELA_LIMITE_SEGUNDOS
     )
+    app.extensions["limite_logins_falhos"] = LimitePorIP(
+        config.LIMITE_LOGINS_FALHOS, config.JANELA_LIMITE_SEGUNDOS
+    )
 
     app.teardown_appcontext(db.fechar_db)
-    app.register_blueprint(bp)
+    app.register_blueprint(rotas.bp)
+    app.register_blueprint(admin.bp)
 
     with app.app_context():
         db.inicializar(app.config["DB_PATH"])

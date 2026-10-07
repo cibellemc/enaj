@@ -7,3 +7,6 @@ data/
 __pycache__/
 .venv/
 .pytest_cache/
+
+# Senhas do servidor
+.env

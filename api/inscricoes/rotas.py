@@ -3,17 +3,13 @@
 from flask import Blueprint, current_app, jsonify, request
 
 from . import db, opcoes
+from .limite import ip_do_cliente
 from .validacao import codigo_valido, email_valido, normalizar_email, texto, validar_inscricao
 
 bp = Blueprint("inscricoes", __name__, url_prefix="/api")
 
 MSG_MUITAS_TENTATIVAS = "Muitas tentativas. Tente novamente mais tarde."
 MSG_NAO_ENCONTRADA = "Inscrição não encontrada."
-
-
-def _ip_do_cliente():
-    # O nginx repassa o IP real no cabeçalho X-Real-IP
-    return request.headers.get("X-Real-IP") or request.remote_addr or "?"
 
 
 def _json_do_corpo():
@@ -46,7 +42,7 @@ def criar_inscricao():
         return jsonify(ok=True), 201
 
     limite = current_app.extensions["limite_inscricoes"]
-    ip = _ip_do_cliente()
+    ip = ip_do_cliente()
     if limite.excedido(ip):
         return _erro(MSG_MUITAS_TENTATIVAS, 429)
 
@@ -85,7 +81,7 @@ def acessar_inscricao():
         return _erro("Dados inválidos.", 400)
 
     limite = current_app.extensions["limite_acessos"]
-    ip = _ip_do_cliente()
+    ip = ip_do_cliente()
     if limite.excedido(ip):
         return _erro(MSG_MUITAS_TENTATIVAS, 429)
     limite.registrar(ip)

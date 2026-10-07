@@ -113,6 +113,11 @@ def buscar_por_codigo(codigo):
     return _para_dict(row) if row else None
 
 
+def listar_inscricoes():
+    rows = get_db().execute("SELECT * FROM inscricoes ORDER BY id").fetchall()
+    return [_para_dict(row) for row in rows]
+
+
 def codigo_por_email(email):
     row = get_db().execute(
         "SELECT codigo FROM inscricoes WHERE email = ? ORDER BY id DESC LIMIT 1", (email,)

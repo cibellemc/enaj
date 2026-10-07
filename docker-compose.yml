@@ -23,6 +23,9 @@ services:
     environment:
       - TZ=America/Fortaleza
       - DB_PATH=/data/inscricoes.db
+      # Usuário e senha da exportação (definidos no arquivo .env, fora do git)
+      - ADMIN_USUARIO=${ADMIN_USUARIO:-admin}
+      - ADMIN_SENHA=${ADMIN_SENHA:-}
     volumes:
       - enaj_data:/data
     networks:
