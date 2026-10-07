@@ -66,20 +66,27 @@
                     <div id="carousel-container" class="carousel-container flex overflow-hidden">
 
                         <!-- Slide 1 - Banner ENAJ 2026 -->
-                        <div id="slide-0" class="carousel-slide w-full flex-shrink-0"
-                            data-mobile="assets/banner-enaj-2026-slide-mobile.jpg">
-                            <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end px-14 py-10 md:px-16 pb-14"
-                                style='background-image: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.35) 100%), url("assets/banner-enaj-2026-slide.jpg");'>
-                                <div class="flex flex-col gap-2 text-left max-w-3xl">
-                                    <!-- TODO: confirmar os dias exatos do evento -->
-                                    <p class="font-semibold text-white/90">DEZEMBRO DE 2026 · GOIÂNIA (GO)</p>
-                                    <h1 class="text-white text-2xl sm:text-3xl font-black leading-tight tracking-[-0.033em]">Goiânia
-                                        é bom demais da conta!</h1>
+                        <div id="slide-0" class="carousel-slide w-full flex-shrink-0">
+                            <div
+                                class="flex min-h-[480px] flex-col-reverse md:flex-row gap-8 bg-primary rounded-xl items-start md:items-center justify-between px-14 py-10 md:px-16 pb-14">
+                                <div class="flex flex-col gap-8 w-full min-w-0">
+                                    <div class="flex flex-col gap-4 text-left max-w-xl">
+                                        <!-- TODO: confirmar os dias exatos do evento -->
+                                        <p class="font-semibold text-white/90">DEZEMBRO DE 2026 · GOIÂNIA (GO)</p>
+                                        <h1 class="text-white text-3xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">43º
+                                            ENAJ - Encontro Nacional das Juntas Comerciais</h1>
+                                        <h2 class="text-white/90 text-lg font-normal leading-normal">Goiânia é bom demais
+                                            da conta!</h2>
+                                    </div>
+                                    <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-yellow-400 text-blue-900 text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors"
+                                        href="orientacoes-gerais.html">
+                                        <span class="truncate">Confira as recomendações gerais</span>
+                                    </a>
                                 </div>
-                                <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-yellow-400 text-blue-900 text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors"
-                                    href="orientacoes-gerais.html">
-                                    <span class="truncate">Recomendações gerais</span>
-                                </a>
+                                <div class="w-36 md:w-72 flex-shrink-0 self-center bg-white rounded-xl p-6">
+                                    <img src="assets/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
+                                        class="w-full h-auto object-contain">
+                                </div>
                             </div>
                         </div>
 
@@ -119,13 +126,13 @@
                     <div class="absolute inset-0 flex items-center justify-between px-4 pointer-events-none">
                         <!-- Seta Anterior -->
                         <button id="carousel-prev"
-                            class="pointer-events-auto w-10 h-10 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-sm flex items-center justify-center transition-all">
+                            class="pointer-events-auto w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 backdrop-blur-sm flex items-center justify-center transition-all">
                             <span class="material-symbols-outlined text-white">chevron_left</span>
                         </button>
 
                         <!-- Seta Próxima -->
                         <button id="carousel-next"
-                            class="pointer-events-auto w-10 h-10 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-sm flex items-center justify-center transition-all">
+                            class="pointer-events-auto w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 backdrop-blur-sm flex items-center justify-center transition-all">
                             <span class="material-symbols-outlined text-white">chevron_right</span>
                         </button>
                     </div>
@@ -436,25 +443,6 @@
                 });
             }
         });
-        function trocarImagensPorTamanho() {
-            const largura = window.innerWidth;
-            const slides = document.querySelectorAll('[id^="slide"][data-mobile]');
-
-            slides.forEach(slide => {
-                const bgDiv = slide.querySelector('.bg-cover');
-                if (!bgDiv) return;
-
-                if (!slide.dataset.desktop) {
-                    slide.dataset.desktop = bgDiv.style.backgroundImage.match(/url\(["']?([^"')]+)["']?\)/)?.[1] || '';
-                }
-
-                const src = largura <= 768 ? slide.dataset.mobile : slide.dataset.desktop;
-                bgDiv.style.backgroundImage = bgDiv.style.backgroundImage.replace(/url\([^)]*\)/, `url("${src}")`);
-            });
-        }
-
-        trocarImagensPorTamanho();
-        window.addEventListener('resize', trocarImagensPorTamanho);
     </script>
 </body>
 
