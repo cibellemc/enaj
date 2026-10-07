@@ -36,6 +36,7 @@ const formatarData = (iso) => iso.split('-').reverse().join('/');
 /** Resumo da chegada ou saída: "30/11/2026 · Aéreo · LA3456 (LATAM) às 14:30". */
 export function descreverTrecho(inscricao, prefixo) {
     const campo = (nome) => inscricao[`${prefixo}_${nome}`];
+    if (inscricao.mora_em_goiania) return 'Já está em Goiânia';
     if (!campo('data')) return 'Não informado';
     const partes = [formatarData(campo('data'))];
     if (campo('transporte') === 'aereo') {

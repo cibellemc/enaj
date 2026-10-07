@@ -186,9 +186,20 @@
                                 <span class="flex size-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">4</span>
                                 <div class="min-w-0 flex-1">
                                     <h2 class="text-lg font-bold text-gray-900">Chegada e saída de Goiânia <span class="text-red-600">*</span></h2>
-                                    <p class="mt-1 text-sm text-gray-500">Informe como você vai chegar e sair de Goiânia.</p>
+                                    <p class="mt-1 text-sm text-gray-500">Informe como você vai chegar e sair de Goiânia, ou marque se já está na cidade.</p>
                                     <div class="mt-5">
-                                        <div class="flex flex-col gap-4">
+                                        <label class="mb-4 block cursor-pointer">
+                                            <input type="checkbox" id="mora_em_goiania" name="mora_em_goiania" class="op-input sr-only">
+                                            <span class="op-card relative flex items-center gap-3 rounded-xl border-2 border-gray-200 bg-white px-4 py-3 transition-all hover:border-primary/50">
+                                                <span class="op-icon material-symbols-outlined text-gray-400">home_pin</span>
+                                                <span>
+                                                    <span class="op-label block text-sm font-semibold text-gray-700">Já estou em Goiânia</span>
+                                                    <span class="block text-xs text-gray-500">Moro na cidade, não preciso informar chegada e saída.</span>
+                                                </span>
+                                                <span class="op-badge material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-[20px]">check_circle</span>
+                                            </span>
+                                        </label>
+                                        <div id="trechos" class="flex flex-col gap-4">
                                             <div id="trecho-chegada"></div>
                                             <div id="trecho-saida"></div>
                                         </div>

@@ -65,6 +65,28 @@ def test_campos_invalidos(inscrever, campos, campo_com_erro):
     assert campo_com_erro in resposta.get_json()["erros"]
 
 
+def test_quem_ja_esta_em_goiania_nao_informa_viagem(client, inscrever):
+    sem_viagem = {f"{t}_{c}": "" for t in ("chegada", "saida") for c in ("data", "transporte", "voo", "operadora", "horario")}
+    resposta = inscrever(mora_em_goiania=True, **sem_viagem)
+    assert resposta.status_code == 201
+
+    card = client.get(f"/api/inscricoes/{resposta.get_json()['codigo']}").get_json()["inscricao"]
+    assert card["mora_em_goiania"] is True
+    assert card["chegada_data"] is None and card["saida_transporte"] is None
+
+
+def test_quem_ja_esta_em_goiania_ignora_dados_de_viagem(client, inscrever):
+    codigo = inscrever(mora_em_goiania=True).get_json()["codigo"]
+    card = client.get(f"/api/inscricoes/{codigo}").get_json()["inscricao"]
+    assert card["chegada_voo"] is None
+
+
+def test_mora_em_goiania_precisa_ser_booleano(inscrever):
+    # "sim" (texto) não vale como marcado: continua exigindo os dados de viagem
+    resposta = inscrever(mora_em_goiania="sim", chegada_data="")
+    assert resposta.status_code == 422
+
+
 def test_terrestre_nao_exige_voo(inscrever):
     resposta = inscrever(chegada_transporte="terrestre", chegada_voo="", chegada_operadora="")
     assert resposta.status_code == 201
@@ -135,6 +157,28 @@ def criar_banco_versao_1(caminho, com_codigo=True):
                 ("2026-10-07T10:00:00+00:00", "Antigo", email, "JUCEPI (Piauí)",
                  json.dumps(integrantes), outro, "Não pretendo participar"),
             )
+
+
+def test_migracao_da_versao_2(tmp_path):
+    """Banco da versão 2 (sem a coluna mora_em_goiania) ganha a coluna."""
+    caminho = tmp_path / "v2.db"
+    with sqlite3.connect(caminho) as v2:
+        v2.execute(
+            "CREATE TABLE inscricoes (id INTEGER PRIMARY KEY AUTOINCREMENT, criado_em TEXT NOT NULL,"
+            " nome TEXT NOT NULL, email TEXT NOT NULL, junta TEXT NOT NULL, cargo TEXT NOT NULL,"
+            " cargo_outro TEXT, visita_pirenopolis TEXT NOT NULL,"
+            " chegada_data TEXT, chegada_transporte TEXT, chegada_voo TEXT, chegada_operadora TEXT,"
+            " chegada_horario TEXT, saida_data TEXT, saida_transporte TEXT, saida_voo TEXT,"
+            " saida_operadora TEXT, saida_horario TEXT, codigo TEXT NOT NULL)"
+        )
+        v2.execute("INSERT INTO inscricoes (criado_em, nome, email, junta, cargo, visita_pirenopolis, codigo)"
+                   " VALUES ('2026-10-07T10:00:00+00:00', 'V2', 'v2@x.com', 'JUCEPI (Piauí)', 'Convidado',"
+                   " 'Não pretendo participar', 'codigo-antigo-0000000000')")
+        v2.execute("PRAGMA user_version = 2")
+
+    app = create_app(DB_PATH=str(caminho))
+    with app.app_context():
+        assert db.listar_inscricoes()[0]["mora_em_goiania"] is False
 
 
 @pytest.mark.parametrize("com_codigo", [True, False])

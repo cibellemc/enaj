@@ -17,6 +17,7 @@ COLUNAS = [
     ("E-mail", lambda i: i["email"]),
     ("Junta Comercial", lambda i: i["junta"]),
     ("Cargo", lambda i: i["cargo_exibicao"] or ""),
+    ("Já está em Goiânia", lambda i: "Sim" if i["mora_em_goiania"] else "Não"),
     ("Chegada - data", lambda i: _data(i["chegada_data"])),
     ("Chegada - transporte", lambda i: _transporte(i["chegada_transporte"])),
     ("Chegada - voo", lambda i: i["chegada_voo"] or ""),

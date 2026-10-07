@@ -126,7 +126,10 @@ function lerFormulario() {
     Object.keys(TRECHOS).forEach((prefixo) => {
         CAMPOS_TRECHO.forEach((campo) => campos.push(`${prefixo}_${campo}`));
     });
-    return Object.fromEntries(campos.map((campo) => [campo, ler(campo)]));
+    return {
+        ...Object.fromEntries(campos.map((campo) => [campo, ler(campo)])),
+        mora_em_goiania: document.getElementById('mora_em_goiania').checked,
+    };
 }
 
 function validarTrecho(dados, prefixo, erros) {
@@ -150,8 +153,10 @@ function validar(dados) {
     if (!dados.junta) erros.junta = 'Selecione a Junta Comercial que representa.';
     if (!dados.cargo) erros.cargo = 'Selecione o seu cargo.';
     if (dados.cargo === CARGO_OUTRO && !dados.cargo_outro) erros.cargo_outro = 'Informe qual é o seu cargo.';
-    Object.keys(TRECHOS).forEach((prefixo) => validarTrecho(dados, prefixo, erros));
-    if (dados.chegada_data && dados.saida_data && dados.saida_data < dados.chegada_data) {
+    if (!dados.mora_em_goiania) {
+        Object.keys(TRECHOS).forEach((prefixo) => validarTrecho(dados, prefixo, erros));
+    }
+    if (!dados.mora_em_goiania && dados.chegada_data && dados.saida_data && dados.saida_data < dados.chegada_data) {
         erros.saida_data = 'A saída não pode ser antes da chegada.';
     }
     if (!dados.visita_pirenopolis) erros.visita_pirenopolis = 'Selecione uma opção.';
@@ -261,6 +266,9 @@ async function acessar(evento) {
 
 // ===== Eventos =====
 
+document.getElementById('mora_em_goiania').addEventListener('change', (evento) => {
+    mostrar(document.getElementById('trechos'), !evento.target.checked, 'flex');
+});
 form.addEventListener('submit', enviar);
 formAcesso.addEventListener('submit', acessar);
 

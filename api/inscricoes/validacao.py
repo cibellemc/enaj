@@ -77,10 +77,15 @@ def validar_inscricao(dados):
         "cargo_outro": cargo_outro,
         "visita_pirenopolis": visita,
     }
+    # Quem já está em Goiânia não informa chegada nem saída
+    limpos["mora_em_goiania"] = dados.get("mora_em_goiania") is True
     for trecho in TRECHOS:
-        limpos.update(_validar_trecho(dados, trecho, erros))
+        if limpos["mora_em_goiania"]:
+            limpos.update(_trecho_vazio(trecho))
+        else:
+            limpos.update(_validar_trecho(dados, trecho, erros))
 
-    chegada, saida = ler_data(limpos["chegada_data"]), ler_data(limpos["saida_data"])
+    chegada, saida = ler_data(limpos["chegada_data"] or ""), ler_data(limpos["saida_data"] or "")
     if chegada and saida and saida < chegada:
         erros["saida_data"] = "A saída não pode ser antes da chegada."
 
@@ -97,6 +102,10 @@ def _validar_cargo(dados, erros):
     if cargo not in opcoes.CARGOS:
         erros["cargo"] = "Selecione o seu cargo."
     return cargo, None
+
+
+def _trecho_vazio(trecho):
+    return {f"{trecho}_{campo}": None for campo in ("data", "transporte", "voo", "operadora", "horario")}
 
 
 def _validar_trecho(dados, trecho, erros):

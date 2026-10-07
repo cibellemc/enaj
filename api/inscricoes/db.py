@@ -10,7 +10,7 @@ from flask import current_app, g
 from . import opcoes
 
 # Versão do esquema guardada em PRAGMA user_version (ver _migrar)
-VERSAO_ESQUEMA = 2
+VERSAO_ESQUEMA = 3
 
 CRIAR_TABELA = """
 CREATE TABLE {tabela} (
@@ -22,6 +22,7 @@ CREATE TABLE {tabela} (
     cargo TEXT NOT NULL,
     cargo_outro TEXT,                 -- preenchido quando cargo = "Outro"
     visita_pirenopolis TEXT NOT NULL,
+    mora_em_goiania INTEGER NOT NULL DEFAULT 0,  -- 1 = não informa chegada/saída
     chegada_data TEXT,                -- AAAA-MM-DD
     chegada_transporte TEXT,          -- "aereo" ou "terrestre"
     chegada_voo TEXT,
@@ -38,7 +39,7 @@ CREATE TABLE {tabela} (
 
 # Colunas gravadas a partir dos dados validados (validacao.validar_inscricao)
 COLUNAS_DADOS = (
-    "nome", "email", "junta", "cargo", "cargo_outro", "visita_pirenopolis",
+    "nome", "email", "junta", "cargo", "cargo_outro", "visita_pirenopolis", "mora_em_goiania",
     "chegada_data", "chegada_transporte", "chegada_voo", "chegada_operadora", "chegada_horario",
     "saida_data", "saida_transporte", "saida_voo", "saida_operadora", "saida_horario",
 )
@@ -82,8 +83,8 @@ def inicializar(caminho):
         ).fetchone()
         if not existe:
             db.execute(CRIAR_TABELA.format(tabela="inscricoes"))
-        elif db.execute("PRAGMA user_version").fetchone()[0] < VERSAO_ESQUEMA:
-            _migrar(db)
+        else:
+            _migrar(db, versao=db.execute("PRAGMA user_version").fetchone()[0])
         db.execute(f"PRAGMA user_version = {VERSAO_ESQUEMA}")
 
         db.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_inscricoes_codigo ON inscricoes(codigo)")
@@ -94,7 +95,16 @@ def inicializar(caminho):
             current_app.logger.warning("Há e-mails repetidos em inscricoes; índice único não criado.")
 
 
-def _migrar(db):
+def _migrar(db, versao):
+    """Atualiza o banco, passo a passo, da versão em que está até a atual."""
+    if versao < 2:
+        _migrar_para_v2(db)
+    colunas = {coluna[1] for coluna in db.execute("PRAGMA table_info(inscricoes)")}
+    if versao < 3 and "mora_em_goiania" not in colunas:
+        db.execute("ALTER TABLE inscricoes ADD COLUMN mora_em_goiania INTEGER NOT NULL DEFAULT 0")
+
+
+def _migrar_para_v2(db):
     """Versão 1 (inscrição do presidente, vários integrantes) -> versão 2.
 
     - nome_presidente vira nome
@@ -177,6 +187,7 @@ def codigo_por_email(email):
 def _para_dict(row):
     inscricao = {coluna: row[coluna] for coluna in COLUNAS_DADOS}
     inscricao.update(
+        mora_em_goiania=bool(row["mora_em_goiania"]),
         numero=row["id"],
         criado_em=row["criado_em"],
         codigo=row["codigo"],

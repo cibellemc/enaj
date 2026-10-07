@@ -53,7 +53,7 @@ def test_csv_com_as_inscricoes(client, inscrever):
 
     linhas = ler_csv(resposta.get_data(as_text=True))
     assert linhas[0] == [
-        "Nº", "Data da inscrição", "Nome", "E-mail", "Junta Comercial", "Cargo",
+        "Nº", "Data da inscrição", "Nome", "E-mail", "Junta Comercial", "Cargo", "Já está em Goiânia",
         "Chegada - data", "Chegada - transporte", "Chegada - voo", "Chegada - companhia aérea",
         "Chegada - horário", "Saída - data", "Saída - transporte", "Saída - voo",
         "Saída - companhia aérea", "Saída - horário", "Visita técnica a Pirenópolis",
@@ -61,7 +61,7 @@ def test_csv_com_as_inscricoes(client, inscrever):
     assert len(linhas) == 3
     assert linhas[1][0] == "1"
     assert linhas[1][2:] == [
-        "Maria Silva", "maria@exemplo.com", "JUCEG (Goiás)", "Procurador",
+        "Maria Silva", "maria@exemplo.com", "JUCEG (Goiás)", "Procurador", "Não",
         "30/11/2026", "Transporte aéreo", "LA3456", "LATAM", "14:30",
         "03/12/2026", "Transporte terrestre", "", "", "15:00",
         "Ainda não tenho uma definição",
