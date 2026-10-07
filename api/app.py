@@ -1,4 +1,4 @@
-"""API de pré-inscrição do 43º ENAJ (Goiânia 2026).
+"""API de inscrição do 43º ENAJ (Goiânia 2026).
 
 Recebe o formulário da página enaj-2026/inscricao.html e grava as respostas
 em um banco SQLite. O caminho do banco vem da variável DB_PATH (no Docker,

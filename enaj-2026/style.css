@@ -212,3 +212,40 @@ main {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+/* ===== Formulário de inscrição: opções selecionáveis ===== */
+.op-input:focus-visible + .op-tile,
+.op-input:focus-visible + .op-chip,
+.op-input:focus-visible + .op-card {
+    outline: 3px solid #ffdd00;
+    outline-offset: 2px;
+}
+
+/* Juntas */
+.op-tile { color: #1f2937; }
+.op-input:checked + .op-tile {
+    background-color: #0a3a9a;
+    border-color: #0a3a9a;
+    color: #fff;
+    box-shadow: 0 4px 10px -2px rgba(10, 58, 154, 0.35);
+}
+.op-input:checked + .op-tile .op-sub { color: rgba(255, 255, 255, 0.8); }
+
+/* Integrantes */
+.op-chip .ic-check { display: none; }
+.op-input:checked + .op-chip {
+    background-color: #0a3a9a;
+    border-color: #0a3a9a;
+    color: #fff;
+}
+.op-input:checked + .op-chip .ic-add { display: none; }
+.op-input:checked + .op-chip .ic-check { display: inline; }
+
+/* Visita técnica */
+.op-card .op-badge { display: none; color: #0a3a9a; }
+.op-input:checked + .op-card {
+    border-color: #0a3a9a;
+    background-color: rgba(10, 58, 154, 0.06);
+}
+.op-input:checked + .op-card .op-icon,
+.op-input:checked + .op-card .op-label { color: #0a3a9a; }
+.op-input:checked + .op-card .op-badge { display: inline; }
