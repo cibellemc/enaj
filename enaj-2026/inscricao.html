@@ -123,24 +123,26 @@
                             <div class="flex gap-4">
                                 <span class="flex size-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">1</span>
                                 <div class="min-w-0 flex-1">
-                                    <h2 class="text-lg font-bold text-gray-900">Dados do responsável</h2>
-                                    <div class="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
-                            <div>
-                                <label for="nome_presidente" class="mb-2 block text-sm font-semibold text-gray-700">Nome do presidente da Junta Comercial <span class="text-red-600">*</span></label>
-                                <div class="relative">
-                                    <span class="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[20px] text-gray-400">person</span>
-                                    <input id="nome_presidente" name="nome_presidente" type="text" maxlength="200" required autocomplete="name" placeholder="Nome completo" class="block w-full rounded-lg border-gray-300 bg-gray-50 py-3 pl-11 pr-4 text-sm transition-colors focus:border-primary focus:bg-white focus:ring-primary">
-                                </div>
-                                <p class="campo-erro mt-2 hidden text-sm font-medium text-red-600" data-erro="nome_presidente"></p>
-                            </div>
-                            <div>
-                                <label for="email" class="mb-2 block text-sm font-semibold text-gray-700">Seu E-mail <span class="text-red-600">*</span></label>
-                                <div class="relative">
-                                    <span class="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[20px] text-gray-400">mail</span>
-                                    <input id="email" name="email" type="email" maxlength="254" required autocomplete="email" placeholder="nome@exemplo.gov.br" class="block w-full rounded-lg border-gray-300 bg-gray-50 py-3 pl-11 pr-4 text-sm transition-colors focus:border-primary focus:bg-white focus:ring-primary">
-                                </div>
-                                <p class="campo-erro mt-2 hidden text-sm font-medium text-red-600" data-erro="email"></p>
-                            </div>
+                                    <h2 class="text-lg font-bold text-gray-900">Seus dados</h2>
+                                    <div class="mt-5">
+                                        <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+                                            <div>
+                                                <label for="nome" class="mb-2 block text-sm font-semibold text-gray-700">Nome <span class="text-red-600">*</span></label>
+                                                <div class="relative">
+                                                    <span class="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[20px] text-gray-400">person</span>
+                                                    <input id="nome" name="nome" type="text" maxlength="200" required autocomplete="name" placeholder="Nome completo" class="block w-full rounded-lg border-gray-300 bg-gray-50 py-3 pl-11 pr-4 text-sm transition-colors focus:border-primary focus:bg-white focus:ring-primary">
+                                                </div>
+                                                <p class="campo-erro mt-2 hidden text-sm font-medium text-red-600" data-erro="nome"></p>
+                                            </div>
+                                            <div>
+                                                <label for="email" class="mb-2 block text-sm font-semibold text-gray-700">E-mail <span class="text-red-600">*</span></label>
+                                                <div class="relative">
+                                                    <span class="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[20px] text-gray-400">mail</span>
+                                                    <input id="email" name="email" type="email" maxlength="254" required autocomplete="email" placeholder="nome@exemplo.gov.br" class="block w-full rounded-lg border-gray-300 bg-gray-50 py-3 pl-11 pr-4 text-sm transition-colors focus:border-primary focus:bg-white focus:ring-primary">
+                                                </div>
+                                                <p class="campo-erro mt-2 hidden text-sm font-medium text-red-600" data-erro="email"></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -152,9 +154,9 @@
                                     <h2 class="text-lg font-bold text-gray-900">Junta Comercial que representa <span class="text-red-600">*</span></h2>
                                     <p class="mt-1 text-sm text-gray-500">Selecione a sua Junta.</p>
                                     <div class="mt-5">
-                                <div id="opcoes-juntas" class="grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-4"></div>
+                                        <div id="opcoes-juntas" class="grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-4"></div>
+                                        <p class="campo-erro mt-2 hidden text-sm font-medium text-red-600" data-erro="junta"></p>
                                     </div>
-                                    <p class="campo-erro mt-3 hidden items-center gap-1 text-sm font-medium text-red-600" data-erro="junta"></p>
                                 </div>
                             </div>
                         </div>
@@ -162,20 +164,20 @@
                             <div class="flex gap-4">
                                 <span class="flex size-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">3</span>
                                 <div class="min-w-0 flex-1">
-                                    <h2 class="text-lg font-bold text-gray-900">Integrantes da equipe que pretende trazer ao ENAJ <span class="text-red-600">*</span></h2>
-                                    <p class="mt-1 text-sm text-gray-500">Marque todos que se aplicam.</p>
+                                    <h2 class="text-lg font-bold text-gray-900">Cargo <span class="text-red-600">*</span></h2>
+                                    <p class="mt-1 text-sm text-gray-500">Selecione uma opção.</p>
                                     <div class="mt-5">
-                                <div id="opcoes-integrantes" class="flex flex-wrap gap-2"></div>
-                                <div class="mt-4">
-                                    <label for="integrantes-outro" class="mb-2 block text-sm font-semibold text-gray-700">Outros integrantes</label>
-                                    <input type="checkbox" name="integrantes" value="Outro" id="integrantes-outro-check" class="sr-only" tabindex="-1" aria-hidden="true">
-                                    <div class="relative">
-                                        <span class="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[20px] text-gray-400">group_add</span>
-                                        <input type="text" name="integrantes_outro" id="integrantes-outro" maxlength="200" placeholder="Ex.: Assessor de comunicação" class="block w-full rounded-lg border-gray-300 bg-gray-50 py-3 pl-11 pr-4 text-sm transition-colors focus:border-primary focus:bg-white focus:ring-primary">
+                                        <div id="opcoes-cargos" class="flex flex-wrap gap-2"></div>
+                                        <p class="campo-erro mt-2 hidden text-sm font-medium text-red-600" data-erro="cargo"></p>
+                                        <div id="bloco-cargo-outro" class="mt-4 hidden">
+                                            <label for="cargo_outro" class="mb-2 block text-sm font-semibold text-gray-700">Qual o seu cargo? <span class="text-red-600">*</span></label>
+                                            <div class="relative">
+                                                <span class="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[20px] text-gray-400">badge</span>
+                                                <input id="cargo_outro" name="cargo_outro" type="text" maxlength="100" placeholder="Ex.: Assessor de comunicação" class="block w-full rounded-lg border-gray-300 bg-gray-50 py-3 pl-11 pr-4 text-sm transition-colors focus:border-primary focus:bg-white focus:ring-primary">
+                                            </div>
+                                            <p class="campo-erro mt-2 hidden text-sm font-medium text-red-600" data-erro="cargo_outro"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                    </div>
-                                    <p class="campo-erro mt-3 hidden items-center gap-1 text-sm font-medium text-red-600" data-erro="integrantes"></p>
                                 </div>
                             </div>
                         </div>
@@ -183,17 +185,32 @@
                             <div class="flex gap-4">
                                 <span class="flex size-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">4</span>
                                 <div class="min-w-0 flex-1">
+                                    <h2 class="text-lg font-bold text-gray-900">Chegada e saída de Goiânia <span class="text-red-600">*</span></h2>
+                                    <p class="mt-1 text-sm text-gray-500">Informe como você vai chegar e sair de Goiânia.</p>
+                                    <div class="mt-5">
+                                        <div class="flex flex-col gap-4">
+                                            <div id="trecho-chegada"></div>
+                                            <div id="trecho-saida"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="etapa p-6 sm:p-8">
+                            <div class="flex gap-4">
+                                <span class="flex size-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">5</span>
+                                <div class="min-w-0 flex-1">
                                     <h2 class="text-lg font-bold text-gray-900">Visita técnica a Pirenópolis (GO) <span class="text-red-600">*</span></h2>
                                     <p class="mt-1 text-sm text-gray-500">Está entre os seus planos participar, por adesão, da visita técnica a Pirenópolis (GO), prevista como atividade complementar à programação do ENAJ nos dias 04 e 05 de dezembro de 2026?</p>
                                     <div class="mt-5">
-                                <div id="opcoes-visita" class="grid grid-cols-1 gap-3 sm:grid-cols-3"></div>
-                                <div class="mt-4 flex gap-2 rounded-lg bg-amber-50 p-4 text-sm text-amber-900">
-                                    <span class="material-symbols-outlined text-[20px]">info</span>
-                                    <p>A participação na visita técnica será realizada mediante adesão e estará condicionada às
-                                        informações e condições que serão posteriormente divulgadas pela organização.</p>
-                                </div>
+                                        <div id="opcoes-visita" class="grid grid-cols-1 gap-3 sm:grid-cols-3"></div>
+                                        <p class="campo-erro mt-2 hidden text-sm font-medium text-red-600" data-erro="visita_pirenopolis"></p>
+                                        <div class="mt-4 flex gap-2 rounded-lg bg-amber-50 p-4 text-sm text-amber-900">
+                                            <span class="material-symbols-outlined text-[20px]">info</span>
+                                            <p>A participação na visita técnica será realizada mediante adesão e estará condicionada às
+                                                informações e condições que serão posteriormente divulgadas pela organização.</p>
+                                        </div>
                                     </div>
-                                    <p class="campo-erro mt-3 hidden items-center gap-1 text-sm font-medium text-red-600" data-erro="visita_pirenopolis"></p>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +226,7 @@
                             </div>
                         </form>
 
-                        <!-- Modelos das opções; preenchidos por js/inscricao.js com os dados de /api/opcoes -->
+                        <!-- Modelos preenchidos por js/inscricao.js com os dados de /api/opcoes -->
                         <template id="tpl-junta">
                             <label class="block cursor-pointer">
                                 <input type="radio" name="junta" class="op-input sr-only" required>
@@ -219,13 +236,21 @@
                                 </span>
                             </label>
                         </template>
-                        <template id="tpl-integrante">
+                        <template id="tpl-cargo">
                             <label class="inline-block cursor-pointer select-none">
-                                <input type="checkbox" name="integrantes" class="op-input sr-only">
+                                <input type="radio" name="cargo" class="op-input sr-only" required>
                                 <span class="op-chip inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-primary/60">
-                                    <span class="ic-add material-symbols-outlined text-[18px]">add</span>
                                     <span class="ic-check material-symbols-outlined text-[18px]">check</span>
                                     <span data-campo="rotulo"></span>
+                                </span>
+                            </label>
+                        </template>
+                        <template id="tpl-transporte">
+                            <label class="block cursor-pointer">
+                                <input type="radio" class="op-input sr-only" required>
+                                <span class="op-card relative flex items-center gap-3 rounded-xl border-2 border-gray-200 bg-white px-4 py-3 transition-all hover:border-primary/50">
+                                    <span data-campo="icone" class="op-icon material-symbols-outlined text-gray-400"></span>
+                                    <span data-campo="rotulo" class="op-label text-sm font-semibold text-gray-700"></span>
                                 </span>
                             </label>
                         </template>
@@ -238,6 +263,44 @@
                                     <span data-campo="rotulo" class="op-label text-sm font-semibold text-gray-700"></span>
                                 </span>
                             </label>
+                        </template>
+                        <!-- Bloco de chegada/saída: os elementos com data-nome recebem o prefixo do trecho (ex.: chegada_data) -->
+                        <template id="tpl-trecho">
+                            <fieldset class="trecho rounded-xl border border-gray-200 p-5">
+                                <legend class="flex items-center gap-2 px-1 text-base font-bold text-gray-900">
+                                    <span data-campo="icone" class="material-symbols-outlined text-primary"></span>
+                                    <span data-campo="titulo"></span>
+                                </legend>
+                                <div class="mt-2 grid grid-cols-1 gap-4 md:grid-cols-[200px_1fr]">
+                                    <div>
+                                        <label data-nome="data" class="mb-2 block text-sm font-semibold text-gray-700">Data <span class="text-red-600">*</span></label>
+                                        <input data-nome="data" type="date" min="2026-11-01" max="2026-12-31" required class="block w-full rounded-lg border-gray-300 bg-gray-50 px-4 py-3 text-sm transition-colors focus:border-primary focus:bg-white focus:ring-primary">
+                                        <p data-nome="data" class="campo-erro mt-2 hidden text-sm font-medium text-red-600"></p>
+                                    </div>
+                                    <div>
+                                        <p class="mb-2 block text-sm font-semibold text-gray-700">Meio de transporte <span class="text-red-600">*</span></p>
+                                        <div data-nome="transporte" class="opcoes-transporte grid grid-cols-1 gap-2 sm:grid-cols-2"></div>
+                                        <p data-nome="transporte" class="campo-erro mt-2 hidden text-sm font-medium text-red-600"></p>
+                                    </div>
+                                </div>
+                                <div class="dados-aereo mt-4 hidden grid-cols-1 gap-4 md:grid-cols-2">
+                                    <div>
+                                        <label data-nome="voo" class="mb-2 block text-sm font-semibold text-gray-700"><span data-campo="rotulo-voo"></span> <span class="text-red-600">*</span></label>
+                                        <input data-nome="voo" type="text" maxlength="20" placeholder="Ex.: LA3456" class="block w-full rounded-lg border-gray-300 bg-gray-50 px-4 py-3 text-sm transition-colors focus:border-primary focus:bg-white focus:ring-primary">
+                                        <p data-nome="voo" class="campo-erro mt-2 hidden text-sm font-medium text-red-600"></p>
+                                    </div>
+                                    <div>
+                                        <label data-nome="operadora" class="mb-2 block text-sm font-semibold text-gray-700">Companhia aérea (operadora) <span class="text-red-600">*</span></label>
+                                        <input data-nome="operadora" type="text" maxlength="60" placeholder="Ex.: LATAM, GOL, Azul" class="block w-full rounded-lg border-gray-300 bg-gray-50 px-4 py-3 text-sm transition-colors focus:border-primary focus:bg-white focus:ring-primary">
+                                        <p data-nome="operadora" class="campo-erro mt-2 hidden text-sm font-medium text-red-600"></p>
+                                    </div>
+                                </div>
+                                <div class="bloco-horario mt-4 hidden md:max-w-[200px]">
+                                    <label data-nome="horario" class="mb-2 block text-sm font-semibold text-gray-700"><span class="rotulo-horario"></span> <span class="text-red-600">*</span></label>
+                                    <input data-nome="horario" type="time" class="block w-full rounded-lg border-gray-300 bg-gray-50 px-4 py-3 text-sm transition-colors focus:border-primary focus:bg-white focus:ring-primary">
+                                    <p data-nome="horario" class="campo-erro mt-2 hidden text-sm font-medium text-red-600"></p>
+                                </div>
+                            </fieldset>
                         </template>
 
                     </div>

@@ -1,6 +1,6 @@
 // Validação de entrada: página aberta pelo QR code do card.
 
-import { buscarInscricao, codigoDaUrl, formatarNumero, montarEquipe, mostrarSomente } from './api.js';
+import { buscarInscricao, codigoDaUrl, formatarNumero, mostrarSomente } from './api.js';
 
 const ESTADOS = ['v-carregando', 'v-valida', 'v-invalida'];
 
@@ -13,9 +13,9 @@ async function iniciar() {
 
     const inscricao = dados.inscricao;
     document.getElementById('v-numero').textContent = formatarNumero(inscricao.numero);
-    document.getElementById('v-nome').textContent = inscricao.nome_presidente;
+    document.getElementById('v-nome').textContent = inscricao.nome;
     document.getElementById('v-junta').textContent = inscricao.junta;
-    document.getElementById('v-equipe').textContent = montarEquipe(inscricao);
+    document.getElementById('v-cargo').textContent = inscricao.cargo_exibicao || '';
     mostrarSomente(ESTADOS, 'v-valida');
 }
 

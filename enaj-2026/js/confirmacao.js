@@ -4,8 +4,8 @@
 import {
     buscarInscricao,
     codigoDaUrl,
+    descreverTrecho,
     formatarNumero,
-    montarEquipe,
     mostrarSomente,
     urlDeValidacao,
 } from './api.js';
@@ -56,11 +56,13 @@ async function iniciar() {
     }
 
     const inscricao = dados.inscricao;
-    preencher('c-nome', inscricao.nome_presidente);
+    preencher('c-nome', inscricao.nome);
     preencher('c-junta', inscricao.junta);
-    preencher('c-equipe', montarEquipe(inscricao));
+    preencher('c-cargo', inscricao.cargo_exibicao || '');
     preencher('c-numero', formatarNumero(inscricao.numero));
     preencher('c-email', inscricao.email);
+    preencher('c-chegada', descreverTrecho(inscricao, 'chegada'));
+    preencher('c-saida', descreverTrecho(inscricao, 'saida'));
     preencher('c-visita', inscricao.visita_pirenopolis);
     preencher('c-data', new Date(inscricao.criado_em).toLocaleString('pt-BR', {
         dateStyle: 'short',

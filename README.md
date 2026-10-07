@@ -31,7 +31,7 @@ enaj/
 │   │   ├── __init__.py                create_app()
 │   │   ├── config.py                  Variáveis de configuração e limites
 │   │   ├── db.py                      Banco SQLite (tabela, migração, consultas)
-│   │   ├── opcoes.py                  Juntas, integrantes e opções da visita técnica
+│   │   ├── opcoes.py                  Juntas, cargos, transportes e opções da visita
 │   │   ├── validacao.py               Validação dos dados do formulário
 │   │   ├── limite.py                  Limite de requisições por IP
 │   │   ├── rotas.py                   Rotas públicas /api/...

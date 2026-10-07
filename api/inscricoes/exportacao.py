@@ -2,7 +2,9 @@
 
 import csv
 import io
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
+
+from . import opcoes
 
 # Horário de Brasília (sem horário de verão desde 2019)
 FUSO_BRASILIA = timezone(timedelta(hours=-3))
@@ -10,12 +12,21 @@ FUSO_BRASILIA = timezone(timedelta(hours=-3))
 # O código secreto do QR code não é exportado: ele funciona como credencial de entrada
 COLUNAS = [
     ("Nº", lambda i: i["numero"]),
-    ("Data da inscrição", lambda i: _data_local(i["criado_em"])),
-    ("Nome do presidente", lambda i: i["nome_presidente"]),
+    ("Data da inscrição", lambda i: _data_hora_local(i["criado_em"])),
+    ("Nome", lambda i: i["nome"]),
     ("E-mail", lambda i: i["email"]),
     ("Junta Comercial", lambda i: i["junta"]),
-    ("Integrantes da equipe", lambda i: ", ".join(i["integrantes"])),
-    ("Outros integrantes", lambda i: i["integrantes_outro"] or ""),
+    ("Cargo", lambda i: i["cargo_exibicao"] or ""),
+    ("Chegada - data", lambda i: _data(i["chegada_data"])),
+    ("Chegada - transporte", lambda i: _transporte(i["chegada_transporte"])),
+    ("Chegada - voo", lambda i: i["chegada_voo"] or ""),
+    ("Chegada - companhia aérea", lambda i: i["chegada_operadora"] or ""),
+    ("Chegada - horário", lambda i: i["chegada_horario"] or ""),
+    ("Saída - data", lambda i: _data(i["saida_data"])),
+    ("Saída - transporte", lambda i: _transporte(i["saida_transporte"])),
+    ("Saída - voo", lambda i: i["saida_voo"] or ""),
+    ("Saída - companhia aérea", lambda i: i["saida_operadora"] or ""),
+    ("Saída - horário", lambda i: i["saida_horario"] or ""),
     ("Visita técnica a Pirenópolis", lambda i: i["visita_pirenopolis"]),
 ]
 
@@ -30,8 +41,16 @@ def _celula_segura(valor):
     return valor
 
 
-def _data_local(iso_utc):
+def _data_hora_local(iso_utc):
     return datetime.fromisoformat(iso_utc).astimezone(FUSO_BRASILIA).strftime("%d/%m/%Y %H:%M")
+
+
+def _data(iso):
+    return date.fromisoformat(iso).strftime("%d/%m/%Y") if iso else ""
+
+
+def _transporte(valor):
+    return opcoes.ROTULOS_TRANSPORTE.get(valor, "")
 
 
 def gerar_csv(inscricoes):

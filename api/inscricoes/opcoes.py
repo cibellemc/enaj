@@ -34,7 +34,7 @@ JUNTAS = [
     {"valor": "JUCETINS (Tocantins)", "sigla": "JUCETINS", "estado": "Tocantins"},
 ]
 
-INTEGRANTES = [
+CARGOS = [
     "Presidente",
     "Vice-Presidente",
     "Procurador",
@@ -43,10 +43,17 @@ INTEGRANTES = [
     "Gerente de Tecnologia",
     "Gerente de REDESIM",
     "Gerente de Cadastro",
+    "Convidado",
+    "Acompanhante",
 ]
 
-# Valor marcado quando a pessoa preenche "Outros integrantes"
-INTEGRANTE_OUTRO = "Outro"
+# Valor do cargo quando a pessoa escolhe "Outro" e escreve o próprio cargo
+CARGO_OUTRO = "Outro"
+
+TRANSPORTES = [
+    {"valor": "aereo", "rotulo": "Transporte aéreo", "icone": "flight"},
+    {"valor": "terrestre", "rotulo": "Transporte terrestre", "icone": "directions_car"},
+]
 
 VISITA_PIRENOPOLIS = [
     {"valor": "Sim, tenho interesse em participar", "rotulo": "Sim, tenho interesse", "icone": "event_available"},
@@ -56,11 +63,14 @@ VISITA_PIRENOPOLIS = [
 
 VALORES_JUNTAS = {j["valor"] for j in JUNTAS}
 VALORES_VISITA = {v["valor"] for v in VISITA_PIRENOPOLIS}
+VALORES_TRANSPORTE = {t["valor"] for t in TRANSPORTES}
+ROTULOS_TRANSPORTE = {t["valor"]: t["rotulo"] for t in TRANSPORTES}
 
 
 def como_json():
     return {
         "juntas": JUNTAS,
-        "integrantes": INTEGRANTES,
+        "cargos": CARGOS,
+        "transportes": TRANSPORTES,
         "visita_pirenopolis": VISITA_PIRENOPOLIS,
     }

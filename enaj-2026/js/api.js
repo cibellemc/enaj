@@ -31,8 +31,20 @@ export const urlDeValidacao = (codigo) =>
 
 export const formatarNumero = (numero) => 'Nº ' + String(numero).padStart(4, '0');
 
-export const montarEquipe = (inscricao) =>
-    [...inscricao.integrantes, ...(inscricao.integrantes_outro ? [inscricao.integrantes_outro] : [])].join(', ');
+const formatarData = (iso) => iso.split('-').reverse().join('/');
+
+/** Resumo da chegada ou saída: "30/11/2026 · Aéreo · LA3456 (LATAM) às 14:30". */
+export function descreverTrecho(inscricao, prefixo) {
+    const campo = (nome) => inscricao[`${prefixo}_${nome}`];
+    if (!campo('data')) return 'Não informado';
+    const partes = [formatarData(campo('data'))];
+    if (campo('transporte') === 'aereo') {
+        partes.push(`Aéreo · ${campo('voo')} (${campo('operadora')}) às ${campo('horario')}`);
+    } else {
+        partes.push(`Terrestre · previsto para ${campo('horario')}`);
+    }
+    return partes.join(' · ');
+}
 
 /** Mostra só o bloco `ativo` entre os ids informados (carregando, erro, conteúdo...). */
 export function mostrarSomente(ids, ativo) {
