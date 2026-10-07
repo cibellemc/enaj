@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Programação - 43º ENAJ</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <script src="config.js"></script>
+    <link href="style.css" rel="stylesheet" />
+
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root">
+
+        <header
+            class="sticky top-0 z-50 flex flex-col items-center whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark">
+            <div class="flex items-center justify-between w-full max-w-5xl px-4 py-3 sm:px-6">
+                <a class="flex items-center gap-3 text-primary dark:text-white" href="index.html">
+                    <div class="size-8">
+                        <img src="assets/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ENAJ</h2>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="index.html">Início</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="programacao.html">Programação</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="orientacoes-gerais.html">Recomendações Gerais</a>
+                </nav>
+
+                <button id="menu-toggle"
+                    class="md:hidden rounded-lg p-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden w-full md:hidden border-t border-gray-200 dark:border-gray-800">
+                <nav class="flex flex-col gap-1 p-4">
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="index.html">Início</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="programacao.html">Programação</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="orientacoes-gerais.html">Recomendações Gerais</a>
+            </div>
+        </header>
+        <main class="flex w-full flex-1 flex-col items-center px-4 py-10 sm:px-6 sm:py-16">
+            <div class="w-full max-w-5xl">
+
+                <div class="mb-12 flex flex-col items-center text-center">
+                    <h1
+                        class="text-4xl font-black tracking-tighter text-primary dark:text-white sm:text-5xl md:text-6xl">
+                        Programação Completa do 43º ENAJ</h1>
+                    <p class="mt-4 max-w-2xl text-lg text-text-muted-light dark:text-text-muted-dark">Confira a agenda
+                        completa do evento. Navegue pelos dias para descobrir os detalhes de cada palestra, workshop e
+                        atividade de networking.</p>
+                </div>
+
+                <!-- TODO: substituir pelo conteúdo da programação (seguir o modelo de enaj-2025/programacao.html) -->
+                <div
+                    class="flex flex-col items-center gap-4 rounded-xl border border-gray-200/80 bg-card-light p-10 text-center dark:border-gray-800/80 dark:bg-card-dark">
+                    <span class="material-symbols-outlined text-5xl text-primary">event_upcoming</span>
+                    <h2 class="text-2xl font-bold text-text-light dark:text-text-dark">Programação em breve</h2>
+                    <p class="max-w-xl text-text-muted-light dark:text-text-muted-dark">A programação do 43º ENAJ
+                        está sendo finalizada e será divulgada nesta página. Enquanto isso, confira as recomendações
+                        gerais com dicas de hospedagem, gastronomia e passeios em Goiânia.</p>
+                    <a class="mt-2 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-white font-medium hover:bg-opacity-90 transition-colors"
+                        href="orientacoes-gerais.html">
+                        <span class="material-symbols-outlined">travel_explore</span>
+                        Recomendações Gerais
+                    </a>
+                </div>
+            </div>
+        </main>
+        <footer class="w-full bg-primary text-white">
+            <div
+                class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 py-6 text-center sm:px-6 sm:flex-row sm:text-left">
+                <p class="text-sm opacity-80">© 2026 - 43º Encontro Nacional das Juntas Comerciais. Todos os direitos
+                    reservados.</p>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">mail</span>
+                    <a class="text-sm opacity-80 hover:opacity-100" href="mailto:presidencia@fenaju.org.br">presidencia@fenaju.org.br</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

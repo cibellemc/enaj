@@ -51,8 +51,9 @@
                 <div class="input-group">
                     <label for="year">Ano</label>
                     <select id="year" class="form-control">
-                        <option value="all">Todos os anos</option>
-                        <option value="2025" selected>2025</option>
+                        <option value="all" selected>Todos os anos</option>
+                        <option value="2026">2026</option>
+                        <option value="2025">2025</option>
                         <option value="2024">2024</option>
                         <option value="2023">2023</option>
                     </select>
@@ -86,11 +87,41 @@
         </div>
 
         <div class="events-grid" id="eventsGrid">
-            <div class="event-card" data-year="2025" data-status="upcoming" data-category="encontro">
+            <div class="event-card" data-year="2026" data-status="upcoming" data-category="encontro">
+                <a href="enaj-2026/index.html">
+                    <div class="event-image">
+                        <img src="enaj-2026/assets/banner-enaj-2026.jpg" alt="Banner oficial do 43º ENAJ" class="card-img">
+                        <span class="event-status status-upcoming">A Realizar</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">Dezembro, 2026</div>
+                        <div class="event-title">43º Encontro Nacional de Juntas Comerciais</div>
+
+                        <div class="event-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="location-icon">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <span>Goiânia</span>
+                        </div>
+
+                        <div class="event-description">Evento de integração, inovação e fortalecimento das Juntas
+                            Comerciais do Brasil.</div>
+
+                        <div class="event-footer">
+                            <div class="event-participants"></div>
+                            <span class="event-link">Ver detalhes →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="event-card" data-year="2025" data-status="completed" data-category="encontro">
                 <a href="enaj-2025/index.html">
                     <div class="event-image">
                         <img src="enaj-2025/assets/banner-enaj.png" alt="Banner oficial" class="card-img">
-                        <span class="event-status status-upcoming">A Realizar</span>
+                        <span class="event-status status-completed">Realizado</span>
                     </div>
                     <div class="event-content">
                         <div class="event-date">02 a 04 Dezembro, 2025</div>

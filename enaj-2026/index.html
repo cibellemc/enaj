@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>43º ENAJ - Encontro Nacional das Juntas Comerciais</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <script src="config.js"></script>
+    <link href="style.css" rel="stylesheet" />
+
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root">
+
+        <header
+            class="sticky top-0 z-50 flex flex-col items-center whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark">
+            <div class="flex items-center justify-between w-full max-w-5xl px-4 py-3 sm:px-6">
+                <a class="flex items-center gap-3 text-primary dark:text-white" href="index.html">
+                    <div class="size-8">
+                        <img src="assets/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ENAJ</h2>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="index.html">Início</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="programacao.html">Programação</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="orientacoes-gerais.html">Recomendações Gerais</a>
+                </nav>
+
+                <button id="menu-toggle"
+                    class="md:hidden rounded-lg p-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden w-full md:hidden border-t border-gray-200 dark:border-gray-800">
+                <nav class="flex flex-col gap-1 p-4">
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="index.html">Início</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="programacao.html">Programação</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="orientacoes-gerais.html">Recomendações Gerais</a>
+                </nav>
+            </div>
+        </header>
+        <main class="flex flex-1 flex-col items-center w-full">
+            <div class="w-full max-w-5xl px-4 sm:px-6">
+                <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 py-10"></div>
+                <section class="relative" id="hero">
+                    <div
+                        class="flex min-h-[480px] flex-col-reverse md:flex-row gap-8 bg-primary rounded-xl items-start md:items-center justify-between p-10">
+                        <div class="flex flex-col gap-8">
+                            <div class="flex flex-col gap-4 text-left max-w-xl">
+                                <!-- TODO: confirmar os dias exatos do evento -->
+                                <p class="font-semibold text-white/90">DEZEMBRO DE 2026 · GOIÂNIA (GO)</p>
+                                <h1 class="text-white text-5xl font-black leading-tight tracking-[-0.033em]">43º
+                                    ENAJ - Encontro Nacional das Juntas Comerciais</h1>
+                                <h2 class="text-white/90 text-lg font-normal leading-normal">Goiânia é bom demais da
+                                    conta!</h2>
+                            </div>
+                            <a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-yellow-400 text-blue-900 text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors"
+                                href="orientacoes-gerais.html">
+                                <span class="truncate">Confira as recomendações gerais</span>
+                            </a>
+                        </div>
+                        <div class="w-48 md:w-72 flex-shrink-0 self-center bg-white rounded-xl p-6">
+                            <img src="assets/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
+                                class="w-full h-auto object-contain">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-12" id="sobre-evento">
+                    <div class="flex flex-col gap-12">
+                        <div>
+                            <h2
+                                class="text-primary dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4">
+                                O evento</h2>
+                            <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+                                Em dezembro de 2026, a cidade de Goiânia (GO) será palco da 43ª edição do Encontro
+                                Nacional das Juntas Comerciais (ENAJ), o maior e mais importante evento de integração,
+                                inovação e fortalecimento do sistema de registro público empresarial do Brasil.
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+                                Nesta edição, o evento tem realização da Federação Nacional das Juntas Comerciais
+                                (FENAJU) e sede da Junta Comercial do Estado de Goiás (JUCEG), anfitriã desta edição.
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed mb-4">
+                                O encontro reúne representantes das Juntas Comerciais dos 26 estados brasileiros e do
+                                Distrito Federal, além de entidades parceiras, em um espaço de troca de experiências,
+                                fortalecimento institucional e construção de parcerias estratégicas entre as Juntas
+                                Comerciais de todo o país.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-12" id="conheca-goiania">
+                    <div class="text-center mb-8">
+                        <h2
+                            class="text-primary dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4">
+                            Bem-vindos a Goiânia!</h2>
+                        <p class="mb-4">
+                            Seja bem-vindo a Goiânia, a capital de Goiás onde o concreto encontra o verde, o moderno
+                            divide espaço com o jeitinho goiano e um convite para um café pode facilmente virar uma
+                            conversa de duas horas. Aqui, temos parques, praças, avenidas largas e uma vocação quase
+                            científica para transformar encontros rápidos em bons momentos. Goiânia é jovem, mas já sabe
+                            receber como gente grande, e no ENAJ, vocês vão descobrir que hospitalidade por aqui não é
+                            protocolo: é costume.
+                        </p>
+                        <p class="mb-4">
+                            Entre uma reunião e outra, vale experimentar a gastronomia goiana, ouvir uma moda de viola e
+                            perceber que o ritmo da cidade tem muito mais gingado do que parece. E se alguém disser que
+                            determinada experiência foi <strong>“bom demais da conta”</strong>, não se preocupe: não é
+                            erro de português, é patrimônio imaterial do jeito goiano de falar. A expressão significa
+                            que algo é muito bom, excelente, extraordinário.
+                        </p>
+                        <p class="mb-4">
+                            Por isso, preparem-se: Goiânia pode surpreender tanto pela inovação quanto pela simplicidade
+                            de um fim de tarde à sombra de uma árvore. É uma cidade que abriga tecnologia, negócios,
+                            cultura, música, gastronomia e gente que sabe fazer uma boa prosa. No compasso do ENAJ,
+                            vocês encontrarão uma capital que olha para o futuro sem abrir mão das suas raízes.
+                        </p>
+                        <p class="mb-4">
+                            E, se Goiânia conseguir fazer você trabalhar, conhecer a cidade, comer bem e ainda sair
+                            daqui querendo voltar, aí podemos dizer, com toda propriedade: foi
+                            <strong>bom demais da conta</strong>. Seja muito bem-vindo à capital de Goiás.
+                        </p>
+                    </div>
+                    <div class="w-full gap-4 overflow-hidden aspect-[2/1] grid grid-cols-2">
+                        <div class="w-full h-full bg-center bg-no-repeat bg-cover rounded-xl"
+                            data-alt="Parque Flamboyant" style='background-image: url("assets/cidade/parque-flamboyant.jpg");'>
+                        </div>
+                        <div class="w-full h-full bg-center bg-no-repeat bg-cover rounded-xl"
+                            data-alt="Bosque dos Buritis"
+                            style='background-image: url("assets/cidade/bosque-dos-buritis.jpg");'>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-12" id="local">
+                    <div class="bg-[#F5F5F5] dark:bg-gray-800/50 p-8 rounded-xl shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h2
+                                    class="text-primary dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4">
+                                    Local do Evento</h2>
+                                <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">Conselho Regional
+                                    de Contabilidade de Goiás - CRCGO</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Rua 107, nº 151 - Setor Sul,
+                                    Goiânia - GO, 74085-060</p>
+                                <a class="inline-flex items-center gap-2 text-primary dark:text-white font-semibold hover:underline"
+                                    href="https://maps.app.goo.gl/EZPpSLFSo3M1DUEK7" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <span class="material-symbols-outlined">location_on</span>
+                                    Abrir no Google Maps
+                                </a>
+                            </div>
+                            <div>
+                                <div class="aspect-video w-full rounded-xl overflow-hidden bg-gray-200">
+                                    <iframe
+                                        src="https://maps.google.com/maps?q=Conselho%20Regional%20de%20Contabilidade%20de%20Goi%C3%A1s%2C%20Rua%20107%2C%20151%2C%20Setor%20Sul%2C%20Goi%C3%A2nia&z=16&output=embed"
+                                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="w-full">
+                <section class="py-16 md:py-24 bg-[#F5F5F5]" id="patrocinadores">
+                    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                        <div class="text-center">
+                            <h2
+                                class="text-primary dark:text-white text-4xl font-bold leading-tight tracking-[-0.015em] mb-3">
+                                Nossos Apoiadores</h2>
+                            <p class="text-gray-600 dark:text-gray-400 text-lg">
+                                Agradecemos a todos que tornam este evento possível
+                            </p>
+                        </div>
+
+                        <div class="hexagon-grid">
+                            <div class="hexagon-item"><img alt="Logo Vox" class="hexagon-logo"
+                                    src="logos/vox.webp" /></div>
+                            <div class="hexagon-item"><img alt="Logo Regin" class="hexagon-logo"
+                                    src="logos/logo_regin_tributos.png" /></div>
+                            <div class="hexagon-item"><img alt="Logo Grupo A2" class="hexagon-logo"
+                                    src="logos/grupoA2.png" /></div>
+
+                            <!-- Logo central (ENAJ 2026) -->
+                            <div class="hexagon-center">
+                                <img alt="Logo 43º ENAJ" class="hexagon-center-logo"
+                                    src="assets/logo-enaj-vertical.png" />
+                            </div>
+
+                            <div class="hexagon-item"><img alt="Logo CIP (Nuclea)" class="hexagon-logo"
+                                    src="logos/nuclea.png" /></div>
+                            <div class="hexagon-item"><img alt="Logo NIC.br" class="hexagon-logo"
+                                    src="logos/nic.png" /></div>
+                            <div class="break"></div>
+
+                            <!-- TODO: substituir os nomes abaixo pelas logos quando forem enviadas -->
+                            <div class="hexagon-item"><span
+                                    class="px-3 text-center text-xs font-bold text-primary">ALTURA ASSESSORIA</span>
+                            </div>
+                            <div class="hexagon-item"><span
+                                    class="px-3 text-center text-xs font-bold text-primary">R2DA TECNOLOGIA</span>
+                            </div>
+                            <div class="hexagon-item"><span
+                                    class="px-3 text-center text-xs font-bold text-primary">BRENO</span>
+                            </div>
+                            <div class="hexagon-item"><span
+                                    class="px-3 text-center text-xs font-bold text-primary">CONTABILIZEI</span>
+                            </div>
+                            <div class="break"></div>
+
+                            <div class="flex flex-col gap-2 items-center">
+                                <p class="border-b-4 border-primary p-4 font-bold">Realização</p>
+                                <div class="flex gap-3">
+
+                                    <div class="hexagon-item-realizacao"><img alt="Logo FENAJU" class="hexagon-logo"
+                                            src="logos/fenaju.png" />
+                                    </div>
+
+                                    <div class="hexagon-item-realizacao"><img alt="Logo JUCEG" class="hexagon-logo"
+                                            src="logos/juceg.png" />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="w-full bg-primary text-white">
+            <div
+                class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 py-6 text-center sm:px-6 sm:flex-row sm:text-left">
+                <p class="text-sm opacity-80">© 2026 - 43º Encontro Nacional das Juntas Comerciais. Todos os direitos
+                    reservados.</p>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">mail</span>
+                    <a class="text-sm opacity-80 hover:opacity-100"
+                        href="mailto:presidencia@fenaju.org.br">presidencia@fenaju.org.br</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
