@@ -13,9 +13,11 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
-    <script src="config.js"></script>
-    <link href="style.css" rel="stylesheet" />
+    <script src="js/tailwind.config.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
 
+    <script type="module" src="js/menu.js"></script>
+    <script type="module" src="js/inscricao.js"></script>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
@@ -26,7 +28,7 @@
             <div class="flex items-center justify-between w-full max-w-5xl px-4 py-3 sm:px-6">
                 <a class="flex items-center gap-3 text-primary dark:text-white" href="index.html">
                     <div class="size-8">
-                        <img src="assets/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
+                        <img src="assets/img/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
                             class="w-full h-full object-contain">
                     </div>
                     <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ENAJ</h2>
@@ -103,7 +105,7 @@
                             </button>
                         </div>
                         <div class="hidden w-56 flex-shrink-0 rounded-xl bg-white p-5 shadow-lg md:block">
-                            <img src="assets/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ" class="h-auto w-full object-contain">
+                            <img src="assets/img/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ" class="h-auto w-full object-contain">
                         </div>
                     </div>
                 </section>
@@ -117,7 +119,7 @@
                                 <label>Site <input type="text" name="site" tabindex="-1" autocomplete="off"></label>
                             </div>
 
-                        <div class="p-6 sm:p-8">
+                        <div class="etapa p-6 sm:p-8">
                             <div class="flex gap-4">
                                 <span class="flex size-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">1</span>
                                 <div class="min-w-0 flex-1">
@@ -143,282 +145,27 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-6 sm:p-8">
+                        <div class="etapa p-6 sm:p-8">
                             <div class="flex gap-4">
                                 <span class="flex size-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">2</span>
                                 <div class="min-w-0 flex-1">
                                     <h2 class="text-lg font-bold text-gray-900">Junta Comercial que representa <span class="text-red-600">*</span></h2>
                                     <p class="mt-1 text-sm text-gray-500">Selecione a sua Junta.</p>
                                     <div class="mt-5">
-                                <div class="grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-4">
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEAC (Acre)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEAC</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Acre</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEAL (Alagoas)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEAL</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Alagoas</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCAP (Amapá)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCAP</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Amapá</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEA (Amazonas)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEA</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Amazonas</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEB (Bahia)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEB</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Bahia</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEC (Ceará)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEC</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Ceará</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCIS-DF (Distrito Federal)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCIS-DF</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Distrito Federal</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEES (Espírito Santo)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEES</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Espírito Santo</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEG (Goiás)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEG</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Goiás</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEMA (Maranhão)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEMA</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Maranhão</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEMAT (Mato Grosso)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEMAT</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Mato Grosso</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEMS (Mato Grosso do Sul)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEMS</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Mato Grosso do Sul</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEMG (Minas Gerais)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEMG</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Minas Gerais</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEPA (Pará)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEPA</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Pará</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEP (Paraíba)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEP</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Paraíba</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEPAR (Paraná)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEPAR</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Paraná</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEPE (Pernambuco)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEPE</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Pernambuco</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCEPI (Piauí)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCEPI</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Piauí</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCERJA (Rio de Janeiro)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCERJA</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Rio de Janeiro</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCERN (Rio Grande do Norte)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCERN</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Rio Grande do Norte</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCISRS (Rio Grande do Sul)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCISRS</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Rio Grande do Sul</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCER (Rondônia)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCER</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Rondônia</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCERR (Roraima)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCERR</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Roraima</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCESC (Santa Catarina)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCESC</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Santa Catarina</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCESP (São Paulo)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCESP</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">São Paulo</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCESE (Sergipe)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCESE</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Sergipe</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="junta" value="JUCETINS (Tocantins)" class="op-input sr-only" required>
-                                        <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
-                                            <span class="text-sm font-bold">JUCETINS</span>
-                                            <span class="op-sub truncate text-xs text-gray-500">Tocantins</span>
-                                        </span>
-                                    </label>
-                                </div>
+                                <div id="opcoes-juntas" class="grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-4"></div>
                                     </div>
                                     <p class="campo-erro mt-3 hidden items-center gap-1 text-sm font-medium text-red-600" data-erro="junta"></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="p-6 sm:p-8">
+                        <div class="etapa p-6 sm:p-8">
                             <div class="flex gap-4">
                                 <span class="flex size-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">3</span>
                                 <div class="min-w-0 flex-1">
                                     <h2 class="text-lg font-bold text-gray-900">Integrantes da equipe que pretende trazer ao ENAJ <span class="text-red-600">*</span></h2>
                                     <p class="mt-1 text-sm text-gray-500">Marque todos que se aplicam.</p>
                                     <div class="mt-5">
-                                <div class="flex flex-wrap gap-2">
-                                    <label class="inline-block cursor-pointer select-none">
-                                        <input type="checkbox" name="integrantes" value="Presidente" class="op-input sr-only">
-                                        <span class="op-chip inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-primary/60">
-                                            <span class="ic-add material-symbols-outlined text-[18px]">add</span>
-                                            <span class="ic-check material-symbols-outlined text-[18px]">check</span>
-                                            Presidente
-                                        </span>
-                                    </label>
-                                    <label class="inline-block cursor-pointer select-none">
-                                        <input type="checkbox" name="integrantes" value="Vice-Presidente" class="op-input sr-only">
-                                        <span class="op-chip inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-primary/60">
-                                            <span class="ic-add material-symbols-outlined text-[18px]">add</span>
-                                            <span class="ic-check material-symbols-outlined text-[18px]">check</span>
-                                            Vice-Presidente
-                                        </span>
-                                    </label>
-                                    <label class="inline-block cursor-pointer select-none">
-                                        <input type="checkbox" name="integrantes" value="Procurador" class="op-input sr-only">
-                                        <span class="op-chip inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-primary/60">
-                                            <span class="ic-add material-symbols-outlined text-[18px]">add</span>
-                                            <span class="ic-check material-symbols-outlined text-[18px]">check</span>
-                                            Procurador
-                                        </span>
-                                    </label>
-                                    <label class="inline-block cursor-pointer select-none">
-                                        <input type="checkbox" name="integrantes" value="Secretária-Geral" class="op-input sr-only">
-                                        <span class="op-chip inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-primary/60">
-                                            <span class="ic-add material-symbols-outlined text-[18px]">add</span>
-                                            <span class="ic-check material-symbols-outlined text-[18px]">check</span>
-                                            Secretária-Geral
-                                        </span>
-                                    </label>
-                                    <label class="inline-block cursor-pointer select-none">
-                                        <input type="checkbox" name="integrantes" value="Diretoria Técnica" class="op-input sr-only">
-                                        <span class="op-chip inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-primary/60">
-                                            <span class="ic-add material-symbols-outlined text-[18px]">add</span>
-                                            <span class="ic-check material-symbols-outlined text-[18px]">check</span>
-                                            Diretoria Técnica
-                                        </span>
-                                    </label>
-                                    <label class="inline-block cursor-pointer select-none">
-                                        <input type="checkbox" name="integrantes" value="Gerente de Tecnologia" class="op-input sr-only">
-                                        <span class="op-chip inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-primary/60">
-                                            <span class="ic-add material-symbols-outlined text-[18px]">add</span>
-                                            <span class="ic-check material-symbols-outlined text-[18px]">check</span>
-                                            Gerente de Tecnologia
-                                        </span>
-                                    </label>
-                                    <label class="inline-block cursor-pointer select-none">
-                                        <input type="checkbox" name="integrantes" value="Gerente de REDESIM" class="op-input sr-only">
-                                        <span class="op-chip inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-primary/60">
-                                            <span class="ic-add material-symbols-outlined text-[18px]">add</span>
-                                            <span class="ic-check material-symbols-outlined text-[18px]">check</span>
-                                            Gerente de REDESIM
-                                        </span>
-                                    </label>
-                                    <label class="inline-block cursor-pointer select-none">
-                                        <input type="checkbox" name="integrantes" value="Gerente de Cadastro" class="op-input sr-only">
-                                        <span class="op-chip inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-primary/60">
-                                            <span class="ic-add material-symbols-outlined text-[18px]">add</span>
-                                            <span class="ic-check material-symbols-outlined text-[18px]">check</span>
-                                            Gerente de Cadastro
-                                        </span>
-                                    </label>
-                                </div>
+                                <div id="opcoes-integrantes" class="flex flex-wrap gap-2"></div>
                                 <div class="mt-4">
                                     <label for="integrantes-outro" class="mb-2 block text-sm font-semibold text-gray-700">Outros integrantes</label>
                                     <input type="checkbox" name="integrantes" value="Outro" id="integrantes-outro-check" class="sr-only" tabindex="-1" aria-hidden="true">
@@ -432,39 +179,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-6 sm:p-8">
+                        <div class="etapa p-6 sm:p-8">
                             <div class="flex gap-4">
                                 <span class="flex size-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">4</span>
                                 <div class="min-w-0 flex-1">
                                     <h2 class="text-lg font-bold text-gray-900">Visita técnica a Pirenópolis (GO) <span class="text-red-600">*</span></h2>
                                     <p class="mt-1 text-sm text-gray-500">Está entre os seus planos participar, por adesão, da visita técnica a Pirenópolis (GO), prevista como atividade complementar à programação do ENAJ nos dias 04 e 05 de dezembro de 2026?</p>
                                     <div class="mt-5">
-                                <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="visita_pirenopolis" value="Sim, tenho interesse em participar" class="op-input sr-only" required>
-                                        <span class="op-card relative flex h-full flex-col items-center gap-2 rounded-xl border-2 border-gray-200 bg-white p-5 text-center transition-all hover:border-primary/50">
-                                            <span class="op-badge material-symbols-outlined absolute right-2 top-2 text-[20px]">check_circle</span>
-                                            <span class="op-icon material-symbols-outlined text-3xl text-gray-400">event_available</span>
-                                            <span class="op-label text-sm font-semibold text-gray-700">Sim, tenho interesse</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="visita_pirenopolis" value="Não pretendo participar" class="op-input sr-only" required>
-                                        <span class="op-card relative flex h-full flex-col items-center gap-2 rounded-xl border-2 border-gray-200 bg-white p-5 text-center transition-all hover:border-primary/50">
-                                            <span class="op-badge material-symbols-outlined absolute right-2 top-2 text-[20px]">check_circle</span>
-                                            <span class="op-icon material-symbols-outlined text-3xl text-gray-400">event_busy</span>
-                                            <span class="op-label text-sm font-semibold text-gray-700">Não pretendo participar</span>
-                                        </span>
-                                    </label>
-                                    <label class="block cursor-pointer">
-                                        <input type="radio" name="visita_pirenopolis" value="Ainda não tenho uma definição" class="op-input sr-only" required>
-                                        <span class="op-card relative flex h-full flex-col items-center gap-2 rounded-xl border-2 border-gray-200 bg-white p-5 text-center transition-all hover:border-primary/50">
-                                            <span class="op-badge material-symbols-outlined absolute right-2 top-2 text-[20px]">check_circle</span>
-                                            <span class="op-icon material-symbols-outlined text-3xl text-gray-400">help</span>
-                                            <span class="op-label text-sm font-semibold text-gray-700">Ainda não sei</span>
-                                        </span>
-                                    </label>
-                                </div>
+                                <div id="opcoes-visita" class="grid grid-cols-1 gap-3 sm:grid-cols-3"></div>
                                 <div class="mt-4 flex gap-2 rounded-lg bg-amber-50 p-4 text-sm text-amber-900">
                                     <span class="material-symbols-outlined text-[20px]">info</span>
                                     <p>A participação na visita técnica será realizada mediante adesão e estará condicionada às
@@ -486,6 +208,37 @@
                                 <p class="mt-3 text-center text-xs text-gray-500">Campos marcados com <span class="text-red-600">*</span> são obrigatórios.</p>
                             </div>
                         </form>
+
+                        <!-- Modelos das opções; preenchidos por js/inscricao.js com os dados de /api/opcoes -->
+                        <template id="tpl-junta">
+                            <label class="block cursor-pointer">
+                                <input type="radio" name="junta" class="op-input sr-only" required>
+                                <span class="op-tile flex flex-col rounded-lg border border-gray-200 bg-white px-3 py-2.5 transition-all hover:border-primary/60 hover:shadow-sm">
+                                    <span data-campo="sigla" class="text-sm font-bold"></span>
+                                    <span data-campo="estado" class="op-sub truncate text-xs text-gray-500"></span>
+                                </span>
+                            </label>
+                        </template>
+                        <template id="tpl-integrante">
+                            <label class="inline-block cursor-pointer select-none">
+                                <input type="checkbox" name="integrantes" class="op-input sr-only">
+                                <span class="op-chip inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-primary/60">
+                                    <span class="ic-add material-symbols-outlined text-[18px]">add</span>
+                                    <span class="ic-check material-symbols-outlined text-[18px]">check</span>
+                                    <span data-campo="rotulo"></span>
+                                </span>
+                            </label>
+                        </template>
+                        <template id="tpl-visita">
+                            <label class="block cursor-pointer">
+                                <input type="radio" name="visita_pirenopolis" class="op-input sr-only" required>
+                                <span class="op-card relative flex h-full flex-col items-center gap-2 rounded-xl border-2 border-gray-200 bg-white p-5 text-center transition-all hover:border-primary/50">
+                                    <span class="op-badge material-symbols-outlined absolute right-2 top-2 text-[20px]">check_circle</span>
+                                    <span data-campo="icone" class="op-icon material-symbols-outlined text-3xl text-gray-400"></span>
+                                    <span data-campo="rotulo" class="op-label text-sm font-semibold text-gray-700"></span>
+                                </span>
+                            </label>
+                        </template>
 
                     </div>
 
@@ -583,167 +336,6 @@
         </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('form-inscricao');
-            const botao = document.getElementById('form-enviar');
-            const erroGeral = document.getElementById('form-erro-geral');
-            const outroCheck = document.getElementById('integrantes-outro-check');
-            const outroTexto = document.getElementById('integrantes-outro');
-
-            // Digitar em "Outro" já marca a opção
-            outroTexto.addEventListener('input', function () {
-                outroCheck.checked = outroTexto.value.trim() !== '';
-            });
-
-            function mostrarErros(erros) {
-                document.querySelectorAll('.campo-erro').forEach(function (el) {
-                    const msg = erros[el.dataset.erro];
-                    el.textContent = msg || '';
-                    el.classList.toggle('hidden', !msg);
-                    el.classList.toggle('flex', !!msg);
-                });
-                const primeiro = Object.keys(erros)[0];
-                if (primeiro) {
-                    const alvo = document.querySelector('[data-erro="' + primeiro + '"]');
-                    alvo.closest('.p-6').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }
-
-            function validar(dados) {
-                const erros = {};
-                if (!dados.nome_presidente) erros.nome_presidente = 'Informe o nome do presidente da Junta Comercial.';
-                if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(dados.email)) erros.email = 'Informe um e-mail válido.';
-                if (!dados.junta) erros.junta = 'Selecione a Junta Comercial que representa.';
-                if (dados.integrantes.includes('Outro') && !dados.integrantes_outro) {
-                    erros.integrantes = 'Descreva os outros integrantes da equipe.';
-                } else if (dados.integrantes.length === 0) {
-                    erros.integrantes = 'Selecione pelo menos um integrante da equipe.';
-                }
-                if (!dados.visita_pirenopolis) erros.visita_pirenopolis = 'Selecione uma opção.';
-                return erros;
-            }
-
-            form.addEventListener('submit', async function (e) {
-                e.preventDefault();
-                erroGeral.classList.add('hidden');
-
-                const fd = new FormData(form);
-                const dados = {
-                    nome_presidente: (fd.get('nome_presidente') || '').trim(),
-                    email: (fd.get('email') || '').trim(),
-                    junta: fd.get('junta') || '',
-                    integrantes: fd.getAll('integrantes'),
-                    integrantes_outro: (fd.get('integrantes_outro') || '').trim(),
-                    visita_pirenopolis: fd.get('visita_pirenopolis') || '',
-                    site: fd.get('site') || ''
-                };
-
-                const erros = validar(dados);
-                mostrarErros(erros);
-                if (Object.keys(erros).length) return;
-
-                botao.disabled = true;
-                try {
-                    const resp = await fetch('/api/inscricoes', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(dados)
-                    });
-                    const json = await resp.json().catch(function () { return {}; });
-
-                    if (resp.ok && json.ok) {
-                        if (json.codigo) {
-                            location.href = 'confirmacao.html?c=' + encodeURIComponent(json.codigo);
-                        }
-                        return;
-                    } else if (json.erros) {
-                        mostrarErros(json.erros);
-                    } else if (json.ja_inscrito) {
-                        erroGeral.innerHTML = '';
-                        erroGeral.append(json.erro + ' ');
-                        const link = document.createElement('button');
-                        link.type = 'button';
-                        link.className = 'font-bold underline';
-                        link.textContent = 'Acessar minha inscrição';
-                        link.addEventListener('click', function () { abrirAcesso(dados.email); });
-                        erroGeral.append(link);
-                        erroGeral.classList.remove('hidden');
-                    } else {
-                        throw new Error(json.erro || 'Erro ao enviar.');
-                    }
-                } catch (err) {
-                    erroGeral.textContent = (err && err.message && err.message !== 'Failed to fetch')
-                        ? err.message
-                        : 'Não foi possível enviar agora. Verifique sua conexão e tente novamente.';
-                    erroGeral.classList.remove('hidden');
-                } finally {
-                    botao.disabled = false;
-                }
-            });
-
-            // ===== Acesso à inscrição pelo e-mail =====
-            const dlg = document.getElementById('dlg-acesso');
-            const formAcesso = document.getElementById('form-acesso');
-            const acessoEmail = document.getElementById('acesso-email');
-            const acessoErro = document.getElementById('acesso-erro');
-            const acessoBotao = document.getElementById('acesso-enviar');
-
-            function abrirAcesso(email) {
-                acessoErro.classList.add('hidden');
-                if (email) acessoEmail.value = email;
-                dlg.showModal();
-                acessoEmail.focus();
-            }
-
-            document.querySelectorAll('[data-abrir-acesso]').forEach(function (b) {
-                b.addEventListener('click', function () { abrirAcesso(); });
-            });
-            document.querySelector('[data-fechar-acesso]').addEventListener('click', function () { dlg.close(); });
-            dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
-            if (location.hash === '#acesso') abrirAcesso();
-
-            formAcesso.addEventListener('submit', async function (e) {
-                e.preventDefault();
-                const email = acessoEmail.value.trim();
-                acessoErro.classList.add('hidden');
-                if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-                    acessoErro.textContent = 'Informe um e-mail válido.';
-                    acessoErro.classList.remove('hidden');
-                    return;
-                }
-                acessoBotao.disabled = true;
-                try {
-                    const resp = await fetch('/api/inscricoes/acesso', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email: email })
-                    });
-                    const json = await resp.json().catch(function () { return {}; });
-                    if (resp.ok && json.ok) {
-                        location.href = 'confirmacao.html?c=' + encodeURIComponent(json.codigo);
-                        return;
-                    }
-                    acessoErro.textContent = json.erro || 'Não foi possível buscar agora. Tente novamente.';
-                } catch (err) {
-                    acessoErro.textContent = 'Não foi possível buscar agora. Verifique sua conexão e tente novamente.';
-                }
-                acessoErro.classList.remove('hidden');
-                acessoBotao.disabled = false;
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            if (menuToggle && mobileMenu) {
-                menuToggle.addEventListener('click', function () {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>

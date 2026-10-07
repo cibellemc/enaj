@@ -13,11 +13,11 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
-    <script src="config.js"></script>
-    <script src="assets/js/qrcode.min.js"></script>
-    <script src="assets/js/html2canvas.min.js"></script>
-    <link href="style.css" rel="stylesheet" />
+    <script src="js/tailwind.config.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
 
+    <script type="module" src="js/menu.js"></script>
+    <script type="module" src="js/confirmacao.js"></script>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
@@ -28,7 +28,7 @@
             <div class="flex items-center justify-between w-full max-w-5xl px-4 py-3 sm:px-6">
                 <a class="flex items-center gap-3 text-primary dark:text-white" href="index.html">
                     <div class="size-8">
-                        <img src="assets/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
+                        <img src="assets/img/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
                             class="w-full h-full object-contain">
                     </div>
                     <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ENAJ</h2>
@@ -99,7 +99,7 @@
                         <div class="relative rounded-t-3xl bg-primary px-7 pb-7 pt-7 text-white">
                             <div class="flex items-center gap-4">
                                 <div class="flex size-16 flex-shrink-0 items-center justify-center rounded-xl bg-white p-1.5">
-                                    <img src="assets/logo-enaj-vertical.png" alt="Logo 43º ENAJ" class="h-full w-full object-contain">
+                                    <img src="assets/img/logo-enaj-vertical.png" alt="Logo 43º ENAJ" class="h-full w-full object-contain">
                                 </div>
                                 <div>
                                     <p class="text-2xl font-black leading-none">43º ENAJ</p>
@@ -198,80 +198,6 @@
         </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', async function () {
-            const codigo = new URLSearchParams(location.search).get('c') || '';
-            const mostrar = function (id) {
-                ['estado-carregando', 'estado-erro', 'estado-card'].forEach(function (e) {
-                    const el = document.getElementById(e);
-                    el.classList.toggle('hidden', e !== id);
-                    el.classList.toggle('flex', e === id);
-                });
-            };
-
-            let insc;
-            try {
-                const resp = await fetch('/api/inscricoes/' + encodeURIComponent(codigo));
-                const json = await resp.json();
-                if (!resp.ok || !json.ok) throw new Error();
-                insc = json.inscricao;
-            } catch (e) {
-                mostrar('estado-erro');
-                return;
-            }
-
-            const numero = 'Nº ' + String(insc.numero).padStart(4, '0');
-            const equipe = insc.integrantes.slice();
-            if (insc.integrantes_outro) equipe.push(insc.integrantes_outro);
-
-            document.getElementById('c-nome').textContent = insc.nome_presidente;
-            document.getElementById('c-junta').textContent = insc.junta;
-            document.getElementById('c-equipe').textContent = equipe.join(', ');
-            document.getElementById('c-numero').textContent = numero;
-            document.getElementById('c-email').textContent = insc.email;
-            document.getElementById('c-visita').textContent = insc.visita_pirenopolis;
-            document.getElementById('c-data').textContent = new Date(insc.criado_em).toLocaleString('pt-BR', {
-                dateStyle: 'short', timeStyle: 'short', timeZone: 'America/Sao_Paulo'
-            });
-
-            // O QR code abre a página de validação de entrada
-            const urlValidacao = location.origin + location.pathname.replace(/[^/]*$/, '') + 'validar.html?c=' + encodeURIComponent(insc.codigo);
-            const qr = qrcode(0, 'M');
-            qr.addData(urlValidacao);
-            qr.make();
-            document.getElementById('c-qr').src = qr.createDataURL(8, 0);
-
-            mostrar('estado-card');
-
-            document.getElementById('btn-baixar').addEventListener('click', async function () {
-                const botao = this;
-                botao.disabled = true;
-                try {
-                    const canvas = await html2canvas(document.getElementById('card'), {
-                        scale: 3,
-                        backgroundColor: null
-                    });
-                    const link = document.createElement('a');
-                    link.download = 'inscricao-enaj-2026-' + String(insc.numero).padStart(4, '0') + '.png';
-                    link.href = canvas.toDataURL('image/png');
-                    link.click();
-                } finally {
-                    botao.disabled = false;
-                }
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            if (menuToggle && mobileMenu) {
-                menuToggle.addEventListener('click', function () {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>

@@ -249,3 +249,24 @@ main {
 .op-input:checked + .op-card .op-icon,
 .op-input:checked + .op-card .op-label { color: #0a3a9a; }
 .op-input:checked + .op-card .op-badge { display: inline; }
+
+/* ===== Recomendações gerais: PDF incorporado ===== */
+.pdf-container {
+    width: 100%;
+    height: 800px;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .pdf-container {
+        height: 600px;
+    }
+}
+
+/* Logos quadradas ficam grandes demais no tamanho padrão do hexágono */
+.hexagon-logo--compacta {
+    width: 42%;
+    height: 42%;
+}

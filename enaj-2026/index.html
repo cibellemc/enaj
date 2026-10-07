@@ -13,9 +13,11 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
-    <script src="config.js"></script>
-    <link href="style.css" rel="stylesheet" />
+    <script src="js/tailwind.config.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
 
+    <script type="module" src="js/menu.js"></script>
+    <script type="module" src="js/carrossel.js"></script>
 </head>
 
 <body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
@@ -26,7 +28,7 @@
             <div class="flex items-center justify-between w-full max-w-5xl px-4 py-3 sm:px-6">
                 <a class="flex items-center gap-3 text-primary dark:text-white" href="index.html">
                     <div class="size-8">
-                        <img src="assets/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
+                        <img src="assets/img/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
                             class="w-full h-full object-contain">
                     </div>
                     <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ENAJ</h2>
@@ -97,7 +99,7 @@
                                     </a>
                                 </div>
                                 <div class="w-36 md:w-72 flex-shrink-0 self-center bg-white rounded-xl p-6">
-                                    <img src="assets/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
+                                    <img src="assets/img/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
                                         class="w-full h-auto object-contain">
                                 </div>
                             </div>
@@ -105,7 +107,7 @@
 
                         <div id="slide-1" class="carousel-slide w-full flex-shrink-0">
                             <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end px-14 py-10 md:px-16 pb-14"
-                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%), url("assets/carrossel/local-crcgo.jpg");'>
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%), url("assets/img/carrossel/local-crcgo.jpg");'>
                                 <div class="flex flex-col gap-4 text-left max-w-3xl">
                                     <p class="font-semibold text-white/90">LOCAL DO EVENTO</p>
                                     <h1 class="text-white text-3xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">Conselho Regional de Contabilidade de Goiás</h1>
@@ -120,7 +122,7 @@
 
                         <div id="slide-2" class="carousel-slide w-full flex-shrink-0">
                             <div class="flex min-h-[480px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end px-14 py-10 md:px-16 pb-14"
-                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%), url("assets/carrossel/praca-civica.jpg");'>
+                                style='background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%), url("assets/img/carrossel/praca-civica.jpg");'>
                                 <div class="flex flex-col gap-4 text-left max-w-3xl">
                                     <p class="font-semibold text-white/90">BEM-VINDOS A GOIÂNIA</p>
                                     <h1 class="text-white text-3xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">Goiânia é bom demais da conta!</h1>
@@ -226,12 +228,12 @@
                             </div>
 
                             <div class="relative min-h-[260px] bg-cover bg-center md:col-span-2"
-                                style='background-image: url("assets/fenaju-brasil.jpg");'
+                                style='background-image: url("assets/img/fenaju-brasil.jpg");'
                                 data-alt="Mapa do Brasil com a bandeira nacional">
                                 <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent md:bg-gradient-to-r"></div>
                                 <div
                                     class="absolute bottom-6 left-1/2 flex -translate-x-1/2 items-center justify-center rounded-xl bg-white px-6 py-4 shadow-lg">
-                                    <img src="logos/fenaju.png" alt="Logo FENAJU" class="h-12 w-auto object-contain">
+                                    <img src="assets/logos/fenaju.png" alt="Logo FENAJU" class="h-12 w-auto object-contain">
                                 </div>
                             </div>
                         </div>
@@ -318,11 +320,11 @@
                     </div>
                     <div class="w-full gap-4 overflow-hidden aspect-[2/1] grid grid-cols-2">
                         <div class="w-full h-full bg-center bg-no-repeat bg-cover rounded-xl"
-                            data-alt="Parque Flamboyant" style='background-image: url("assets/cidade/parque-flamboyant.jpg");'>
+                            data-alt="Parque Flamboyant" style='background-image: url("assets/img/cidade/parque-flamboyant.jpg");'>
                         </div>
                         <div class="w-full h-full bg-center bg-no-repeat bg-cover rounded-xl"
                             data-alt="Bosque dos Buritis"
-                            style='background-image: url("assets/cidade/bosque-dos-buritis.jpg");'>
+                            style='background-image: url("assets/img/cidade/bosque-dos-buritis.jpg");'>
                         </div>
                     </div>
                 </section>
@@ -371,26 +373,26 @@
 
                         <div class="hexagon-grid">
                             <div class="hexagon-item"><img alt="Logo Vox" class="hexagon-logo"
-                                    src="logos/vox.webp" /></div>
+                                    src="assets/logos/vox.webp" /></div>
                             <div class="hexagon-item"><img alt="Logo Regin" class="hexagon-logo"
-                                    src="logos/logo_regin_tributos.png" /></div>
+                                    src="assets/logos/logo_regin_tributos.png" /></div>
                             <div class="hexagon-item"><img alt="Logo Grupo A2" class="hexagon-logo"
-                                    src="logos/grupoA2.png" /></div>
+                                    src="assets/logos/grupoA2.png" /></div>
 
 
                             <div class="hexagon-item"><img alt="Logo CIP (Nuclea)" class="hexagon-logo"
-                                    src="logos/nuclea.png" /></div>
+                                    src="assets/logos/nuclea.png" /></div>
                             <div class="hexagon-item"><img alt="Logo NIC.br" class="hexagon-logo"
-                                    src="logos/nic.png" /></div>
+                                    src="assets/logos/nic.png" /></div>
                             <div class="break"></div>
 
                             <!-- TODO: substituir os nomes abaixo pelas logos quando forem enviadas -->
-                            <div class="hexagon-item"><img alt="Logo Altura Assessoria" class="hexagon-logo" src="logos/altura.png" /></div>
-                            <div class="hexagon-item"><img alt="Logo R2DA Tecnologia" class="hexagon-logo" src="logos/logor2da-escura.svg" /></div>
+                            <div class="hexagon-item"><img alt="Logo Altura Assessoria" class="hexagon-logo" src="assets/logos/altura.png" /></div>
+                            <div class="hexagon-item"><img alt="Logo R2DA Tecnologia" class="hexagon-logo" src="assets/logos/logor2da-escura.svg" /></div>
                             <div class="hexagon-item"><span
                                     class="px-3 text-center text-xs font-bold text-primary">BRENO</span>
                             </div>
-                            <div class="hexagon-item"><img alt="Logo Contabilizei" class="hexagon-logo" style="width: 42%; height: 42%;" src="logos/contabilizei.svg" /></div>
+                            <div class="hexagon-item"><img alt="Logo Contabilizei" class="hexagon-logo hexagon-logo--compacta" src="assets/logos/contabilizei.svg" /></div>
                             <div class="break"></div>
 
                             <div class="flex flex-col gap-2 items-center">
@@ -398,11 +400,11 @@
                                 <div class="flex gap-3">
 
                                     <div class="hexagon-item-realizacao"><img alt="Logo FENAJU" class="hexagon-logo"
-                                            src="logos/fenaju.png" />
+                                            src="assets/logos/fenaju.png" />
                                     </div>
 
                                     <div class="hexagon-item-realizacao"><img alt="Logo JUCEG" class="hexagon-logo"
-                                            src="logos/juceg.png" />
+                                            src="assets/logos/juceg.png" />
                                     </div>
 
                                 </div>
@@ -426,124 +428,6 @@
         </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const carouselContainer = document.getElementById('carousel-container');
-            const prevButton = document.getElementById('carousel-prev');
-            const nextButton = document.getElementById('carousel-next');
-            const dots = document.querySelectorAll('.carousel-dot');
-            const slides = carouselContainer.querySelectorAll('[id^="slide"]');
-            const totalSlides = slides.length;
-            let currentSlideIndex = 0;
-            let scrollTimer;
-            let autoScrollInterval;
-
-            function scrollToSlide(index) {
-                if (slides[index]) {
-                    carouselContainer.scrollTo({
-                        left: slides[index].offsetLeft,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-
-            function updateDots(index) {
-                dots.forEach((dot, i) => {
-                    if (i === index) {
-                        dot.classList.add('bg-white');
-                        dot.classList.remove('bg-white/50');
-                    } else {
-                        dot.classList.remove('bg-white');
-                        dot.classList.add('bg-white/50');
-                    }
-                });
-            }
-
-            function updateCurrentSlide() {
-                const containerCenter = carouselContainer.scrollLeft + carouselContainer.clientWidth / 2;
-                let closestSlideIndex = 0;
-                let minDistance = Infinity;
-
-                slides.forEach((slide, index) => {
-                    const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-                    const distance = Math.abs(containerCenter - slideCenter);
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        closestSlideIndex = index;
-                    }
-                });
-
-                if (closestSlideIndex !== currentSlideIndex) {
-                    currentSlideIndex = closestSlideIndex;
-                    updateDots(currentSlideIndex);
-                }
-            }
-
-            function startAutoScroll() {
-                autoScrollInterval = setInterval(() => {
-                    let newIndex = (currentSlideIndex + 1) % totalSlides;
-                    scrollToSlide(newIndex);
-                }, 5000);
-            }
-
-            function stopAutoScroll() {
-                clearInterval(autoScrollInterval);
-            }
-
-            // Event listeners
-            prevButton.addEventListener('click', () => {
-                stopAutoScroll();
-                let newIndex = Math.max(0, currentSlideIndex - 1);
-                scrollToSlide(newIndex);
-                startAutoScroll();
-            });
-
-            nextButton.addEventListener('click', () => {
-                stopAutoScroll();
-                let newIndex = Math.min(totalSlides - 1, currentSlideIndex + 1);
-                scrollToSlide(newIndex);
-                startAutoScroll();
-            });
-
-            dots.forEach((dot) => {
-                dot.addEventListener('click', (e) => {
-                    stopAutoScroll();
-                    const index = parseInt(e.currentTarget.getAttribute('data-slide-index'));
-                    if (!isNaN(index)) {
-                        scrollToSlide(index);
-                    }
-                    startAutoScroll();
-                });
-            });
-
-            carouselContainer.addEventListener('scroll', () => {
-                clearTimeout(scrollTimer);
-                scrollTimer = setTimeout(updateCurrentSlide, 100);
-            });
-
-            // Pausar auto-scroll quando o usuário interagir manualmente
-            carouselContainer.addEventListener('mouseenter', stopAutoScroll);
-            carouselContainer.addEventListener('mouseleave', startAutoScroll);
-            carouselContainer.addEventListener('touchstart', stopAutoScroll);
-
-            // Inicialização
-            updateDots(0);
-            startAutoScroll();
-
-
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            if (menuToggle && mobileMenu) {
-                menuToggle.addEventListener('click', function () {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>
