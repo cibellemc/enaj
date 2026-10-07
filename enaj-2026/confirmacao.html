@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Confirmação de inscrição - 43º ENAJ</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <script src="config.js"></script>
+    <script src="assets/js/qrcode.min.js"></script>
+    <script src="assets/js/html2canvas.min.js"></script>
+    <link href="style.css" rel="stylesheet" />
+
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root">
+
+        <header
+            class="sticky top-0 z-50 flex flex-col items-center whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark">
+            <div class="flex items-center justify-between w-full max-w-5xl px-4 py-3 sm:px-6">
+                <a class="flex items-center gap-3 text-primary dark:text-white" href="index.html">
+                    <div class="size-8">
+                        <img src="assets/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ENAJ</h2>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="index.html">Início</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="programacao.html">Programação</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="orientacoes-gerais.html">Recomendações Gerais</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="inscricao.html">Inscrição</a>
+                    <a class="flex items-center gap-1 rounded-lg border border-primary/30 px-3 py-1.5 text-primary dark:text-white hover:bg-primary/5 text-sm font-medium leading-normal"
+                        href="../index.html">
+                        <span class="material-symbols-outlined text-base">arrow_back</span>
+                        Todos os eventos
+                    </a>
+                </nav>
+
+                <button id="menu-toggle"
+                    class="md:hidden rounded-lg p-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden w-full md:hidden border-t border-gray-200 dark:border-gray-800">
+                <nav class="flex flex-col gap-1 p-4">
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="index.html">Início</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="programacao.html">Programação</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="orientacoes-gerais.html">Recomendações Gerais</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="inscricao.html">Inscrição</a>
+                    <a class="flex items-center gap-2 rounded-lg px-4 py-2 text-primary dark:text-white hover:bg-black/5 dark:hover:bg-white/5 text-sm font-semibold leading-normal"
+                        href="../index.html">
+                        <span class="material-symbols-outlined text-base">arrow_back</span>
+                        Todos os eventos
+                    </a>
+            </div>
+        </header>
+        <main class="flex w-full flex-1 flex-col items-center bg-gray-100 px-4 py-10 sm:px-6 sm:py-14">
+            <div class="w-full max-w-5xl">
+
+                <div id="estado-carregando" class="flex flex-col items-center gap-3 py-24 text-gray-500">
+                    <span class="material-symbols-outlined animate-spin text-4xl">progress_activity</span>
+                    <p>Carregando sua inscrição...</p>
+                </div>
+
+                <div id="estado-erro" class="mx-auto hidden max-w-md flex-col items-center gap-4 rounded-2xl bg-white p-10 text-center shadow-sm">
+                    <span class="flex size-16 items-center justify-center rounded-full bg-red-100">
+                        <span class="material-symbols-outlined text-4xl text-red-600">search_off</span>
+                    </span>
+                    <h1 class="text-2xl font-black text-gray-900">Inscrição não encontrada</h1>
+                    <p class="text-gray-600">O link pode estar incompleto. Acesse sua inscrição informando o e-mail
+                        usado no cadastro.</p>
+                    <a href="inscricao.html#acesso" class="mt-2 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-white hover:bg-opacity-90">
+                        <span class="material-symbols-outlined text-[20px]">mail</span>Acessar com o e-mail</a>
+                </div>
+
+                <div id="estado-card" class="hidden flex-col items-center gap-8 lg:flex-row lg:items-start lg:justify-center lg:gap-12">
+
+                    <!-- Card de confirmação (é este bloco que vira a imagem para download) -->
+                    <div id="card" class="w-full max-w-[400px] overflow-hidden rounded-3xl bg-white shadow-2xl">
+                        <div class="relative rounded-t-3xl bg-primary px-7 pb-7 pt-7 text-white">
+                            <div class="flex items-center gap-4">
+                                <div class="flex size-16 flex-shrink-0 items-center justify-center rounded-xl bg-white p-1.5">
+                                    <img src="assets/logo-enaj-vertical.png" alt="Logo 43º ENAJ" class="h-full w-full object-contain">
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-black leading-none">43º ENAJ</p>
+                                    <p class="mt-1 text-xs leading-snug text-white/80">Encontro Nacional das<br>Juntas Comerciais</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 inline-block rounded-full bg-accent px-3 py-1.5 text-[11px] font-black uppercase leading-none tracking-wider text-primary">✓ Inscrição confirmada</div>
+                        </div>
+
+                        <!-- Picote do ingresso -->
+                        <div class="relative h-6">
+                            <div class="absolute -left-3 top-0 size-6 rounded-full bg-gray-100"></div>
+                            <div class="absolute -right-3 top-0 size-6 rounded-full bg-gray-100"></div>
+                            <div class="absolute left-5 right-5 top-3 border-t-2 border-dashed border-gray-200"></div>
+                        </div>
+
+                        <div class="px-7 pb-6">
+                            <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400">Participante</p>
+                            <p id="c-nome" class="mt-1 text-xl font-black leading-tight text-gray-900"></p>
+                            <p id="c-junta" class="mt-1 text-sm font-semibold text-primary"></p>
+
+                            <div class="mt-5 grid grid-cols-2 gap-4 border-y border-gray-100 py-4 text-xs">
+                                <div>
+                                    <p class="flex items-center gap-1 font-bold uppercase tracking-wider text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Datas</p>
+                                    <p class="mt-1 font-semibold text-gray-800">1º a 3 de dezembro de 2026</p>
+                                </div>
+                                <div>
+                                    <p class="flex items-center gap-1 font-bold uppercase tracking-wider text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Local</p>
+                                    <p class="mt-1 font-semibold text-gray-800">CRCGO · Goiânia (GO)</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400">Equipe</p>
+                                <p id="c-equipe" class="mt-1 text-sm text-gray-700"></p>
+                            </div>
+
+                            <div class="mt-6 flex flex-col items-center">
+                                <div class="rounded-2xl border-2 border-gray-100 p-3">
+                                    <img id="c-qr" alt="QR code de validação da inscrição" class="size-44" style="image-rendering: pixelated;">
+                                </div>
+                                <p id="c-numero" class="mt-3 text-lg font-black tracking-widest text-gray-900"></p>
+                                <p class="text-center text-xs text-gray-500">Apresente este QR code no credenciamento</p>
+                            </div>
+
+                            <div class="mx-auto mt-6 grid h-1.5 w-32 grid-cols-4">
+                                <div class="bg-primary"></div>
+                                <div class="bg-accent"></div>
+                                <div class="bg-[#f7941d]"></div>
+                                <div class="bg-[#2e9e3e]"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="flex w-full max-w-[400px] flex-col gap-4 lg:max-w-sm lg:pt-6">
+                        <div>
+                            <h1 class="text-3xl font-black tracking-tight text-gray-900">Sua inscrição está confirmada!</h1>
+                            <p class="mt-2 text-gray-600">Baixe o card e apresente o QR code no credenciamento do evento.
+                                Você também pode voltar a esta página quando quiser, informando seu e-mail em
+                                <a href="inscricao.html#acesso" class="font-semibold text-primary underline">Acessar inscrição</a>.</p>
+                        </div>
+                        <button id="btn-baixar" type="button"
+                            class="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-yellow-400 px-6 text-base font-bold text-blue-900 shadow-sm transition-all hover:bg-yellow-300 hover:shadow-md disabled:cursor-wait disabled:opacity-60">
+                            <span class="material-symbols-outlined">download</span>
+                            <span>Baixar card</span>
+                        </button>
+                        <div class="rounded-xl bg-white p-5 text-sm text-gray-600 shadow-sm">
+                            <p class="font-semibold text-gray-800">Dados da inscrição</p>
+                            <dl class="mt-3 space-y-2">
+                                <div><dt class="text-xs uppercase tracking-wide text-gray-400">E-mail</dt><dd id="c-email" class="font-medium text-gray-800 break-all"></dd></div>
+                                <div><dt class="text-xs uppercase tracking-wide text-gray-400">Visita técnica a Pirenópolis</dt><dd id="c-visita" class="font-medium text-gray-800"></dd></div>
+                                <div><dt class="text-xs uppercase tracking-wide text-gray-400">Inscrito em</dt><dd id="c-data" class="font-medium text-gray-800"></dd></div>
+                            </dl>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <a class="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-medium text-white hover:bg-opacity-90" href="programacao.html">
+                                <span class="material-symbols-outlined text-[20px]">event_note</span>Programação</a>
+                            <a class="inline-flex items-center gap-2 rounded-lg border border-primary/30 bg-white px-5 py-3 text-sm font-medium text-primary hover:bg-primary/5" href="orientacoes-gerais.html">
+                                <span class="material-symbols-outlined text-[20px]">travel_explore</span>Recomendações gerais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="w-full bg-primary text-white">
+            <div
+                class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 py-6 text-center sm:px-6 sm:flex-row sm:text-left">
+                <p class="text-sm opacity-80">© 2026 - 43º Encontro Nacional das Juntas Comerciais. Todos os direitos
+                    reservados.</p>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">mail</span>
+                    <a class="text-sm opacity-80 hover:opacity-100" href="mailto:presidencia@fenaju.org.br">presidencia@fenaju.org.br</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const codigo = new URLSearchParams(location.search).get('c') || '';
+            const mostrar = function (id) {
+                ['estado-carregando', 'estado-erro', 'estado-card'].forEach(function (e) {
+                    const el = document.getElementById(e);
+                    el.classList.toggle('hidden', e !== id);
+                    el.classList.toggle('flex', e === id);
+                });
+            };
+
+            let insc;
+            try {
+                const resp = await fetch('/api/inscricoes/' + encodeURIComponent(codigo));
+                const json = await resp.json();
+                if (!resp.ok || !json.ok) throw new Error();
+                insc = json.inscricao;
+            } catch (e) {
+                mostrar('estado-erro');
+                return;
+            }
+
+            const numero = 'Nº ' + String(insc.numero).padStart(4, '0');
+            const equipe = insc.integrantes.slice();
+            if (insc.integrantes_outro) equipe.push(insc.integrantes_outro);
+
+            document.getElementById('c-nome').textContent = insc.nome_presidente;
+            document.getElementById('c-junta').textContent = insc.junta;
+            document.getElementById('c-equipe').textContent = equipe.join(', ');
+            document.getElementById('c-numero').textContent = numero;
+            document.getElementById('c-email').textContent = insc.email;
+            document.getElementById('c-visita').textContent = insc.visita_pirenopolis;
+            document.getElementById('c-data').textContent = new Date(insc.criado_em).toLocaleString('pt-BR', {
+                dateStyle: 'short', timeStyle: 'short', timeZone: 'America/Sao_Paulo'
+            });
+
+            // O QR code abre a página de validação de entrada
+            const urlValidacao = location.origin + location.pathname.replace(/[^/]*$/, '') + 'validar.html?c=' + encodeURIComponent(insc.codigo);
+            const qr = qrcode(0, 'M');
+            qr.addData(urlValidacao);
+            qr.make();
+            document.getElementById('c-qr').src = qr.createDataURL(8, 0);
+
+            mostrar('estado-card');
+
+            document.getElementById('btn-baixar').addEventListener('click', async function () {
+                const botao = this;
+                botao.disabled = true;
+                try {
+                    const canvas = await html2canvas(document.getElementById('card'), {
+                        scale: 3,
+                        backgroundColor: null
+                    });
+                    const link = document.createElement('a');
+                    link.download = 'inscricao-enaj-2026-' + String(insc.numero).padStart(4, '0') + '.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                } finally {
+                    botao.disabled = false;
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

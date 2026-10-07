@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Validação de inscrição - 43º ENAJ</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <script src="config.js"></script>
+    <link href="style.css" rel="stylesheet" />
+
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root">
+
+        <header
+            class="sticky top-0 z-50 flex flex-col items-center whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark">
+            <div class="flex items-center justify-between w-full max-w-5xl px-4 py-3 sm:px-6">
+                <a class="flex items-center gap-3 text-primary dark:text-white" href="index.html">
+                    <div class="size-8">
+                        <img src="assets/logo-enaj-vertical.png" alt="Logo oficial do 43º ENAJ"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ENAJ</h2>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="index.html">Início</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="programacao.html">Programação</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="orientacoes-gerais.html">Recomendações Gerais</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal"
+                        href="inscricao.html">Inscrição</a>
+                    <a class="flex items-center gap-1 rounded-lg border border-primary/30 px-3 py-1.5 text-primary dark:text-white hover:bg-primary/5 text-sm font-medium leading-normal"
+                        href="../index.html">
+                        <span class="material-symbols-outlined text-base">arrow_back</span>
+                        Todos os eventos
+                    </a>
+                </nav>
+
+                <button id="menu-toggle"
+                    class="md:hidden rounded-lg p-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden w-full md:hidden border-t border-gray-200 dark:border-gray-800">
+                <nav class="flex flex-col gap-1 p-4">
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="index.html">Início</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="programacao.html">Programação</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="orientacoes-gerais.html">Recomendações Gerais</a>
+                    <a class="block rounded-lg px-4 py-2 text-text-light dark:text-text-dark hover:bg-black/5 dark:hover:bg-white/5 text-sm font-medium leading-normal"
+                        href="inscricao.html">Inscrição</a>
+                    <a class="flex items-center gap-2 rounded-lg px-4 py-2 text-primary dark:text-white hover:bg-black/5 dark:hover:bg-white/5 text-sm font-semibold leading-normal"
+                        href="../index.html">
+                        <span class="material-symbols-outlined text-base">arrow_back</span>
+                        Todos os eventos
+                    </a>
+            </div>
+        </header>
+        <main class="flex w-full flex-1 flex-col items-center px-4 py-10 sm:px-6 sm:py-16">
+            <div class="w-full max-w-md">
+                <div id="v-carregando" class="flex flex-col items-center gap-3 py-24 text-gray-500">
+                    <span class="material-symbols-outlined animate-spin text-4xl">progress_activity</span>
+                    <p>Validando inscrição...</p>
+                </div>
+
+                <div id="v-valida" class="hidden flex-col overflow-hidden rounded-3xl bg-white shadow-xl ring-1 ring-black/5">
+                    <div class="flex flex-col items-center gap-3 bg-green-600 px-6 py-10 text-white">
+                        <span class="material-symbols-outlined text-7xl">verified</span>
+                        <p class="text-3xl font-black">Inscrição válida</p>
+                        <p id="v-numero" class="rounded-full bg-white/20 px-4 py-1 text-sm font-bold tracking-widest"></p>
+                    </div>
+                    <dl class="space-y-4 p-6">
+                        <div><dt class="text-xs font-bold uppercase tracking-wider text-gray-400">Participante</dt><dd id="v-nome" class="text-xl font-black text-gray-900"></dd></div>
+                        <div><dt class="text-xs font-bold uppercase tracking-wider text-gray-400">Junta Comercial</dt><dd id="v-junta" class="font-semibold text-primary"></dd></div>
+                        <div><dt class="text-xs font-bold uppercase tracking-wider text-gray-400">Equipe</dt><dd id="v-equipe" class="text-gray-700"></dd></div>
+                    </dl>
+                </div>
+
+                <div id="v-invalida" class="hidden flex-col overflow-hidden rounded-3xl bg-white shadow-xl ring-1 ring-black/5">
+                    <div class="flex flex-col items-center gap-3 bg-red-600 px-6 py-10 text-white">
+                        <span class="material-symbols-outlined text-7xl">gpp_bad</span>
+                        <p class="text-3xl font-black">Inscrição não encontrada</p>
+                    </div>
+                    <p class="p-6 text-center text-gray-600">Este QR code não corresponde a nenhuma inscrição do 43º ENAJ.
+                        Confira o card apresentado ou procure a organização.</p>
+                </div>
+            </div>
+        </main>
+        <footer class="w-full bg-primary text-white">
+            <div
+                class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 py-6 text-center sm:px-6 sm:flex-row sm:text-left">
+                <p class="text-sm opacity-80">© 2026 - 43º Encontro Nacional das Juntas Comerciais. Todos os direitos
+                    reservados.</p>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">mail</span>
+                    <a class="text-sm opacity-80 hover:opacity-100" href="mailto:presidencia@fenaju.org.br">presidencia@fenaju.org.br</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const codigo = new URLSearchParams(location.search).get('c') || '';
+            const mostrar = function (id) {
+                ['v-carregando', 'v-valida', 'v-invalida'].forEach(function (e) {
+                    const el = document.getElementById(e);
+                    el.classList.toggle('hidden', e !== id);
+                    el.classList.toggle('flex', e === id);
+                });
+            };
+            try {
+                const resp = await fetch('/api/inscricoes/' + encodeURIComponent(codigo));
+                const json = await resp.json();
+                if (!resp.ok || !json.ok) throw new Error();
+                const insc = json.inscricao;
+                const equipe = insc.integrantes.slice();
+                if (insc.integrantes_outro) equipe.push(insc.integrantes_outro);
+                document.getElementById('v-numero').textContent = 'Nº ' + String(insc.numero).padStart(4, '0');
+                document.getElementById('v-nome').textContent = insc.nome_presidente;
+                document.getElementById('v-junta').textContent = insc.junta;
+                document.getElementById('v-equipe').textContent = equipe.join(', ');
+                mostrar('v-valida');
+            } catch (e) {
+                mostrar('v-invalida');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
