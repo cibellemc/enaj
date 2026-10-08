@@ -1,7 +1,11 @@
 """Área da organização: exportação das inscrições.
 
-Pelo navegador: GET /api/admin/inscricoes.csv (usuário e senha via HTTP Basic).
-Pelo terminal:  flask --app inscricoes exportar > inscricoes.csv
+Pelo navegador (usuário e senha via HTTP Basic):
+    GET /api/admin/inscricoes.csv   planilha
+    GET /api/admin/inscricoes.pdf   relatório formatado
+Pelo terminal:
+    flask --app inscricoes exportar > inscricoes.csv
+    flask --app inscricoes exportar-pdf > inscricoes.pdf
 """
 
 import hmac
@@ -9,7 +13,7 @@ import sys
 
 from flask import Blueprint, Response, current_app, request
 
-from . import db, exportacao
+from . import db, exportacao, relatorio_pdf
 from .limite import ip_do_cliente
 
 # cli_group=None: o comando fica "flask exportar", sem prefixo
@@ -69,8 +73,26 @@ def exportar_csv():
     )
 
 
+@bp.get("/inscricoes.pdf")
+def exportar_pdf():
+    return Response(
+        relatorio_pdf.gerar_pdf(db.listar_inscricoes()),
+        mimetype="application/pdf",
+        headers={
+            # inline: abre no navegador, com opção de baixar
+            "Content-Disposition": f'inline; filename="{relatorio_pdf.nome_do_arquivo()}"',
+            "Cache-Control": "no-store",
+        },
+    )
+
+
 @bp.cli.command("exportar")
 def exportar_terminal():
     """Escreve o CSV das inscrições na saída padrão."""
     sys.stdout.write(exportacao.gerar_csv(db.listar_inscricoes()))
 
+
+@bp.cli.command("exportar-pdf")
+def exportar_pdf_terminal():
+    """Escreve o relatório em PDF na saída padrão."""
+    sys.stdout.buffer.write(relatorio_pdf.gerar_pdf(db.listar_inscricoes()))

@@ -35,8 +35,10 @@ enaj/
 │   │   ├── validacao.py               Validação dos dados do formulário
 │   │   ├── limite.py                  Limite de requisições por IP
 │   │   ├── rotas.py                   Rotas públicas /api/...
-│   │   ├── admin.py                   Exportação (rota com senha e comando de terminal)
-│   │   └── exportacao.py              Geração do CSV
+│   │   ├── admin.py                   Exportação (rotas com senha e comandos de terminal)
+│   │   ├── exportacao.py              Geração do CSV
+│   │   ├── relatorio_pdf.py           Geração do relatório em PDF
+│   │   └── recursos/                  Logo usada no PDF
 │   ├── tests/                         Testes automatizados (pytest)
 │   ├── dev.py                         Servidor local (site + API) sem Docker
 │   └── Dockerfile
@@ -89,19 +91,24 @@ O site fica na porta 8081. O banco de inscrições fica no volume `enaj_data`.
 
 ## Exportar as inscrições
 
-O arquivo é um CSV (separado por `;`, UTF-8) que abre direto no Excel e no
-LibreOffice. O código secreto do QR code não é exportado.
+Duas opções, com o mesmo usuário e senha definidos no `.env`
+(`ADMIN_USUARIO` / `ADMIN_SENHA`). Sem `ADMIN_SENHA` definida, a exportação pelo
+navegador fica desligada. Localmente, com `api/dev.py`, a senha é `dev`.
 
-**Pelo navegador:** acesse `/api/admin/inscricoes.csv` (ex.:
-https://eventos.jucepi.pi.gov.br/api/admin/inscricoes.csv) e informe o usuário
-e a senha definidos no `.env` (`ADMIN_USUARIO` / `ADMIN_SENHA`). Sem
-`ADMIN_SENHA` definida, essa rota fica desligada. Localmente, com `api/dev.py`,
-a senha é `dev`.
+| Formato | Endereço | Uso |
+|---------|----------|-----|
+| PDF | `/api/admin/inscricoes.pdf` | Relatório formatado: resumo, inscritos por Junta e lista agrupada por Junta |
+| CSV | `/api/admin/inscricoes.csv` | Planilha (separada por `;`, UTF-8), abre direto no Excel e no LibreOffice |
+
+Exemplo: https://eventos.jucepi.pi.gov.br/api/admin/inscricoes.pdf
+
+O código secreto do QR code não é exportado.
 
 **Pelo terminal do servidor:**
 
 ```bash
 docker exec enaj_api flask --app inscricoes exportar > inscricoes.csv
+docker exec enaj_api flask --app inscricoes exportar-pdf > inscricoes.pdf
 ```
 
 ## API
@@ -113,4 +120,5 @@ docker exec enaj_api flask --app inscricoes exportar > inscricoes.csv
 | GET    | `/api/inscricoes/<codigo>`   | Dados do card e da validação de entrada          |
 | POST   | `/api/inscricoes/acesso`     | Busca o código do card pelo e-mail               |
 | GET    | `/api/health`                | Verificação de funcionamento                     |
-| GET    | `/api/admin/inscricoes.csv`  | Exportação das inscrições (usuário e senha)      |
+| GET    | `/api/admin/inscricoes.csv`  | Exportação em CSV (usuário e senha)              |
+| GET    | `/api/admin/inscricoes.pdf`  | Relatório em PDF (usuário e senha)               |
