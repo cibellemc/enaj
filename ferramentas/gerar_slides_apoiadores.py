@@ -28,7 +28,7 @@ SLIDES = {
     "realizacao": ["fenaju.png"],
     "apoio-piaui": ["governo-piaui.png", "jucepi-horizontal.png"],
     "apoio-goias": ["governo-goias.png", "juceg.png"],
-    "apoiadores-1": ["vox.webp", "logo_regin_tributos.png", "logor2da-escura.svg"],
+    "apoiadores-1": ["vox.webp", "logo_regin_tributos.png", "R2DA.png"],
     "apoiadores-2": ["nuclea.png", "nic.png", "altura.png"],
     "apoiadores-3": ["grupoA2.png", "lcm.png", "contabilizei.svg"],
 }
