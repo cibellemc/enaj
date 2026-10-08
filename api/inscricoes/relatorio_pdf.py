@@ -130,7 +130,6 @@ def _cards_resumo(inscricoes):
         (len(inscricoes), "Inscritos"),
         (len({i["junta"] for i in inscricoes}), "Juntas representadas"),
         (visita_sim, "Interesse na visita técnica"),
-        (sum(1 for i in inscricoes if i["mora_em_goiania"]), "Já estão em Goiânia"),
     ]
     celulas = [[
         [Paragraph(str(valor), ESTILOS["numero_card"]), Paragraph(rotulo, ESTILOS["rotulo_card"])]
