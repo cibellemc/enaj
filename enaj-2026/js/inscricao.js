@@ -140,7 +140,6 @@ function validarTrecho(dados, prefixo, erros) {
         return;
     }
     if (dados[campo('transporte')] === 'aereo') {
-        if (!dados[campo('voo')]) erros[campo('voo')] = 'Informe o número do voo.';
         if (!dados[campo('operadora')]) erros[campo('operadora')] = 'Informe a companhia aérea.';
     }
     if (!HORARIO_RE.test(dados[campo('horario')])) erros[campo('horario')] = 'Informe o horário.';

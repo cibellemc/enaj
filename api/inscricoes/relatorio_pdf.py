@@ -87,7 +87,9 @@ def _trecho(inscricao, prefixo):
     dia = datetime.fromisoformat(data).strftime("%d/%m")
     horario = inscricao[f"{prefixo}_horario"] or ""
     if inscricao[f"{prefixo}_transporte"] == "aereo":
-        voo = f'{inscricao[f"{prefixo}_voo"]} ({inscricao[f"{prefixo}_operadora"]})'
+        numero_voo = inscricao[f"{prefixo}_voo"]
+        companhia = inscricao[f"{prefixo}_operadora"]
+        voo = f"{numero_voo} ({companhia})" if numero_voo else companhia
         return f"{dia} · Aéreo · {horario}<br/>{_escapar(voo)}"
     return f"{dia} · Terrestre · {horario}"
 

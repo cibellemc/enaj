@@ -131,8 +131,6 @@ def _validar_trecho(dados, trecho, erros):
     if transporte == "aereo":
         voo = texto(dados, campo("voo"), 20)
         operadora = texto(dados, campo("operadora"), 60)
-        if not voo:
-            erros[campo("voo")] = "Informe o número do voo."
         if not operadora:
             erros[campo("operadora")] = "Informe a companhia aérea."
 

@@ -40,7 +40,9 @@ export function descreverTrecho(inscricao, prefixo) {
     if (!campo('data')) return 'Não informado';
     const partes = [formatarData(campo('data'))];
     if (campo('transporte') === 'aereo') {
-        partes.push(`Aéreo · ${campo('voo')} (${campo('operadora')}) às ${campo('horario')}`);
+        // Com número do voo: "LA3456 (LATAM)"; sem número: só a companhia
+        const voo = campo('voo') ? `${campo('voo')} (${campo('operadora')})` : campo('operadora');
+        partes.push(`Aéreo · ${voo} às ${campo('horario')}`);
     } else {
         partes.push(`Terrestre · previsto para ${campo('horario')}`);
     }

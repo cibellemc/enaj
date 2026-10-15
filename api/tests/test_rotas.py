@@ -52,7 +52,6 @@ def test_cargo_outro_usa_o_texto_digitado(client, inscrever):
         ({"chegada_data": "2025-12-01"}, "chegada_data"),
         ({"chegada_data": "31/11/2026"}, "chegada_data"),
         ({"chegada_transporte": "navio"}, "chegada_transporte"),
-        ({"chegada_voo": ""}, "chegada_voo"),
         ({"chegada_operadora": ""}, "chegada_operadora"),
         ({"chegada_horario": "25:00"}, "chegada_horario"),
         ({"saida_horario": ""}, "saida_horario"),
@@ -85,6 +84,13 @@ def test_mora_em_goiania_precisa_ser_booleano(inscrever):
     # "sim" (texto) não vale como marcado: continua exigindo os dados de viagem
     resposta = inscrever(mora_em_goiania="sim", chegada_data="")
     assert resposta.status_code == 422
+
+
+def test_numero_do_voo_e_opcional(client, inscrever):
+    codigo = inscrever(chegada_voo="").get_json()["codigo"]
+    card = client.get(f"/api/inscricoes/{codigo}").get_json()["inscricao"]
+    assert card["chegada_voo"] is None
+    assert card["chegada_operadora"] == "LATAM"
 
 
 def test_terrestre_nao_exige_voo(inscrever):
