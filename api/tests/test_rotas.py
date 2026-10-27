@@ -8,8 +8,9 @@ from inscricoes import create_app, db
 
 def test_opcoes_do_formulario(client):
     dados = client.get("/api/opcoes").get_json()
-    assert len(dados["juntas"]) == 27
+    assert len(dados["juntas"]) == 28
     assert dados["juntas"][0] == {"valor": "JUCEAC (Acre)", "sigla": "JUCEAC", "estado": "Acre"}
+    assert dados["juntas"][-1]["valor"] == "Convidado"
     assert dados["cargos"][-2:] == ["Convidado", "Acompanhante"]
     assert [t["valor"] for t in dados["transportes"]] == ["aereo", "terrestre"]
     assert len(dados["visita_pirenopolis"]) == 3
@@ -209,4 +210,9 @@ def test_migracao_do_banco_antigo(tmp_path, com_codigo):
         "chegada_data": "2026-12-01", "chegada_transporte": "terrestre", "chegada_horario": "08:00",
         "saida_data": "2026-12-03", "saida_transporte": "terrestre", "saida_horario": "18:00",
     })
+    assert resposta.status_code == 201
+
+
+def test_inscricao_como_convidado_sem_junta(client, inscrever):
+    resposta = inscrever(junta="Convidado")
     assert resposta.status_code == 201

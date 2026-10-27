@@ -32,7 +32,11 @@ JUNTAS = [
     {"valor": "JUCESP (São Paulo)", "sigla": "JUCESP", "estado": "São Paulo"},
     {"valor": "JUCESE (Sergipe)", "sigla": "JUCESE", "estado": "Sergipe"},
     {"valor": "JUCETINS (Tocantins)", "sigla": "JUCETINS", "estado": "Tocantins"},
+    {"valor": "Convidado", "sigla": "Convidado", "estado": "Sem vínculo com Junta"},
 ]
+
+# Opção de quem não representa nenhuma Junta Comercial
+JUNTA_CONVIDADO = "Convidado"
 
 CARGOS = [
     "Presidente",

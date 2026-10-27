@@ -130,7 +130,7 @@ def _cards_resumo(inscricoes):
     visita_sim = sum(1 for i in inscricoes if i["visita_pirenopolis"] == opcoes.VISITA_PIRENOPOLIS[0]["valor"])
     numeros = [
         (len(inscricoes), "Inscritos"),
-        (len({i["junta"] for i in inscricoes}), "Juntas representadas"),
+        (len({i["junta"] for i in inscricoes} - {opcoes.JUNTA_CONVIDADO}), "Juntas representadas"),
         (visita_sim, "Interesse na visita técnica"),
     ]
     celulas = [[
