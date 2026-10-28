@@ -8,9 +8,9 @@ from inscricoes import create_app, db
 
 def test_opcoes_do_formulario(client):
     dados = client.get("/api/opcoes").get_json()
-    assert len(dados["juntas"]) == 28
+    assert len(dados["juntas"]) == 29
     assert dados["juntas"][0] == {"valor": "JUCEAC (Acre)", "sigla": "JUCEAC", "estado": "Acre"}
-    assert dados["juntas"][-1]["valor"] == "Convidado"
+    assert [j["valor"] for j in dados["juntas"][-2:]] == ["Governo Federal", "Convidado"]
     assert dados["cargos"][-2:] == ["Convidado", "Acompanhante"]
     assert [t["valor"] for t in dados["transportes"]] == ["aereo", "terrestre"]
     assert len(dados["visita_pirenopolis"]) == 3
@@ -213,6 +213,7 @@ def test_migracao_do_banco_antigo(tmp_path, com_codigo):
     assert resposta.status_code == 201
 
 
-def test_inscricao_como_convidado_sem_junta(client, inscrever):
-    resposta = inscrever(junta="Convidado")
+@pytest.mark.parametrize("junta", ["Governo Federal", "Convidado"])
+def test_inscricao_sem_junta_comercial(client, inscrever, junta):
+    resposta = inscrever(junta=junta)
     assert resposta.status_code == 201
